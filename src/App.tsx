@@ -1,4 +1,5 @@
 import './App.css'
+import Contact from './components/app/contact'
 import Dedication from './components/app/dedication'
 import Inicio from './components/app/inicio'
 import Navbar from './components/app/navbar'
@@ -14,6 +15,7 @@ function App() {
       <Dedication />
       <Proyections />
       <Portfolio />
+      <Contact />
     </div>
   )
 }

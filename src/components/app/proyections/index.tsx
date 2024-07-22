@@ -1,6 +1,6 @@
 const Proyections = () => {
   return (
-    <section className="bg-quinary pt-24 pb-40">
+    <section className="bg-primary bg-opacity-[5%] pt-24 pb-40">
       <h3 className="mx-auto max-w-[15ch] text-center font-nanum-myeongjo text-tertiary font-semibold text-[64px] leading-[55px]">
         Verri Capital Investments, LLC
       </h3>

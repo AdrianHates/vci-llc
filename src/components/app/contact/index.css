@@ -1,0 +1,31 @@
+.phone-input {
+  width: 421px !important;
+  > div {
+    height: 100% !important;
+    > button {
+      border: none !important;
+      border-right: 1px solid #efefef !important;
+      background-color: #f8f8f8 !important;
+      height: 100% !important;
+      > div {
+        > img {
+          margin: 0 31px;
+        }
+        > div {
+          display: none;
+        }
+      }
+    }
+  }  
+  > input {
+    font-size: 16px !important;
+    line-height: 19.5px !important;
+    background-color: #f8f8f8 !important;
+    border: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    >::placeholder {
+      background-color: red !important;
+    }
+  }
+}
