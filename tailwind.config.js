@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        "nunito-sans": ['"Nunito Sans"', "sans-serif"],
+        "nanum-myeongjo": ['"Nanum Myeongjo"', "serif"],
       },
       colors: {
         primary: "#081F2D",

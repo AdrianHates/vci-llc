@@ -1,6 +1,6 @@
 const FirstSection = () => {
   return (
-    <div className="flex items-center py-28">
+    <div className="flex items-center py-36">
       <div>
         <div className="flex flex-col gap-14 pl-36">
           <h3 className="text-quaternary text-[32px] leading-[39px] font-bold w-[25ch]">

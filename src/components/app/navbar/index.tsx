@@ -6,8 +6,8 @@ interface NavbarProps {
 }
 
 const Navbar = ({ logo }: NavbarProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const { isOpen, onToggle, onClose } = useToggle();
+  //const [currentIndex, setCurrentIndex] = useState(0);
+  //const { isOpen, onToggle, onClose } = useToggle();
 
   const options = [
     "Inicio",

@@ -16,7 +16,7 @@ const Inicio = () => {
     },
   ];
 
-  const listFeatures = [
+  const listFeatures: { name: string; description: string }[] = [
     {
       name: "Diversificación",
       description:
