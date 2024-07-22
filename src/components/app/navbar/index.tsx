@@ -1,6 +1,3 @@
-import { useState } from "react";
-import useToggle from "../../../hooks/useToogle";
-
 interface NavbarProps {
   logo: string;
 }
