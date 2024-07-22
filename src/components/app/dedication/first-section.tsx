@@ -1,8 +1,8 @@
 const FirstSection = () => {
   return (
-    <div className="flex items-center py-36">
+    <div className="flex items-center py-24">
       <div>
-        <div className="flex flex-col gap-14 pl-36">
+        <div className="flex flex-col gap-14 pl-[147px]">
           <h3 className="text-quaternary text-[32px] leading-[39px] font-bold w-[25ch]">
             ¿Porqué es importante la inclusión financiera en latinoamerica?
           </h3>
@@ -20,8 +20,8 @@ const FirstSection = () => {
             millones* de personas no tienen cuenta corriente o de ahorro.
           </p>
 
-          <div className="bg-[#24364B] absolute h-full w-[20px] left-[100%] top-0 z-0">
-            <div className="bg-white absolute w-[267px] h-[267px] rounded-[50%] left-[6%] top-[-70%]" />
+          <div className="bg-[#24364B] absolute h-full w-[60px] left-[100%] top-0 z-0">
+            <div className="bg-white absolute w-[267px] h-[267px] rounded-[50%] left-[8.9%] top-[-64%]" />
           </div>
         </div>
         <p className="ml-36 text-[13px] leading-[15.85px] italic font-light">
@@ -32,7 +32,7 @@ const FirstSection = () => {
       <img
         src="/dedication/img_1.png"
         alt="img-dedication"
-        className="w-[700px] relative z-10"
+        className="w-[690px] relative z-10"
       />
     </div>
   );

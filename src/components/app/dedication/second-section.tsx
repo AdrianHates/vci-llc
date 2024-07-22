@@ -2,7 +2,7 @@ import Icon_Text from "../../shared/icon_text";
 
 const SecondSection = () => {
   return (
-    <div className="pl-16 flex items-center py-[67px] relative">
+    <div className="pl-16 flex items-center py-[77px] relative">
       <Icon_Text
         className="pr-5 pl-0.5 py-1.5 rounded-[8.28px] absolute bottom-10 left-[31.5%] gap-0 bg-white"
         class_text="max-w-[35ch] text-[13.5px] leading-[14.63px] font-[400]"
