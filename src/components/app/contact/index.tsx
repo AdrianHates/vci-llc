@@ -4,11 +4,18 @@ import "./index.css";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
-const Contact = () => {
+interface Props {
+  id: string;
+}
+
+const Contact = ({ id }: Props) => {
   const [phone, setPhone] = useState<string | undefined>("");
 
   return (
-    <section className="bg-primary bg-opacity-[6%] py-[58px] flex flex-col gap-10 items-center justify-center">
+    <section
+      className="bg-primary bg-opacity-[6%] py-[58px] flex flex-col gap-10 items-center justify-center"
+      id={id}
+    >
       <h3 className="text-[#24364B] font-bold text-[32px] leading-[39.01px]">
         Contacto
       </h3>

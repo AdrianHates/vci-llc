@@ -1,6 +1,17 @@
 import Icon_Text from "../../shared/icon_text";
 
-const Inicio = () => {
+interface Props {
+  id: string;
+}
+
+const Inicio = ({ id }: Props) => {
+  const textPrincipal: { first: string; second: string } = {
+    first:
+      "Descubre el futuro de las inversiones con Verri Capital Investments, LLC.",
+    second:
+      "Nuestra experiencia y visión te abre las puertas a oportunidades financieras excepcionales",
+  };
+
   const textIcons: { text: string; className: string }[] = [
     {
       text: "Ofrecemos un análisis financiero exclusivo, adaptado a necesidades específicas.",
@@ -33,15 +44,14 @@ const Inicio = () => {
         "La visión de apoyo al mercado, es fundamental en nuestra visión de generar comunidades sostenibles.",
     },
   ];
+
   return (
-    <section className="flex flex-col items-center justify-center">
-      <div className="bg-primary w-full flex items-center justify-center pt-[92.5px] pb-80">
+    <section className="flex flex-col items-center justify-center" id={id}>
+      <div className="bg-primary w-full flex items-center justify-center pt-[128.5px] pb-80">
         <p className="max-w-[45ch] text-[26px] leading-[31.69px] text-center text-quaternary font-[550]">
-          Descubre el futuro de las inversiones con Verri Capital Investments,
-          LLC.{" "}
+          {textPrincipal.first}{" "}
           <span className="font-extralight text-[#fff]">
-            Nuestra experiencia y visión te abre las puertas a oportunidades
-            financieras excepcionales
+            {textPrincipal.second}
           </span>
         </p>
       </div>

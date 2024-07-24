@@ -1,9 +1,13 @@
 import FirstSection from "./first-section";
 import SecondSection from "./second-section";
 
-const Dedication = () => {
+interface Props {
+  id: string;
+}
+
+const Dedication = ({ id }: Props) => {
   return (
-    <section className="pb-32">
+    <section className="pb-32" id={id}>
       <FirstSection />
       <SecondSection />
     </section>

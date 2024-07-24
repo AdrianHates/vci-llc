@@ -1,6 +1,11 @@
+:root {
+  scroll-behavior: smooth;
+}
+
 #root {
   max-width: 1536px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 * {

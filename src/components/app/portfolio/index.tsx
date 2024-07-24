@@ -1,7 +1,11 @@
 import React from "react";
 import cx from "../../libs/cx";
 
-const Portfolio = () => {
+interface Props {
+  id: string;
+}
+
+const Portfolio = ({ id }: Props) => {
   const listPortfolio: { text: string; class_img: string; link?: string }[] = [
     {
       link: "https://averliz.com/",
@@ -18,7 +22,7 @@ const Portfolio = () => {
     },
   ];
   return (
-    <section className="pb-[115px]">
+    <section className="pb-[115px]" id={id}>
       <div className="bg-white py-[67px] w-[1146px] mx-auto text-[16px] leading-[19.5px] font-light gap-10 flex flex-col shadow-[0px_4px_4px_0_#24364B40] rounded-[24px] mt-[-160px]">
         <h3 className="text-center text-[32px] leading-[39.01px] text-[#EE7623] font-bold">
           Portafolio de empresas
