@@ -1,6 +1,6 @@
 const FirstSection = () => {
   return (
-    <div className="flex items-center py-24">
+    <div className="flex items-center py-[105px]">
       <div>
         <div className="flex flex-col gap-14 pl-[147px]">
           <h3 className="text-quaternary text-[32px] leading-[39px] font-bold w-[25ch]">
@@ -32,7 +32,7 @@ const FirstSection = () => {
       <img
         src="/dedication/img_1.png"
         alt="img-dedication"
-        className="w-[690px] relative z-10"
+        className="w-[700px] relative z-10"
       />
     </div>
   );

@@ -47,7 +47,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
     <>
       <nav
         className={cx(
-          "bg-primary flex justify-between xl:pl-[147px] sm:px-5 pl-16 pr-[70px] pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
+          "bg-primary flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
           scrollPosition > 121 ? "bg-opacity-80 pt-4 transition-all" : ""
         )}
       >
@@ -68,7 +68,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
           <img src="toggle.svg" alt="toggle" className="w-6 h-6" />
         </button>
 
-        <ul className="sm:flex hidden gap-3 items-center justify-center text-[16px] tracking-[0.005em] leading-[19.5px] text-white">
+        <ul className="sm:flex hidden gap-3 items-center justify-center text-[15.5px] leading-[19px] text-white">
           {options.map((opt, i) => (
             <li
               key={i}
@@ -90,9 +90,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
           </button>
         </ul>
       </nav>
-      {
-        isOpen && <ModalNavbar onClick={onClose} />
-      }
+      {isOpen && <ModalNavbar onClick={onClose} />}
     </>
   );
 };

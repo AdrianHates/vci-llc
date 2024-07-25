@@ -18,21 +18,20 @@ const Icon_Text = ({
   return (
     <div
       className={cx(
-        "absolute bg-quinary gap-1 flex items-center rounded-xl shadow-[2px_2px_13px_0_#24364B40] pl-1.5 pr-0 py-3 font-nunito-sans",
+        "absolute bg-white flex items-center rounded-xl shadow-[2px_2px_13px_0_#24364B40] pl-1.5 pr-0 py-3 font-nunito-sans",
         className
       )}
     >
-      <div
+      <img
         className={cx(
-          "bg-quaternary rounded-full w-[45.15px] h-[45.15px] mx-2 flex items-center justify-center",
+          "bg-quaternary rounded-full flex items-center justify-center",
           class_icon
         )}
-      >
-        <img src={icon_path} className="w-[24px] h-[24px]" />
-      </div>
+        src={icon_path}
+      />
       <p
         className={cx(
-          "max-w-[23ch] text-[18px] leading-[18px] text-[#595959] font-medium",
+          "max-w-[25ch] text-[#595959] font-medium",
           class_text
         )}
       >
