@@ -2,11 +2,11 @@ import Icon_Text from "../../shared/icon_text";
 
 const SecondSection = () => {
   return (
-    <div className="pl-16 flex items-center py-[57px] relative">
+    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse items-center py-[57px] relative sm:gap-0 gap-10">
       <Icon_Text
-        className="pr-5 pl-0.5 py-1.5 rounded-[8.28px] absolute bottom-7 left-[31.4%] gap-0 bg-white"
-        class_text="max-w-[35ch] text-[13.5px] leading-[14.63px] font-[400]"
-        class_icon="w-[36px] h-[36px]"
+        className="sm:pr-5 pr-3 pl-0.5 py-1.5 rounded-[8.28px] absolute bottom-7 sm:left-[31.4%] left-[22.5%] gap-0 bg-white"
+        class_text="max-w-[35ch] sm:text-[13.5px] text-[8.99px] sm:leading-[14.63px] leading-[10.96px] font-[400]"
+        class_icon="sm:w-[36px] w-[26.97px] sm:h-[36px] h-[26.97px]"
         icon_path="/dedication/dedication_icon_1.svg"
         text="Este tipo de cliente y crédito representan un riesgo mucho menor para nosotros, ya que han demostrado un excelente comportamiento y moral de pago."
       />
@@ -16,12 +16,12 @@ const SecondSection = () => {
         alt="dedication_img_2"
         className="w-[679.13px]"
       />
-      <div className="flex flex-col gap-3 w-full ml-[-15px]">
-        <h3 className="text-quaternary font-bold text-[32px] leading-[39.01px] mb-7">
+      <div className="flex flex-col gap-3 w-full sm:ml-[-15px] ml-0">
+        <h3 className="text-quaternary font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           ¡Impacto positivo!
         </h3>
 
-        <p className="text-[#595959] font-medium text-[18px] leading-[21.94px] w-[45ch] mt-3.5">
+        <p className="text-[#595959] font-medium sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] w-full max-w-[45ch] mt-3.5">
           Más del 50% de nuestros créditos han sido otorgados a personas que
           viven fuera de las capitales financieras de El Salvador y Texas.
         </p>
