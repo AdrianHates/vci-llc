@@ -24,22 +24,22 @@ const Portfolio = ({ id }: Props) => {
   return (
     <section className="pb-[115px] sm:px-0 px-6" id={id}>
       <div className="bg-white py-[67px] max-w-[1146px] w-full mx-auto text-[16px] leading-[19.5px] font-light gap-10 flex flex-col shadow-[0px_4px_4px_0_#24364B40] rounded-[24px] mt-[-160px]">
-        <h3 className="text-center text-[32px] leading-[39.01px] text-[#EE7623] font-bold">
+        <h3 className="text-center sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] text-[#EE7623] font-bold">
           Portafolio de empresas
         </h3>
-        <p className="max-w-[65ch] mx-auto text-center">
+        <p className="max-w-[65ch] mx-auto text-center px-6">
           Conoce más sobre nuestro portafolio de empresas, que son un pilar
           fundamental en nuestro esfuerzo por asegurar la inclusión financiera.
         </p>
         {listPortfolio && (
-          <div className="flex sm:flex-row flex-col items-center justify-center pt-8">
+          <div className="flex sm:flex-row flex-col items-center justify-center pt-8 sm:gap-0 gap-[52px]">
             {listPortfolio.map((ulist, i) => (
               <React.Fragment key={i}>
                 {i !== 0 && (
                   <div className="bg-[#24364B1F] w-[1px] h-32 mx-7 mb-16 sm:block hidden"></div>
                 )}
                 <div className="flex flex-col items-center">
-                  <div className="h-[69px] flex items-center justify-center mb-8">
+                  <div className="h-[69px] flex items-center justify-center sm:mb-8 mb-[30px]">
                     <img
                       src={`/portfolio/portfolio_img_${i + 1}.png`}
                       className={cx("", ulist.class_img)}

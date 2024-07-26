@@ -1,5 +1,6 @@
 .phone-input {
-  width: 421px !important;
+  width: 100% !important;
+  height: 68px !important;
   > div {
     height: 100% !important;
     > button {
@@ -7,16 +8,20 @@
       border-right: 1px solid #efefef !important;
       background-color: #f8f8f8 !important;
       height: 100% !important;
+      padding: 0 31px !important;
       > div {
         > img {
-          margin: 0 31px;
+          max-width: none !important;
+          margin: 0 !important;
+          width: 31.77px !important;
+          height: 31.77px !important;
         }
         > div {
           display: none;
         }
       }
     }
-  }  
+  }
   > input {
     font-size: 16px !important;
     line-height: 19.5px !important;
@@ -24,8 +29,31 @@
     border: none !important;
     width: 100% !important;
     height: 100% !important;
-    >::placeholder {
+    > ::placeholder {
       background-color: red !important;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .phone-input {
+    height: 54.11px !important;
+    & div {
+      & button {
+        padding: 0 24.11px !important;
+
+        & div {
+          & img {
+            max-width: none !important;
+            width: 25.28px !important;
+            height: 25.28px !important;
+          }
+        }
+      }
+    }
+    & input {
+      font-size: 14px !important;
+      line-height: 17.07 !important;
     }
   }
 }

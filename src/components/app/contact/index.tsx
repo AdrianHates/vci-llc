@@ -13,18 +13,18 @@ const Contact = ({ id }: Props) => {
 
   return (
     <section
-      className="bg-primary bg-opacity-[6%] py-[58px] flex flex-col gap-10 items-center justify-center"
+      className="bg-primary bg-opacity-[6%] py-[58px] px-6 flex flex-col gap-10 items-center justify-center"
       id={id}
     >
-      <h3 className="text-[#24364B] font-bold text-[32px] leading-[39.01px]">
+      <h3 className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]">
         Contacto
       </h3>
-      <form className="flex flex-col gap-4">
-        <div className="flex gap-6">
+      <form className="flex flex-col gap-4 max-w-[871px] mx-auto w-full">
+        <div className="flex sm:flex-row flex-col gap-6">
           <InputIcon icon_path="user.svg" placeholder="Nombre completo" />
           <InputIcon icon_path="mail.svg" placeholder="Correo electrónico" />
         </div>
-        <div className="flex gap-6">
+        <div className="flex sm:flex-row flex-col gap-6">
           <PhoneInput
             placeholder="Número de celular"
             className="phone-input"
@@ -35,10 +35,10 @@ const Contact = ({ id }: Props) => {
           <InputIcon icon_path="company.svg" placeholder="Empresa" />
         </div>
         <textarea
-          className="bg-[#F8F8F8] focus:outline-none max-w-[871px] w-full min-h-[114px] resize-none px-8 py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
+          className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
           placeholder="Mensaje"
         />
-        <button className="mt-8 bg-quaternary px-[63px] py-[15px] mx-auto rounded-[10px] text-white font-bold text-xl">
+        <button className="mt-8 bg-quaternary sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
           Enviar
         </button>
       </form>

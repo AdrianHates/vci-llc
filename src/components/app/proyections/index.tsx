@@ -3,7 +3,7 @@ interface Props {
 }
 const Proyections = ({ id }: Props) => {
   return (
-    <section className="bg-primary bg-opacity-[5%] px-5 pt-24 pb-40" id={id}>
+    <section className="sm:bg-primary bg-white sm:bg-opacity-[5%] opacity-100 px-5 pt-24 pb-40" id={id}>
       <h3 className="mx-auto max-w-[15ch] text-center font-nanum-myeongjo text-tertiary font-semibold sm:text-[64px] text-[32px] sm:leading-[55px] leading-[30.94px]">
         Verri Capital Investments, LLC
       </h3>

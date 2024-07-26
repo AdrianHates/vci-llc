@@ -4,7 +4,7 @@ const SecondSection = () => {
   return (
     <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse items-center py-[57px] relative sm:gap-0 gap-10">
       <Icon_Text
-        className="sm:pr-5 pr-3 pl-0.5 py-1.5 rounded-[8.28px] absolute bottom-7 sm:left-[31.4%] left-[22.5%] gap-0 bg-white"
+        className="sm:pr-5 pr-3 sm:pl-2.5 pl-[7.49px] sm:py-1.5 py-[4.5px] rounded-[8.28px] absolute bottom-7 sm:left-[31.4%] left-[22.5%] gap-2 bg-white"
         class_text="max-w-[35ch] sm:text-[13.5px] text-[8.99px] sm:leading-[14.63px] leading-[10.96px] font-[400]"
         class_icon="sm:w-[36px] w-[26.97px] sm:h-[36px] h-[26.97px]"
         icon_path="/dedication/dedication_icon_1.svg"
