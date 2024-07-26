@@ -47,8 +47,8 @@ const Navbar = ({ logo, options }: NavbarProps) => {
     <>
       <nav
         className={cx(
-          "bg-primary flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
-          scrollPosition > 121 ? "bg-opacity-80 pt-4 transition-all" : ""
+          "bg-primary backdrop-blur-sm flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
+          scrollPosition > 121 ? "bg-opacity-40 pt-4 transition-all" : ""
         )}
       >
         <a href="#">
