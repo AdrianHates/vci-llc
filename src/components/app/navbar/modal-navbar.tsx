@@ -1,19 +1,28 @@
 import { useState } from "react";
 import Modal from "../../ui/modal";
+import cx from "../../libs/cx";
 
 interface Props {
   logo?: string;
   onClick: () => void;
-  opciones?: string[];
+  options?: {
+    name: string;
+    classOpt: string;
+  }[];
   toggle?: boolean;
 }
 
-const ModalNavbar = ({ logo, onClick, ...toggle }: Props) => {
+const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <Modal {...toggle}>
-      <div className={`modal-navbar ${isVisible ? "" : "fade-out"}`}>
+      <div
+        className={cx(
+          "modal-navbar w-full h-full bg-primary",
+          isVisible ? "" : "fade-out"
+        )}
+      >
         <div>
           {logo && (
             <a href="#">
@@ -21,7 +30,7 @@ const ModalNavbar = ({ logo, onClick, ...toggle }: Props) => {
             </a>
           )}
           <button
-            className="text-white"
+            className="text-white absolute right-2 top-2"
             onClick={() => {
               setIsVisible(false);
               setTimeout(() => {
@@ -33,9 +42,7 @@ const ModalNavbar = ({ logo, onClick, ...toggle }: Props) => {
           </button>
         </div>
         <ul>
-          {/*opciones.map((x, i) => (
-            <li key={i}>{x.name}</li>
-          ))*/}
+          {options && options.map((opt, i) => <li key={i}>{opt.name}</li>)}
         </ul>
       </div>
     </Modal>

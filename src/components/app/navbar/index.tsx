@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import cx from "../../libs/cx";
 import ModalNavbar from "./modal-navbar";
 import useToggle from "../../../hooks/useToogle";
+import "./index.css";
 
 interface NavbarProps {
   logo: string;
@@ -47,11 +48,11 @@ const Navbar = ({ logo, options }: NavbarProps) => {
     <>
       <nav
         className={cx(
-          "bg-primary backdrop-blur-sm flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
+          " bg-primary backdrop-blur-sm flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
           scrollPosition > 121 ? "bg-opacity-40 pt-4 transition-all" : ""
         )}
       >
-        <a href="#">
+        <a href="#" className="fade-in-from-top">
           <img
             alt="logo"
             src={logo}
@@ -73,16 +74,24 @@ const Navbar = ({ logo, options }: NavbarProps) => {
             <li
               key={i}
               className={cx(
-                "hover:text-secondary hover:font-bold transition-all duration-[300ms] font-extralight mx-auto text-center lg:block hidden",
+                "hover:text-secondary hover:font-bold font-extralight mx-auto text-center lg:block hidden relative",
                 opt.classOpt,
                 activeSection === opt.name.toLowerCase()
                   ? "text-secondary font-bold"
                   : ""
               )}
             >
-              <a href={"#" + opt.name.toLowerCase()}>
-                <p>{opt.name}</p>
-              </a>
+              <div className="fade-in-from-top">
+                <a href={"#" + opt.name.toLowerCase()}>
+                  <p>{opt.name}</p>
+                </a>
+              </div>
+              <div
+                className={cx(
+                  "bg-quaternary fade-in-from-left h-[2.5px] absolute top-100 left-0",
+                  activeSection === opt.name.toLowerCase() ? "w-full" : "w-0"
+                )}
+              />
             </li>
           ))}
           <button className="bg-quaternary py-2.5 px-[22px] rounded-md font-bold">
@@ -90,7 +99,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
           </button>
         </ul>
       </nav>
-      {isOpen && <ModalNavbar onClick={onClose} />}
+      {isOpen && <ModalNavbar onClick={onClose} options={options} />}
     </>
   );
 };
