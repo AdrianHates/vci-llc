@@ -2,7 +2,6 @@ import InputIcon from "../../ui/input-icon";
 import { useState } from "react";
 import "./index.css";
 import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
 
 interface Props {
   id: string;
