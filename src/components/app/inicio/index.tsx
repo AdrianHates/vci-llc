@@ -146,7 +146,7 @@ const Inicio = ({ id }: Props) => {
               variants={appearFromCenter}
               initial="initial"
               animate={featInView ? "animate" : "initial"}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
               className="flex flex-col gap-10 origin-top"
             >
               <img
