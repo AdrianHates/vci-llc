@@ -1,11 +1,22 @@
 import React from "react";
 import cx from "../../libs/cx";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import {
+  appearFromCenterScale,
+  fadeInFromTop,
+} from "../../../animations/animations";
 
 interface Props {
   id: string;
 }
 
 const Portfolio = ({ id }: Props) => {
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
+
   const listPortfolio: { text: string; class_img: string; link?: string }[] = [
     {
       link: "https://averliz.com/",
@@ -22,17 +33,35 @@ const Portfolio = ({ id }: Props) => {
     },
   ];
   return (
-    <section className="pb-[115px] sm:px-0 px-6" id={id}>
+    <section className="pb-[115px] sm:px-0 px-6" id={id} ref={textRef}>
       <div className="bg-white py-[67.5px] max-w-[1146px] w-full mx-auto text-[16px] leading-[19.5px] font-light gap-10 flex flex-col shadow-[0px_4px_4px_0_#24364B40] rounded-[24px] mt-[-152px]">
-        <h3 className="text-center sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] text-[#EE7623] font-bold">
+        <motion.h3
+          variants={fadeInFromTop}
+          initial="initial"
+          animate={textInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="text-center sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] text-[#EE7623] font-bold"
+        >
           Portafolio de empresas
-        </h3>
-        <p className="max-w-[68ch] text-center mx-auto px-6">
+        </motion.h3>
+        <motion.p
+          variants={fadeInFromTop}
+          initial="initial"
+          animate={textInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="max-w-[68ch] text-center mx-auto px-6"
+        >
           Conoce más sobre nuestro portafolio de empresas, que son un pilar
           fundamental en nuestro esfuerzo por asegurar la inclusión financiera.
-        </p>
+        </motion.p>
         {listPortfolio && (
-          <div className="flex sm:flex-row flex-col items-center justify-center pt-7 pb-1 sm:gap-0 gap-[52px]">
+          <motion.div
+            variants={appearFromCenterScale}
+            initial="initial"
+            animate={textInView ? "animate" : "initial"}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+            className="flex sm:flex-row flex-col items-center justify-center pt-7 pb-1 sm:gap-0 gap-[52px]"
+          >
             {listPortfolio.map((ulist, i) => (
               <React.Fragment key={i}>
                 {i !== 0 && (
@@ -56,7 +85,7 @@ const Portfolio = ({ id }: Props) => {
                 </div>
               </React.Fragment>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

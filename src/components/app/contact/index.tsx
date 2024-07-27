@@ -3,6 +3,9 @@ import { useState } from "react";
 import "./index.css";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { fadeInFromTop } from "../../../animations/animations";
 
 interface Props {
   id: string;
@@ -10,15 +13,25 @@ interface Props {
 
 const Contact = ({ id }: Props) => {
   const [phone, setPhone] = useState<string | undefined>("");
-
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
   return (
     <section
+      ref={textRef}
       className="bg-primary bg-opacity-[6%] pt-[58px] pb-[60px] px-6 flex flex-col gap-10 items-center justify-center"
       id={id}
     >
-      <h3 className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]">
+      <motion.h3
+        variants={fadeInFromTop}
+        initial="initial"
+        animate={textInView ? "animate" : "initial"}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+        className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]"
+      >
         Contacto
-      </h3>
+      </motion.h3>
       <form className="flex flex-col gap-4 max-w-[871px] mx-auto w-full">
         <div className="flex sm:flex-row flex-col gap-6">
           <InputIcon icon_path="user.svg" placeholder="Nombre completo" />
