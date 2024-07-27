@@ -103,19 +103,21 @@ const Inicio = ({ id }: Props) => {
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
-        <motion.img
-          variants={fadeInFromBottomToTopReturn}
-          initial="initial"
-          animate={inicioInView ? "animate" : "initial"}
-          transition={{
-            duration: 1,
-            ease: "easeOut",
-            delay: 1.5,
-            times: [0, 0.5, 1],
-          }}
-          src="/inicio/img_1.png"
-          className="sm:w-[1142px] w-[333px] sm:mt-0 mt-[-132px]"
-        />
+        <div className="sm:w-[1142px] w-[333px] sm:mt-0 mt-[-132px]">
+          <motion.img
+            variants={fadeInFromBottomToTopReturn}
+            initial="initial"
+            animate={inicioInView ? "animate" : "initial"}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+              delay: 1.5,
+              times: [0, 0.5, 1],
+            }}
+            src="/inicio/img_1.png"
+            className="sm:w-[1142px] w-[333px]"
+          />
+        </div>
         {textIcons.map((tIcon, i) => (
           <Icon_Text
             variants={fadeInFromX(tIcon.animation.x, tIcon.animation.opacity)}

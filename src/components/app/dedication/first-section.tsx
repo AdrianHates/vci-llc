@@ -17,7 +17,7 @@ const FirstSection = () => {
         variants={fadeInFromX(-500, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         ref={firstRef}
       >
         <div className="flex flex-col gap-14 sm:pl-[147px] pl-12 sm:pr-0 pr-12">
@@ -55,7 +55,7 @@ const FirstSection = () => {
         variants={fadeInFromX(500, 0)}
         initial="initial"
         animate={secondInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
       />
     </div>
   );

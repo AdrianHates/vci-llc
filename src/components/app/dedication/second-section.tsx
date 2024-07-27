@@ -8,18 +8,18 @@ const SecondSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const [secondRef, secondInView] = useInView({
+  /*const [secondRef, secondInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  });*/
 
   return (
-    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse items-center py-[57px] relative sm:gap-0 gap-10">
+    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse py-[57px] relative sm:gap-0 gap-10">
       <Icon_Text
         variants={fadeInFromX(0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         className="sm:pr-5 pr-3 sm:pl-2.5 pl-[7.49px] sm:py-1.5 py-[4.5px] rounded-[8.28px] absolute bottom-7 sm:left-[31.4%] left-[22.5%] gap-2 bg-white"
         class_text="max-w-[35ch] sm:text-[13.5px] text-[8.99px] sm:leading-[14.63px] leading-[10.96px] font-[400]"
         class_icon="sm:w-[36px] w-[26.97px] sm:h-[36px] h-[26.97px]"
@@ -31,19 +31,18 @@ const SecondSection = () => {
         variants={fadeInFromX(-500, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         ref={firstRef}
         src="/dedication/img_2.png"
         alt="dedication_img_2"
         className="w-[679.13px]"
       />
       <motion.div
-        ref={secondRef}
         variants={fadeInFromX(500, 0)}
         initial="initial"
-        animate={secondInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-        className="flex flex-col gap-3 w-full sm:ml-[-15px] ml-0"
+        animate={firstInView ? "animate" : "initial"}
+        transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
+        className="flex flex-col gap-3 w-full sm:ml-[-15px] ml-0 justify-center"
       >
         <h3 className="text-quaternary font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           ¡Impacto positivo!
