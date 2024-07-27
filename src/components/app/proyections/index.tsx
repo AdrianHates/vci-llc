@@ -1,6 +1,9 @@
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-import { fadeInFromTop } from "../../../animations/animations";
+import { easeIn, motion } from "framer-motion";
+import {
+  appearFromCenterScale,
+  fadeInFromTop,
+} from "../../../animations/animations";
 import DataNumbers from "./data-numbers";
 import DonutChart from "./donut-chart";
 import ColumnChart from "./column-chart";
@@ -11,7 +14,12 @@ interface Props {
 const Proyections = ({ id }: Props) => {
   const [proyectionsRef, proyectionsInView] = useInView({
     triggerOnce: true,
-    threshold: 0.05,
+    threshold: 0.1,
+  });
+
+  const [chartsRef, chartsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
   return (
@@ -49,10 +57,17 @@ const Proyections = ({ id }: Props) => {
         no tienen acceso al sistema bancario tradicional.
       </motion.p>
       <DataNumbers />
-      <div className="flex items-center justify-center gap-28">
+      <motion.div
+        variants={appearFromCenterScale}
+        initial="initial"
+        animate={chartsInView ? "animate" : "initial"}
+        transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
+        ref={chartsRef}
+        className="flex items-center justify-center gap-28"
+      >
         <DonutChart />
         <ColumnChart />
-      </div>
+      </motion.div>
     </section>
   );
 };

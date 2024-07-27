@@ -28,3 +28,8 @@ export const appearFromCenter: Variants = {
   initial: { opacity: 1, scale: 0 },
   animate: { opacity: 1, scale: 1 },
 };
+
+export const appearFromCenterScale: Variants = {
+  initial: { opacity: 0, scale: 1.2 },
+  animate: { opacity: 1, scale: 1 },
+};

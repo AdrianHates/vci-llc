@@ -1,5 +1,11 @@
+import { useInView } from "react-intersection-observer";
 import cx from "../../libs/cx";
 import CountUp from "../../ui/count-up";
+import { motion } from "framer-motion";
+import {
+  appearFromCenterScale,
+  fadeInFromTop,
+} from "../../../animations/animations";
 
 const dataNumbers: {
   name: string;
@@ -34,9 +40,21 @@ const dataNumbers: {
 ];
 
 const DataNumbers = () => {
+  const [dataNumbersRef, dataNumbersInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
-    <div className="flex items-center justify-center gap-[87px] py-[72px]">
+    <motion.div
+      variants={appearFromCenterScale}
+      initial="initial"
+      animate={dataNumbersInView ? "animate" : "initial"}
+      transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
+      className="flex items-center justify-center gap-[87px] py-[72px]"
+      ref={dataNumbersRef}
+    >
       {dataNumbers &&
+        dataNumbersInView &&
         dataNumbers.map((dataNumber, i) => (
           <div
             key={i}
@@ -61,7 +79,7 @@ const DataNumbers = () => {
             </p>
           </div>
         ))}
-    </div>
+    </motion.div>
   );
 };
 
