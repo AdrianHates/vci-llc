@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import cx from "../../libs/cx";
 import ModalNavbar from "./modal-navbar";
 import useToggle from "../../../hooks/useToogle";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import "./index.css";
+import {
+  fadeInFromLeft10050,
+  fadeInFromTop,
+} from "../../../animations/animations";
 
 interface NavbarProps {
   logo: string;
@@ -17,6 +24,11 @@ const Navbar = ({ logo, options }: NavbarProps) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const { ref: navbarRef, inView: navbarInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,21 +56,29 @@ const Navbar = ({ logo, options }: NavbarProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [options, scrollPosition]);
+
   return (
     <>
       <nav
+        ref={navbarRef}
         className={cx(
           " bg-primary backdrop-blur-sm flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
           scrollPosition > 121 ? "bg-opacity-40 pt-4 transition-all" : ""
         )}
       >
-        <a href="#" className="fade-in-from-top">
+        <motion.a
+          href="#"
+          variants={fadeInFromTop}
+          initial="initial"
+          animate={navbarInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <img
             alt="logo"
             src={logo}
             className="sm:w-[343px] w-[150px] sm:h-[85px] h-[37px]"
           />
-        </a>
+        </motion.a>
 
         <button
           className="text-white lg:hidden block"
@@ -81,12 +101,18 @@ const Navbar = ({ logo, options }: NavbarProps) => {
                   : ""
               )}
             >
-              <div className="fade-in-from-top">
+              <motion.div
+                variants={fadeInFromTop}
+                initial="initial"
+                animate={navbarInView ? "animate" : "initial"}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
                 <a href={"#" + opt.name.toLowerCase()}>
                   <p>{opt.name}</p>
                 </a>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                {...fadeInFromLeft10050}
                 className={cx(
                   "bg-quaternary fade-in-from-left h-[2.5px] absolute top-100 left-0",
                   activeSection === opt.name.toLowerCase() ? "w-full" : "w-0"

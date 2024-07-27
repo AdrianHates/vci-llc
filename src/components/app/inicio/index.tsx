@@ -1,11 +1,29 @@
+import {
+  appearFromCenter,
+  fadeInFromBottomToTopReturn,
+  fadeInFromTop,
+  fadeInFromX,
+} from "../../../animations/animations";
 import cx from "../../libs/cx";
 import Icon_Text from "../../shared/icon_text";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface Props {
   id: string;
 }
 
 const Inicio = ({ id }: Props) => {
+  const [inicioRef, inicioInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [featRef, featInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const textPrincipal: { first: string; second: string } = {
     first:
       "Descubre el futuro de las inversiones con Verri Capital Investments, LLC.",
@@ -13,18 +31,34 @@ const Inicio = ({ id }: Props) => {
       "Nuestra experiencia y visión te abre las puertas a oportunidades financieras excepcionales.",
   };
 
-  const textIcons: { text: string; className: string }[] = [
+  const textIcons: {
+    text: string;
+    className: string;
+    animation: { x: number; opacity: number };
+  }[] = [
     {
       text: "Ofrecemos un análisis financiero exclusivo, adaptado a necesidades específicas.",
       className: "sm:top-[23.75%] top-[-146%] sm:left-[5%] left-[10.25%]",
+      animation: {
+        x: -500,
+        opacity: 1,
+      },
     },
     {
       text: "Utilizamos herramientas avanzadas y criterios personalizados.",
       className: "sm:top-[48.5%] top-[-43%] sm:right-[8%] right-3",
+      animation: {
+        x: 500,
+        opacity: 1,
+      },
     },
     {
       text: "Identificamos oportunidades que otros pasan por alto.",
       className: "sm:bottom-[11%] bottom-[2%] sm:left-[30%] left-[14%]",
+      animation: {
+        x: 0,
+        opacity: 0,
+      },
     },
   ];
 
@@ -47,24 +81,47 @@ const Inicio = ({ id }: Props) => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center" id={id}>
+    <section
+      ref={inicioRef}
+      className="flex flex-col items-center justify-center"
+      id={id}
+    >
       <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[128.5px] pt-[50px] sm:pb-[434px] pb-[152.75px]">
-        <p className="sm:max-w-[45ch] max-w-[26ch] sm:text-[26px] sm:leading-[31.69px] text-[20px] leading-[24.38px] text-center text-quaternary font-[550]">
+        <motion.p
+          variants={fadeInFromTop}
+          initial="initial"
+          animate={inicioInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="sm:max-w-[45ch] max-w-[26ch] sm:text-[26px] sm:leading-[31.69px] text-[20px] leading-[24.38px] text-center text-quaternary font-[550]"
+        >
           {textPrincipal.first}{" "}
           <span className="font-extralight text-[#fff]">
             {textPrincipal.second}
           </span>
-        </p>
+        </motion.p>
         <div className="bg-[url('/inicio/bg_img_1.png')] bg-center bg-[length:1452.09px_816.16px] absolute top-0 left-0 w-full h-full opacity-5"></div>
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
-        <img
+        <motion.img
+          variants={fadeInFromBottomToTopReturn}
+          initial="initial"
+          animate={inicioInView ? "animate" : "initial"}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+            delay: 1,
+            times: [0, 0.5, 1],
+          }}
           src="/inicio/img_1.png"
           className="sm:w-[1142px] w-[333px] sm:mt-0 mt-[-132px]"
         />
         {textIcons.map((tIcon, i) => (
           <Icon_Text
+            variants={fadeInFromX(tIcon.animation.x, tIcon.animation.opacity)}
+            initial="initial"
+            animate={inicioInView ? "animate" : "initial"}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
             key={i}
             icon_path={`/inicio/icon_${i + 1}.svg`}
             text={tIcon.text}
@@ -79,9 +136,19 @@ const Inicio = ({ id }: Props) => {
       </div>
 
       {listFeatures && (
-        <div className="flex sm:flex-row flex-col sm:mx-20 mx-11 gap-16 my-10">
+        <div
+          className="flex sm:flex-row flex-col sm:mx-20 mx-11 gap-16 my-10"
+          ref={featRef}
+        >
           {listFeatures.map((feat, i) => (
-            <div key={i} className="flex flex-col gap-10">
+            <motion.div
+              key={i}
+              variants={appearFromCenter}
+              initial="initial"
+              animate={featInView ? "animate" : "initial"}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="flex flex-col gap-10 origin-top"
+            >
               <img
                 src={`/inicio/feat_icon_${i + 1}.svg`}
                 className="sm:w-[90px] w-[77.34px] sm:h-[90px] h-[77.34px] mx-auto"
@@ -94,7 +161,7 @@ const Inicio = ({ id }: Props) => {
                   {feat.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}

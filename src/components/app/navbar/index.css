@@ -7,25 +7,6 @@
   animation: FadeOutFromLeft 0.3s ease forwards;
 }
 
-.fade-in-from-top {
-  animation: fadeInFromTop 1s ease-out forwards;
-}
-
-.fade-in-from-left {
-  animation: FadeInFromLeft 1s ease-in forwards;
-}
-
-@keyframes fadeInFromTop {
-  0% {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes FadeInFromLeft {
   0% {
     transform: translateX(-100%);

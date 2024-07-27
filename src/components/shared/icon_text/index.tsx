@@ -1,4 +1,5 @@
 import cx from "../../libs/cx";
+import { motion, Transition, Variants } from "framer-motion";
 
 interface Props {
   icon_path: string;
@@ -6,6 +7,10 @@ interface Props {
   class_icon?: string;
   class_text?: string;
   text: string;
+  variants?: Variants;
+  initial?: string;
+  animate?: string;
+  transition?: Transition;
 }
 
 const Icon_Text = ({
@@ -14,9 +19,11 @@ const Icon_Text = ({
   text,
   class_icon,
   class_text,
+  ...props
 }: Props) => {
   return (
-    <div
+    <motion.div
+      {...props}
       className={cx(
         "absolute bg-white flex items-center rounded-xl shadow-[2px_2px_13px_0_#24364B40] pl-1.5 pr-0 py-3 font-nunito-sans",
         className
@@ -29,15 +36,10 @@ const Icon_Text = ({
         )}
         src={icon_path}
       />
-      <p
-        className={cx(
-          "max-w-[25ch] text-[#595959] font-medium",
-          class_text
-        )}
-      >
+      <p className={cx("max-w-[25ch] text-[#595959] font-medium", class_text)}>
         {text}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
