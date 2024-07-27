@@ -15,7 +15,7 @@ const Footer = () => {
   ];
   return (
     <footer>
-      <div className="flex sm:flex-row flex-col bg-[#24364B] sm:pl-[135px] pl-6 sm:pr-0 pr-6 pt-[81px] sm:pb-[139px] pb-0 sm:gap-[136px] gap-[60px] relative overflow-hidden">
+      <div className="flex sm:flex-row flex-col bg-[#24364B] sm:pl-[135px] pl-6 sm:pr-0 pr-6 pt-[82.5px] sm:pb-[139px] pb-0 sm:gap-[136px] gap-[60px] relative overflow-hidden">
         <div className="flex flex-col sm:items-center items-start justify-center gap-4">
           <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
           <p className="ml-[5px] sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">

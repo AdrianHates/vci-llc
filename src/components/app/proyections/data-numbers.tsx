@@ -35,12 +35,12 @@ const dataNumbers: {
 
 const DataNumbers = () => {
   return (
-    <div className="flex items-center justify-center gap-[87px]">
+    <div className="flex items-center justify-center gap-[87px] py-[72px]">
       {dataNumbers &&
         dataNumbers.map((dataNumber, i) => (
           <div
             key={i}
-            className="flex flex-col justify-center items-center gap-2"
+            className="flex flex-col justify-center items-center gap-1"
           >
             <div
               className={cx(

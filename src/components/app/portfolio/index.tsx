@@ -23,16 +23,16 @@ const Portfolio = ({ id }: Props) => {
   ];
   return (
     <section className="pb-[115px] sm:px-0 px-6" id={id}>
-      <div className="bg-white py-[67px] max-w-[1146px] w-full mx-auto text-[16px] leading-[19.5px] font-light gap-10 flex flex-col shadow-[0px_4px_4px_0_#24364B40] rounded-[24px] mt-[-160px]">
+      <div className="bg-white py-[67.5px] max-w-[1146px] w-full mx-auto text-[16px] leading-[19.5px] font-light gap-10 flex flex-col shadow-[0px_4px_4px_0_#24364B40] rounded-[24px] mt-[-152px]">
         <h3 className="text-center sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] text-[#EE7623] font-bold">
           Portafolio de empresas
         </h3>
-        <p className="max-w-[65ch] mx-auto text-center px-6">
+        <p className="max-w-[68ch] text-center mx-auto px-6">
           Conoce más sobre nuestro portafolio de empresas, que son un pilar
           fundamental en nuestro esfuerzo por asegurar la inclusión financiera.
         </p>
         {listPortfolio && (
-          <div className="flex sm:flex-row flex-col items-center justify-center pt-8 sm:gap-0 gap-[52px]">
+          <div className="flex sm:flex-row flex-col items-center justify-center pt-7 pb-1 sm:gap-0 gap-[52px]">
             {listPortfolio.map((ulist, i) => (
               <React.Fragment key={i}>
                 {i !== 0 && (

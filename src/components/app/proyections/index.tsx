@@ -2,6 +2,8 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { fadeInFromTop } from "../../../animations/animations";
 import DataNumbers from "./data-numbers";
+import DonutChart from "./donut-chart";
+import ColumnChart from "./column-chart";
 
 interface Props {
   id: string;
@@ -10,12 +12,12 @@ const Proyections = ({ id }: Props) => {
   const [proyectionsRef, proyectionsInView] = useInView({
     triggerOnce: true,
     threshold: 0.05,
-  });  
+  });
 
   return (
     <section
       ref={proyectionsRef}
-      className="sm:bg-primary bg-white sm:bg-opacity-[5%] opacity-100 px-5 pt-24 pb-40"
+      className="sm:bg-primary bg-white sm:bg-opacity-[5%] opacity-100 px-5 pt-24 pb-[247px]"
       id={id}
     >
       <motion.h3
@@ -23,7 +25,7 @@ const Proyections = ({ id }: Props) => {
         initial="initial"
         animate={proyectionsInView ? "animate" : "initial"}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-        className="mx-auto max-w-[15ch] text-center font-nanum-myeongjo text-tertiary font-semibold sm:text-[64px] text-[32px] sm:leading-[55px] leading-[30.94px]"
+        className="mx-auto max-w-[15ch] text-center font-nanum-myeongjo text-tertiary font-semibold sm:text-[65px] text-[32px] sm:leading-[56px] leading-[30.94px] tracking-[0.024rem]"
       >
         Verri Capital Investments, LLC
       </motion.h3>
@@ -32,7 +34,7 @@ const Proyections = ({ id }: Props) => {
         initial="initial"
         animate={proyectionsInView ? "animate" : "initial"}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-        className="sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light max-w-[80ch] text-center mx-auto my-10"
+        className="sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light max-w-[80ch] text-center mx-auto my-[39px]"
       >
         <span className="font-semibold text-quaternary">
           Somos un conglomerado Americano
@@ -47,6 +49,10 @@ const Proyections = ({ id }: Props) => {
         no tienen acceso al sistema bancario tradicional.
       </motion.p>
       <DataNumbers />
+      <div className="flex items-center justify-center gap-28">
+        <DonutChart />
+        <ColumnChart />
+      </div>
     </section>
   );
 };

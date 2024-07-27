@@ -138,7 +138,7 @@ const Inicio = ({ id }: Props) => {
       </div>
 
       {listFeatures && (
-        <div className="flex sm:flex-row flex-col sm:mx-20 mx-11 gap-16 my-10">
+        <div className="flex sm:flex-row flex-col sm:mx-20 mx-11 gap-16 my-11">
           {listFeatures.map((feat, i) => (
             <motion.div
               ref={featRef}
