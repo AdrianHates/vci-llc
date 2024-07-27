@@ -21,7 +21,7 @@ const Inicio = ({ id }: Props) => {
 
   const [featRef, featInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
 
   const textPrincipal: { first: string; second: string } = {
