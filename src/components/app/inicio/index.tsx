@@ -40,7 +40,7 @@ const Inicio = ({ id }: Props) => {
       text: "Ofrecemos un análisis financiero exclusivo, adaptado a necesidades específicas.",
       className: "sm:top-[23.75%] top-[-146%] sm:left-[5%] left-[10.25%]",
       animation: {
-        x: -500,
+        x: -600,
         opacity: 1,
       },
     },
@@ -48,7 +48,7 @@ const Inicio = ({ id }: Props) => {
       text: "Utilizamos herramientas avanzadas y criterios personalizados.",
       className: "sm:top-[48.5%] top-[-43%] sm:right-[8%] right-3",
       animation: {
-        x: 500,
+        x: 700,
         opacity: 1,
       },
     },
