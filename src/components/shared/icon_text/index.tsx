@@ -25,7 +25,7 @@ const Icon_Text = ({
     <motion.div
       {...props}
       className={cx(
-        "absolute bg-white flex items-center rounded-xl shadow-[2px_2px_13px_0_#24364B40] pl-1.5 pr-0 py-3 font-nunito-sans",
+        "absolute bg-white z-10 flex items-center rounded-xl shadow-[2px_2px_13px_0_#24364B40] pl-1.5 pr-0 py-3 font-nunito-sans",
         className
       )}
     >

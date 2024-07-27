@@ -1,13 +1,25 @@
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { fadeInFromX } from "../../../animations/animations";
 
 const FirstSection = () => {
   const [firstRef, firstInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  const [secondRef, secondInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
-    <div ref={firstRef} className="flex sm:flex-row flex-col items-center sm:pt-[105px] pt-[75px] sm:pb-[105px] pb-8 sm:gap-0 gap-10">
-      <div>
+    <div className="flex sm:flex-row flex-col items-center sm:pt-[105px] pt-[75px] sm:pb-[105px] pb-8 sm:gap-0 gap-10">
+      <motion.div
+        variants={fadeInFromX(-500, 0)}
+        initial="initial"
+        animate={firstInView ? "animate" : "initial"}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        ref={firstRef}
+      >
         <div className="flex flex-col gap-14 sm:pl-[147px] pl-12 sm:pr-0 pr-12">
           <h3 className="text-quaternary sm:text-[32px] text-[20px] sm:leading-[39px] leading-[24px] font-bold sm:w-[25ch] w-full">
             ¿Porqué es importante la inclusión financiera en latinoamerica?
@@ -33,12 +45,17 @@ const FirstSection = () => {
         <p className="sm:ml-36 ml-12 sm:mr-0 mr-20 text-[13px] leading-[15.85px] italic font-light">
           *Entre ambos mercados tenemos 7.2 millones de clientes potenciales.
         </p>
-      </div>
+      </motion.div>
 
-      <img
+      <motion.img
         src="/dedication/img_1.png"
         alt="img-dedication"
         className="sm:w-[700px] w-[331.42px] relative z-10"
+        ref={secondRef}
+        variants={fadeInFromX(500, 0)}
+        initial="initial"
+        animate={secondInView ? "animate" : "initial"}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
       />
     </div>
   );
