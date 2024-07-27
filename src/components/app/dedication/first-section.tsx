@@ -1,6 +1,12 @@
+import { useInView } from "react-intersection-observer";
+
 const FirstSection = () => {
+  const [firstRef, firstInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
-    <div className="flex sm:flex-row flex-col items-center sm:pt-[105px] pt-[75px] sm:pb-[105px] pb-8 sm:gap-0 gap-10">
+    <div ref={firstRef} className="flex sm:flex-row flex-col items-center sm:pt-[105px] pt-[75px] sm:pb-[105px] pb-8 sm:gap-0 gap-10">
       <div>
         <div className="flex flex-col gap-14 sm:pl-[147px] pl-12 sm:pr-0 pr-12">
           <h3 className="text-quaternary sm:text-[32px] text-[20px] sm:leading-[39px] leading-[24px] font-bold sm:w-[25ch] w-full">

@@ -91,7 +91,7 @@ const Inicio = ({ id }: Props) => {
           variants={fadeInFromTop}
           initial="initial"
           animate={inicioInView ? "animate" : "initial"}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
           className="sm:max-w-[45ch] max-w-[26ch] sm:text-[26px] sm:leading-[31.69px] text-[20px] leading-[24.38px] text-center text-quaternary font-[550]"
         >
           {textPrincipal.first}{" "}
@@ -110,7 +110,7 @@ const Inicio = ({ id }: Props) => {
           transition={{
             duration: 1,
             ease: "easeOut",
-            delay: 1,
+            delay: 1.5,
             times: [0, 0.5, 1],
           }}
           src="/inicio/img_1.png"
@@ -121,7 +121,7 @@ const Inicio = ({ id }: Props) => {
             variants={fadeInFromX(tIcon.animation.x, tIcon.animation.opacity)}
             initial="initial"
             animate={inicioInView ? "animate" : "initial"}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
             key={i}
             icon_path={`/inicio/icon_${i + 1}.svg`}
             text={tIcon.text}

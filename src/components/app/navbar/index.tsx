@@ -7,8 +7,8 @@ import { useInView } from "react-intersection-observer";
 
 import "./index.css";
 import {
-  fadeInFromLeft10050,
   fadeInFromTop,
+  fadeInFromX
 } from "../../../animations/animations";
 
 interface NavbarProps {
@@ -112,7 +112,10 @@ const Navbar = ({ logo, options }: NavbarProps) => {
                 </a>
               </motion.div>
               <motion.div
-                {...fadeInFromLeft10050}
+                variants={fadeInFromX(-100, 0)}
+                initial="initial"
+                animate={navbarInView ? "animate" : "initial"}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className={cx(
                   "bg-quaternary fade-in-from-left h-[2.5px] absolute top-100 left-0",
                   activeSection === opt.name.toLowerCase() ? "w-full" : "w-0"
