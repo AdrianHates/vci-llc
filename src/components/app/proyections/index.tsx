@@ -63,7 +63,7 @@ const Proyections = ({ id }: Props) => {
         animate={chartsInView ? "animate" : "initial"}
         transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
         ref={chartsRef}
-        className="flex items-center justify-center gap-28"
+        className="sm:flex-row flex-col flex items-center justify-center gap-28"
       >
         <DonutChart />
         <ColumnChart />

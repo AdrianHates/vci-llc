@@ -2,9 +2,7 @@ import { useInView } from "react-intersection-observer";
 import cx from "../../libs/cx";
 import CountUp from "../../ui/count-up";
 import { motion } from "framer-motion";
-import {
-  appearFromCenterScale,
-} from "../../../animations/animations";
+import { appearFromCenterScale } from "../../../animations/animations";
 
 const dataNumbers: {
   name: string;
@@ -49,7 +47,7 @@ const DataNumbers = () => {
       initial="initial"
       animate={dataNumbersInView ? "animate" : "initial"}
       transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
-      className="flex items-center justify-center gap-[87px] py-[72px]"
+      className="sm:flex-row flex-col flex items-center justify-center gap-[87px] py-[72px]"
       ref={dataNumbersRef}
     >
       {dataNumbers &&

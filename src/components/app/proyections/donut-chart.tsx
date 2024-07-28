@@ -61,10 +61,10 @@ const DonutChart = () => {
 
   const classHistory: { contain: string; line?: string }[] = [
     {
-      contain: "absolute top-0 flex flex-col gap-3",
+      contain: "absolute top-0 sm:flex hidden flex-col gap-3",
     },
     {
-      contain: "absolute left-[95%] top-1/2 flex flex-col gap-3",
+      contain: "absolute left-[95%] top-1/2 sm:flex hidden flex-col gap-3",
       line: "border-l-0 border-r-[3px] relative right-[75%]",
     },
   ];
@@ -79,7 +79,7 @@ const DonutChart = () => {
       />
       {series &&
         series.map((serie, i) => (
-          <div key={i} className={classHistory[i].contain}>
+          <div key={i} className={cx("",classHistory[i].contain)}>
             <p className="text-[24.91px] leading-[30.37px] font-normal">
               {options?.labels?.[i]}
             </p>
