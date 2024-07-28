@@ -4,7 +4,6 @@ import CountUp from "../../ui/count-up";
 import { motion } from "framer-motion";
 import {
   appearFromCenterScale,
-  fadeInFromTop,
 } from "../../../animations/animations";
 
 const dataNumbers: {
