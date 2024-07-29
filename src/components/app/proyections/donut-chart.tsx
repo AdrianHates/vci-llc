@@ -17,14 +17,14 @@ const DonutChart = () => {
       animations: {
         enabled: true,
         easing: "easeinout",
-        speed: 800,
+        speed: 2000,
         animateGradually: {
           enabled: true,
           delay: 150,
         },
         dynamicAnimation: {
           enabled: true,
-          speed: 350,
+          speed: 2000,
         },
       },
       type: "donut",
@@ -79,7 +79,7 @@ const DonutChart = () => {
       />
       {series &&
         series.map((serie, i) => (
-          <div key={i} className={cx("",classHistory[i].contain)}>
+          <div key={i} className={cx("", classHistory[i].contain)}>
             <p className="text-[24.91px] leading-[30.37px] font-normal">
               {options?.labels?.[i]}
             </p>

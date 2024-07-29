@@ -61,12 +61,11 @@ const Proyections = ({ id }: Props) => {
           variants={appearFromCenterScale}
           initial="initial"
           animate={chartsInView ? "animate" : "initial"}
-          transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
+          transition={{ duration: 0.25, ease: "easeIn", delay: 1 }}
           ref={chartsRef}
           className="lg:flex-row flex-col flex items-center justify-center gap-28"
         >
-          <DonutChart />
-          <ColumnChart />
+          {chartsInView && <DonutChart />} <ColumnChart />
         </motion.div>
       </div>
     </section>
