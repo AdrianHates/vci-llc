@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import Icon_Text from "../../shared/icon_text";
 import { motion } from "framer-motion";
-import { fadeInFromX } from "../../../animations/animations";
+import { fadeInFromXY } from "../../../animations/animations";
 
 const SecondSection = () => {
   const [firstRef, firstInView] = useInView({
@@ -16,7 +16,7 @@ const SecondSection = () => {
   return (
     <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative sm:gap-0 gap-10">
       <Icon_Text
-        variants={fadeInFromX(0, 0)}
+        variants={fadeInFromXY(0, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
@@ -28,7 +28,7 @@ const SecondSection = () => {
       />
 
       <motion.img
-        variants={fadeInFromX(-500, 0)}
+        variants={fadeInFromXY(-500, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
@@ -38,7 +38,7 @@ const SecondSection = () => {
         className="w-[679.13px]"
       />
       <motion.div
-        variants={fadeInFromX(500, 0)}
+        variants={fadeInFromXY(500, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}

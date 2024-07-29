@@ -1,4 +1,13 @@
+import { useInView } from "react-intersection-observer";
+import { fadeInFromXY } from "../../../animations/animations";
+import { motion } from "framer-motion";
+
 const Footer = () => {
+  const { ref: footerRef, inView: footerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const socials: { name: string; class_icon?: string }[] = [
     {
       name: "facebook",
@@ -14,9 +23,15 @@ const Footer = () => {
     },
   ];
   return (
-    <footer>
+    <footer ref={footerRef}>
       <div className="flex sm:flex-row flex-col bg-[#24364B] sm:pl-[135px] pl-6 sm:pr-0 pr-6 pt-[82.5px] sm:pb-[139px] pb-0 sm:gap-[136px] gap-[60px] relative overflow-hidden">
-        <div className="flex flex-col sm:items-center items-start justify-center gap-4">
+        <motion.div
+          variants={fadeInFromXY(0, 0, 0)}
+          initial="initial"
+          animate={footerInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="flex flex-col sm:items-center items-start justify-center gap-4"
+        >
           <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
           <p className="ml-[5px] sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">
             Somos un conglomerado Americano{" "}
@@ -26,9 +41,15 @@ const Footer = () => {
             </span>{" "}
             con analistas capacitados y un puntaje propio.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="text-white flex flex-col justify-center gap-2">
+        <motion.div
+          variants={fadeInFromXY(0, 0, 0)}
+          initial="initial"
+          animate={footerInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="text-white flex flex-col justify-center gap-2"
+        >
           <h3 className="text-[#0295BC] font-bold sm:text-[20px] text-[16px] sm:leading-[24.38px] leading-[19.5px] mt-2">
             Contacto
           </h3>
@@ -52,9 +73,13 @@ const Footer = () => {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <img
+        <motion.img
+          variants={fadeInFromXY(0, 0, 0)}
+          initial="initial"
+          animate={footerInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
           src="/footer/bg_1.png"
           alt="bg"
           className="min-[460px]:w-[653px] max-[460px]:w-[460px] sm:absolute relative max-w-none sm:left-[57.6%] left-0 sm:top-[14.5%] sm:ml-0 ml-[-12.5px] sm:mt-0 mt-[-35px]"

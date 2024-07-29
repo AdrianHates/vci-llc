@@ -1,7 +1,7 @@
 import {
   fadeInFromBottomToTopReturn,
   fadeInFromTop,
-  fadeInFromX,
+  fadeInFromXY,
 } from "../../../animations/animations";
 import cx from "../../libs/cx";
 import Icon_Text from "../../shared/icon_text";
@@ -96,7 +96,11 @@ const Inicio = ({ id }: Props) => {
         </div>
         {textIcons.map((tIcon, i) => (
           <Icon_Text
-            variants={fadeInFromX(tIcon.animation.x, tIcon.animation.opacity)}
+            variants={fadeInFromXY(
+              tIcon.animation.x,
+              0,
+              tIcon.animation.opacity
+            )}
             initial="initial"
             animate={inicioInView ? "animate" : "initial"}
             transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}

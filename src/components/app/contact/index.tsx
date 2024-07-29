@@ -5,7 +5,7 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { fadeInFromTop } from "../../../animations/animations";
+import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface Props {
   id: string;
@@ -15,46 +15,53 @@ const Contact = ({ id }: Props) => {
   const [phone, setPhone] = useState<string | undefined>("");
   const [textRef, textInView] = useInView({
     triggerOnce: true,
-    threshold: 0.05,
+    threshold: 0.1,
   });
   return (
-    <section
-      ref={textRef}
-      className="bg-primary bg-opacity-[6%] pt-[58px] pb-[60px] px-6 flex flex-col gap-10 items-center justify-center"
-      id={id}
-    >
-      <motion.h3
-        variants={fadeInFromTop}
-        initial="initial"
-        animate={textInView ? "animate" : "initial"}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-        className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]"
+    <section className="mt-[-100px] pt-[100px]" id={id}>
+      <div
+        ref={textRef}
+        className="bg-primary bg-opacity-[6%] pt-[58px] pb-[60px] px-6 flex flex-col gap-10 items-center justify-center"
       >
-        Contacto
-      </motion.h3>
-      <form className="flex flex-col gap-4 max-w-[871px] mx-auto w-full">
-        <div className="flex sm:flex-row flex-col gap-6">
-          <InputIcon icon_path="user.svg" placeholder="Nombre completo" />
-          <InputIcon icon_path="mail.svg" placeholder="Correo electrónico" />
-        </div>
-        <div className="flex sm:flex-row flex-col gap-6">
-          <PhoneInput
-            placeholder="Número de celular"
-            className="phone-input"
-            defaultCountry="sv"
-            value={phone}
-            onChange={(phone) => setPhone(phone)}
+        <motion.h3
+          variants={fadeInFromTop}
+          initial="initial"
+          animate={textInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]"
+        >
+          Contacto
+        </motion.h3>
+        <motion.form
+          variants={fadeInFromXY(0, 100, 0)}
+          initial="initial"
+          animate={textInView ? "animate" : "initial"}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          className="flex flex-col gap-4 max-w-[871px] mx-auto w-full"
+        >
+          <div className="flex sm:flex-row flex-col gap-6">
+            <InputIcon icon_path="user.svg" placeholder="Nombre completo" />
+            <InputIcon icon_path="mail.svg" placeholder="Correo electrónico" />
+          </div>
+          <div className="flex sm:flex-row flex-col gap-6">
+            <PhoneInput
+              placeholder="Número de celular"
+              className="phone-input"
+              defaultCountry="sv"
+              value={phone}
+              onChange={(phone) => setPhone(phone)}
+            />
+            <InputIcon icon_path="company.svg" placeholder="Empresa" />
+          </div>
+          <textarea
+            className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
+            placeholder="Mensaje"
           />
-          <InputIcon icon_path="company.svg" placeholder="Empresa" />
-        </div>
-        <textarea
-          className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
-          placeholder="Mensaje"
-        />
-        <button className="mt-[23px] bg-quaternary sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
-          Enviar
-        </button>
-      </form>
+          <button className="mt-[23px] bg-quaternary sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
+            Enviar
+          </button>
+        </motion.form>
+      </div>
     </section>
   );
 };

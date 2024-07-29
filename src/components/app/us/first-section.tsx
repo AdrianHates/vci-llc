@@ -1,6 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { fadeInFromX } from "../../../animations/animations";
+import { fadeInFromXY } from "../../../animations/animations";
 
 const FirstSection = () => {
   const [firstRef, firstInView] = useInView({
@@ -12,9 +12,9 @@ const FirstSection = () => {
     threshold: 0.1,
   });
   return (
-    <div className="flex sm:flex-row flex-col items-center sm:pt-[94.5px] pt-[75px] sm:pb-[89px] pb-8 sm:gap-0 gap-10">
+    <div className="flex sm:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 sm:gap-0 gap-10">
       <motion.div
-        variants={fadeInFromX(-500, 0)}
+        variants={fadeInFromXY(-500, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
@@ -52,7 +52,7 @@ const FirstSection = () => {
         alt="img-dedication"
         className="sm:w-[700px] w-[331.42px] relative z-10"
         ref={secondRef}
-        variants={fadeInFromX(500, 0)}
+        variants={fadeInFromXY(500, 0, 0)}
         initial="initial"
         animate={secondInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}

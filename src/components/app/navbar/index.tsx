@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import "./index.css";
-import { fadeInFromTop, fadeInFromX } from "../../../animations/animations";
+import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface NavbarProps {
   logo: string;
@@ -109,7 +109,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
                 </a>
               </motion.div>
               <motion.div
-                variants={fadeInFromX(-100, 0)}
+                variants={fadeInFromXY(-100, 0, 0)}
                 initial="initial"
                 animate={navbarInView ? "animate" : "initial"}
                 transition={{ duration: 0.5, ease: "easeOut" }}
