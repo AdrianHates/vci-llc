@@ -47,7 +47,7 @@ const DataNumbers = () => {
       initial="initial"
       animate={dataNumbersInView ? "animate" : "initial"}
       transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
-      className="sm:flex-row flex-col flex items-center justify-center gap-[87px] py-[72px]"
+      className="lg:flex-row flex-col flex items-center justify-center gap-[87px] py-[72px]"
       ref={dataNumbersRef}
     >
       {dataNumbers &&

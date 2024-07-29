@@ -82,7 +82,7 @@ const Footer = () => {
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
           src="/footer/bg_1.png"
           alt="bg"
-          className="min-[460px]:w-[653px] max-[460px]:w-[460px] sm:absolute relative max-w-none sm:left-[57.6%] left-0 sm:top-[14.5%] sm:ml-0 ml-[-12.5px] sm:mt-0 mt-[-35px]"
+          className="min-[460px]:w-[653px] max-[460px]:w-[460px] lg:absolute relative max-w-none sm:left-[57.6%] left-0 sm:top-[14.5%] sm:ml-0 ml-[-12.5px] sm:mt-0 mt-[-35px]"
         />
       </div>
       <div className="bg-[#1B2A3C] h-[40px] flex items-center justify-center text-white text-opacity-[69%] sm:text-[14px] text-[12px] sm:leading-[17.07px] leading-[14.63px] font-[250]">

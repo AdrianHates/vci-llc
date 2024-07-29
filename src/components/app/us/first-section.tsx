@@ -12,7 +12,7 @@ const FirstSection = () => {
     threshold: 0.1,
   });
   return (
-    <div className="flex sm:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 sm:gap-0 gap-10">
+    <div className="flex lg:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 sm:gap-0 gap-10">
       <motion.div
         variants={fadeInFromXY(-500, 0, 0)}
         initial="initial"
@@ -38,7 +38,7 @@ const FirstSection = () => {
             millones* de personas no tienen cuenta corriente o de ahorro.
           </p>
 
-          <div className="bg-[#24364B] absolute h-full w-[60px] left-[100%] top-0 z-0 sm:block hidden">
+          <div className="bg-[#24364B] absolute h-full w-[60px] left-[100%] top-0 z-0 lg:block hidden">
             <div className="bg-white absolute w-[267px] h-[267px] rounded-[50%] left-[8.9%] top-[-64%]" />
           </div>
         </div>

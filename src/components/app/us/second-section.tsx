@@ -14,7 +14,7 @@ const SecondSection = () => {
   });*/
 
   return (
-    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex sm:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative sm:gap-0 gap-10">
+    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative sm:gap-0 gap-10">
       <Icon_Text
         variants={fadeInFromXY(0, 0, 0)}
         initial="initial"
@@ -42,7 +42,7 @@ const SecondSection = () => {
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
-        className="flex flex-col gap-3 w-full sm:ml-[-15px] ml-0 justify-center"
+        className="flex flex-col gap-3 w-full lg:ml-[-15px] ml-0 justify-center"
       >
         <h3 className="text-quaternary font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           ¡Impacto positivo!
