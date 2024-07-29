@@ -12,7 +12,7 @@ const FirstSection = () => {
     threshold: 0.1,
   });
   return (
-    <div className="flex sm:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[90px] pb-8 sm:gap-0 gap-10">
+    <div className="flex sm:flex-row flex-col items-center sm:pt-[94.5px] pt-[75px] sm:pb-[89px] pb-8 sm:gap-0 gap-10">
       <motion.div
         variants={fadeInFromX(-500, 0)}
         initial="initial"

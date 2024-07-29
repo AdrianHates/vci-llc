@@ -1,5 +1,4 @@
 import {
-  appearFromCenter,
   fadeInFromBottomToTopReturn,
   fadeInFromTop,
   fadeInFromX,
@@ -17,11 +16,6 @@ const Inicio = ({ id }: Props) => {
   const [inicioRef, inicioInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
-
-  const [featRef, featInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.05,
   });
 
   const textPrincipal: { first: string; second: string } = {
@@ -62,31 +56,13 @@ const Inicio = ({ id }: Props) => {
     },
   ];
 
-  const listFeatures: { name: string; description: string }[] = [
-    {
-      name: "Diversificación",
-      description:
-        "Es nuestra clave para gestionar el riesgo y potenciar el crecimiento de los territorios donde operan nuestras empresas subsidiarías.",
-    },
-    {
-      name: "Innovación",
-      description:
-        "Adoptamos las últimas tendencias y tecnologías financieras para optimizar la gestión de activos y pasivos; ofrecer a nuestros clientes soluciones vanguardistas que respalden sus inversiones.",
-    },
-    {
-      name: "Comunidad",
-      description:
-        "La visión de apoyo al mercado, es fundamental en nuestra visión de generar comunidades sostenibles.",
-    },
-  ];
-
   return (
     <section
       ref={inicioRef}
       className="flex flex-col items-center justify-center"
       id={id}
     >
-      <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[128.5px] pt-[50px] sm:pb-[434px] pb-[152.75px]">
+      <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[249.5px] pt-[50px] sm:pb-[434px] pb-[152.75px]">
         <motion.p
           variants={fadeInFromTop}
           initial="initial"
@@ -136,35 +112,6 @@ const Inicio = ({ id }: Props) => {
           />
         ))}
       </div>
-
-      {listFeatures && (
-        <div className="flex sm:flex-row flex-col sm:mx-20 mx-11 gap-16 my-11">
-          {listFeatures.map((feat, i) => (
-            <motion.div
-              ref={featRef}
-              key={i}
-              variants={appearFromCenter}
-              initial="initial"
-              animate={featInView ? "animate" : "initial"}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-              className="flex flex-col gap-10 origin-top"
-            >
-              <img
-                src={`/inicio/feat_icon_${i + 1}.svg`}
-                className="sm:w-[90px] w-[77.34px] sm:h-[90px] h-[77.34px] mx-auto"
-              />
-              <div className="flex flex-col sm:gap-6 gap-5">
-                <h3 className="text-secondary font-bold text-center text-[20px] leading-[24.38px]">
-                  {feat.name}
-                </h3>
-                <p className="sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light text-center text-[#595959] max-w-[330px]">
-                  {feat.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
     </section>
   );
 };

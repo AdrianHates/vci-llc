@@ -6,10 +6,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import "./index.css";
-import {
-  fadeInFromTop,
-  fadeInFromX
-} from "../../../animations/animations";
+import { fadeInFromTop, fadeInFromX } from "../../../animations/animations";
 
 interface NavbarProps {
   logo: string;
@@ -62,8 +59,8 @@ const Navbar = ({ logo, options }: NavbarProps) => {
       <nav
         ref={navbarRef}
         className={cx(
-          " bg-primary backdrop-blur-sm flex justify-between xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 pt-9 pb-0 sticky top-0 z-[9999] w-full max-w-[1536px]",
-          scrollPosition > 121 ? "bg-opacity-40 pt-4 transition-all" : ""
+          " bg-primary backdrop-blur-sm flex justify-between items-center xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 py-9 fixed top-0 z-[9999] w-full max-w-[1536px]",
+          scrollPosition > 50 ? "bg-opacity-40 py-0 transition-all" : ""
         )}
       >
         <motion.a
@@ -117,12 +114,13 @@ const Navbar = ({ logo, options }: NavbarProps) => {
                 animate={navbarInView ? "animate" : "initial"}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className={cx(
-                  "bg-quaternary fade-in-from-left h-[2.5px] absolute top-100 left-0",
+                  "bg-quaternary fade-in-from-left h-[2px] absolute top-100 left-0",
                   activeSection === opt.name.toLowerCase() ? "w-full" : "w-0"
                 )}
               />
             </li>
           ))}
+
           <button className="bg-quaternary py-2.5 px-[22px] rounded-md font-bold">
             Ingresar
           </button>
