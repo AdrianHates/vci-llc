@@ -69,7 +69,7 @@ const DonutChart = () => {
     },
   ];
   return (
-    <div className="relative sm:w-[400px] w-[300px] sm:h-[400px] h-[300px] sm:my-[85px] my-0">
+    <div className="relative sm:w-[400px] w-[300px] sm:h-[400px] h-[300px] lg:my-[85px] my-0">
       <Chart
         options={options}
         series={series}

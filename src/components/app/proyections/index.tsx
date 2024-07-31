@@ -26,7 +26,7 @@ const Proyections = ({ id }: Props) => {
     <section className="pt-[50.5px] mt-[-50.5px]" id={id}>
       <div
         ref={proyectionsRef}
-        className="sm:bg-primary bg-white sm:bg-opacity-[5%] opacity-100 sm:px-16 px-5 pt-24 pb-[247px]"
+        className="sm:bg-primary bg-white sm:bg-opacity-[5%] opacity-100 lg:px-16 sm:px-12 px-5 pt-24 pb-[247px]"
       >
         <motion.h3
           variants={fadeInFromTop}
@@ -63,7 +63,7 @@ const Proyections = ({ id }: Props) => {
           animate={chartsInView ? "animate" : "initial"}
           transition={{ duration: 0.25, ease: "easeIn" }}
           ref={chartsRef}
-          className="lg:flex-row flex-col flex items-center justify-center sm:gap-28 gap-0"
+          className="lg:flex-row flex-col flex items-center justify-center lg:gap-28 gap-0"
         >
           {chartsInView && <DonutChart />} <ColumnChart />
         </motion.div>

@@ -59,7 +59,7 @@ const DataNumbers = () => {
           >
             <div
               className={cx(
-                "text-secondary lg:text-[64.55px] lg:leading-[78.68px] sm:text-5xl text-xl font-bold w-auto flex justify-center",
+                "text-secondary lg:text-[64.55px] lg:leading-[78.68px] sm:text-4xl text-xl font-bold w-auto flex justify-center",
                 i !== 0 ? "flex-row-reverse" : "flex-row",
                 dataNumber.className
               )}
@@ -71,7 +71,7 @@ const DataNumbers = () => {
               />
             </div>
 
-            <p className="lg:text-[20px] lg:leading-[24.38px] sm:text-base text-[6px] leading-[7.12px] font-medium text-[#535967]">
+            <p className="lg:text-[20px] lg:leading-[24.38px] sm:text-xs text-[6px] leading-[7.12px] font-medium text-[#535967]">
               {dataNumber.name}
             </p>
           </div>

@@ -34,7 +34,7 @@ const Portfolio = ({ id }: Props) => {
   ];
   return (
     <section
-      className="pb-[115px] mt-[-250px] pt-[325px] sm:px-0 px-6"
+      className="pb-[115px] mt-[-250px] pt-[325px] lg:px-0 px-6"
       id={id}
       ref={textRef}
     >
@@ -66,13 +66,14 @@ const Portfolio = ({ id }: Props) => {
               initial="initial"
               animate={textInView ? "animate" : "initial"}
               transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-              className="flex sm:flex-row flex-col items-center justify-center pt-7 pb-1 sm:gap-0 gap-[52px]"
+              className="flex sm:flex-row flex-wrap flex-col items-center justify-center pt-7 pb-1 lg:gap-0 gap-[52px]"
             >
               {listPortfolio.map((ulist, i) => (
                 <React.Fragment key={i}>
                   {i !== 0 && (
-                    <div className="bg-[#24364B1F] w-[1px] h-32 mx-7 mb-16 sm:block hidden"></div>
+                    <div className="bg-[#24364B1F] w-[1px] h-32 mx-7 mb-16 lg:block hidden"></div>
                   )}
+                 
                   <div className="flex flex-col items-center">
                     <div className="h-[69px] flex items-center justify-center sm:mb-8 mb-[30px]">
                       <img

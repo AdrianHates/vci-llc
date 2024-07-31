@@ -137,7 +137,7 @@ const ColumnChart = () => {
         series={series}
         height="100%"
         type="bar"
-        className="sm:w-[500px] w-[320px] sm:h-[500] h-[300px]"
+        className="sm:w-[500px] w-[320px] sm:h-[500px] h-[300px]"
       />
     </div>
   );
