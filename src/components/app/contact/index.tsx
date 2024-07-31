@@ -57,7 +57,7 @@ const Contact = ({ id }: Props) => {
             className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
             placeholder="Mensaje"
           />
-          <button className="mt-[23px] bg-quaternary sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
+          <button className="mt-[23px] bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
             Enviar
           </button>
         </motion.form>

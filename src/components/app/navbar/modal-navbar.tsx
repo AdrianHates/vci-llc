@@ -20,17 +20,18 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
       <div
         className={cx(
           "modal-navbar w-full h-full bg-primary",
+          "flex flex-col",
           isVisible ? "" : "fade-out"
         )}
       >
-        <div>
+        <div className="h-[100px] flex items-center justify-center border-[red] border-[#24364BCC] border-b-[.5px]">
           {logo && (
             <a href="#">
-              <img alt="logo" height={32} width={50} src={logo} />
+              <img alt="logo" width={100} src={logo} />
             </a>
           )}
           <button
-            className="text-white absolute right-2 top-2"
+            className="text-white absolute right-[5%] top-[2.5%] text-[24px] scale-x-[1.2]"
             onClick={() => {
               setIsVisible(false);
               setTimeout(() => {
@@ -41,8 +42,27 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
             X
           </button>
         </div>
-        <ul>
-          {options && options.map((opt, i) => <li key={i}>{opt.name}</li>)}
+        <ul className="flex flex-col text-white my-[.5rem]">
+          {options &&
+            options.map((opt, i) => (
+              <li
+                key={i}
+                className="font-montserrat font-light text-[20px] hover:bg-quaternary hover:brightness-125 duration-300 cursor-pointer"
+              >
+                <a
+                  href={"#" + opt.name.toLowerCase()}
+                  className="flex h-full py-[.5rem] px-[2rem]"
+                  onClick={() => {
+                    setIsVisible(false);
+                    setTimeout(() => {
+                      onClick();
+                    }, 300);
+                  }}
+                >
+                  {opt.name}
+                </a>
+              </li>
+            ))}
         </ul>
       </div>
     </Modal>

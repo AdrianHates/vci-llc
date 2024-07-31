@@ -24,10 +24,12 @@ const Portfolio = ({ id }: Props) => {
       text: "Somos una Neo Cooperativa especializada en atención al cliente con servicios financieros de primera clase; con la nueva vanguardia de seguridad, apegados a las leyes en créditos, depósitos a plazos, cuentas de ahorro y otros productos.",
     },
     {
+      link: "https://www.inversionestauro.com/lander",
       class_img: "w-[185px]",
       text: "Ofrecemos créditos a personas que normalmente no tienen oportunidad de inclusión financiera en la banca tradicional. Nuestros servicios son rápidos y seguros para nuestros clientes e inversionistas.",
     },
     {
+      link: "https://www.curbsideloan.com/",
       class_img: "w-[92.55px]",
       text: "Nos dedicamos al otorgamiento de microcréditos de corto plazo. Trabajando 24/7, con el uso de inteligencia artificial ofrecemos aprobaciones en minutos y otorgamiento de fondos instantáneos.",
     },
@@ -73,7 +75,7 @@ const Portfolio = ({ id }: Props) => {
                   {i !== 0 && (
                     <div className="bg-[#24364B1F] w-[1px] h-32 mx-7 mb-16 lg:block hidden"></div>
                   )}
-                 
+
                   <div className="flex flex-col items-center">
                     <div className="h-[69px] flex items-center justify-center sm:mb-8 mb-[30px]">
                       <img
@@ -85,7 +87,7 @@ const Portfolio = ({ id }: Props) => {
                       {ulist.text}
                     </p>
                     <a href={ulist.link} target="_blank">
-                      <button className="bg-[#24364B] text-white text-[16px] leading-[19.5px] py-2.5 px-[22px] rounded-[8px] font-light">
+                      <button className="bg-[#24364B] hover:brightness-125 hover:scale-[1.05] duration-300 text-white text-[16px] leading-[19.5px] py-2.5 px-[22px] rounded-[8px] font-light">
                         Visitar
                       </button>
                     </a>

@@ -121,12 +121,12 @@ const Navbar = ({ logo, options }: NavbarProps) => {
             </li>
           ))}
 
-          <button className="bg-quaternary py-2.5 px-[22px] rounded-md font-bold">
+          <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 py-2.5 px-[22px] rounded-md font-bold">
             Ingresar
           </button>
         </ul>
       </nav>
-      {isOpen && <ModalNavbar onClick={onClose} options={options} />}
+      {isOpen && <ModalNavbar onClick={onClose} options={options} logo={'icon.svg'} />}
     </>
   );
 };
