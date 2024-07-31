@@ -14,7 +14,7 @@ const SecondSection = () => {
   });*/
 
   return (
-    <div className="lg:pl-16 pl-0 lg:pr-0 pr-0 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative lg:gap-0 gap-10">
+    <div className="xl:pl-16 pl-0 lg:pr-0 pr-0 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative lg:gap-0 gap-10">
       <Icon_Text
         variants={fadeInFromXY(0, 0, 0)}
         initial="initial"

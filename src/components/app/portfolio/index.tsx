@@ -34,7 +34,7 @@ const Portfolio = ({ id }: Props) => {
   ];
   return (
     <section
-      className="pb-[115px] mt-[-250px] pt-[325px] lg:px-0 px-6"
+      className="pb-[115px] mt-[-250px] pt-[325px] xl:px-0 px-6"
       id={id}
       ref={textRef}
     >

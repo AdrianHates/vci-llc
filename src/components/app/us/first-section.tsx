@@ -9,7 +9,7 @@ const FirstSection = () => {
   });
 
   return (
-    <div className="flex lg:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 lg:gap-0 gap-10">
+    <div className="flex overflow-hidden lg:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 lg:gap-0 gap-10">
       <motion.div
         variants={fadeInFromXY(-500, 0, 0)}
         initial="initial"
@@ -17,7 +17,7 @@ const FirstSection = () => {
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         ref={firstRef}
       >
-        <div className="flex flex-col items-center gap-14 lg:pl-[147px] pl-6 lg:pr-0 pr-6">
+        <div className="flex flex-col items-center gap-14 xl:pl-[147px] lg:pl-20 pl-6 lg:pr-0 pr-6">
           <h3 className="text-quaternary sm:max-w-none max-w-[35ch] lg:text-start text-center sm:text-[32px] text-[20px] sm:leading-[39px] leading-[24px] font-bold sm:w-[25ch] w-full">
             ¿Porqué es importante la inclusión financiera en latinoamerica?
           </h3>
@@ -30,7 +30,7 @@ const FirstSection = () => {
         </div>
 
         <div className="bg-[#24364B] w-full py-4 my-4 relative">
-          <p className="lg:max-w-[53ch] max-w-[44ch] lg:mx-0 mx-auto w-full lg:pl-36 pl-6 lg:pr-0 pr-6 text-white sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light">
+          <p className="lg:max-w-[53ch] max-w-[44ch] lg:mx-0 mx-auto w-full xl:pl-36 lg:pl-20 pl-6 lg:pr-0 pr-6 text-white sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light">
             La población de Texas es de 31.1 millones, de los cuales 12.5
             millones son latinos y de esos 500 mil son Salvadoreños. 1.7
             millones* de personas no tienen cuenta corriente o de ahorro.
@@ -41,7 +41,7 @@ const FirstSection = () => {
           </div>
         </div>
 
-        <p className="lg:ml-36 ml-6 lg:mr-0 mr-10 text-[13px] leading-[15.85px] italic font-light">
+        <p className="xl:ml-36 lg:ml-20 ml-6 lg:mr-0 mr-10 text-[13px] leading-[15.85px] italic font-light">
           *Entre ambos mercados tenemos 7.2 millones de clientes potenciales.
         </p>
       </motion.div>

@@ -47,7 +47,7 @@ const DataNumbers = () => {
       initial="initial"
       animate={dataNumbersInView ? "animate" : "initial"}
       transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
-      className="flex items-center lg:justify-center justify-between lg:gap-[87px] gap-0 py-[72px]"
+      className="flex xl:justify-center justify-between xl:gap-[87px] gap-0 py-[72px]"
       ref={dataNumbersRef}
     >
       {dataNumbers &&
@@ -55,11 +55,11 @@ const DataNumbers = () => {
         dataNumbers.map((dataNumber, i) => (
           <div
             key={i}
-            className="flex flex-col justify-center items-center gap-1"
+            className="flex flex-col items-center gap-1"
           >
             <div
               className={cx(
-                "text-secondary lg:text-[64.55px] lg:leading-[78.68px] sm:text-4xl text-xl font-bold w-auto flex justify-center",
+                "text-secondary xl:text-[64.55px] xl:leading-[78.68px] md:text-5xl sm:text-3xl text-xl font-bold w-auto flex justify-center",
                 i !== 0 ? "flex-row-reverse" : "flex-row",
                 dataNumber.className
               )}
@@ -71,7 +71,7 @@ const DataNumbers = () => {
               />
             </div>
 
-            <p className="lg:text-[20px] lg:leading-[24.38px] sm:text-xs text-[6px] leading-[7.12px] font-medium text-[#535967]">
+            <p className="lg:text-[20px] text-center lg:leading-[24.38px] sm:text-sm text-[6px] leading-[7.12px] font-medium text-[#535967]">
               {dataNumber.name}
             </p>
           </div>
