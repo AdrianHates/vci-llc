@@ -35,7 +35,7 @@ const Us = ({ id }: Props) => {
   return (
     <section className="sm:pb-32 pb-0 pt-[100px] mt-[-100px]" id={id}>
       {listFeatures && (
-        <div className="flex sm:flex-row flex-col sm:gap-0 gap-10 justify-between sm:mx-20 mx-11 py-[41.5px]">
+        <div className="flex sm:flex-row flex-col sm:gap-6 gap-10 justify-between lg:mx-20 sm:mx-6 mx-11 py-[41.5px]">
           {listFeatures.map((feat, i) => (
             <motion.div
               ref={featRef}

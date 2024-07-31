@@ -68,7 +68,7 @@ const Inicio = ({ id }: Props) => {
           initial="initial"
           animate={inicioInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
-          className="sm:max-w-[45ch] max-w-[26ch] sm:text-[26px] sm:leading-[31.69px] text-[20px] leading-[24.38px] text-center text-quaternary font-[550]"
+          className="sm:max-w-[45ch] px-6 max-w-[26ch] sm:text-[26px] sm:leading-[31.69px] text-[20px] leading-[24.38px] text-center text-quaternary font-[550]"
         >
           {textPrincipal.first}{" "}
           <span className="font-extralight text-[#fff]">

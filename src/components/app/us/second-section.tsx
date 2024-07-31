@@ -35,7 +35,7 @@ const SecondSection = () => {
         ref={firstRef}
         src="/dedication/img_2.png"
         alt="dedication_img_2"
-        className="w-[679.13px]"
+        className="w-[679.13px] lg:mx-0 mx-auto"
       />
       <motion.div
         variants={fadeInFromXY(500, 0, 0)}
@@ -44,17 +44,17 @@ const SecondSection = () => {
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         className="flex flex-col gap-3 w-full lg:ml-[-15px] ml-0 justify-center sm:items-start items-center"
       >
-        <h3 className="text-quaternary sm:max-w-[35ch] max-w-[37ch] w-full font-bold sm:px-0 px-6 sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
+        <h3 className="text-quaternary sm:max-w-[35ch] max-w-[37ch] w-full font-bold lg:px-0 px-6 mx-auto lg:text-start sm:text-center text-start sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           ¡Impacto positivo!
         </h3>
 
-        <p className="sm:px-0 px-6 text-[#595959] sm:self-start font-medium sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] w-full sm:max-w-[45ch] max-w-[47ch] mt-3.5">
+        <p className="lg:px-0 px-6 text-[#595959] lg:self-start self-center font-medium sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] w-full sm:max-w-[45ch] max-w-[47ch] mt-3.5">
           Más del 50% de nuestros créditos han sido otorgados a personas que
           viven fuera de las capitales financieras de El Salvador y Texas.
         </p>
 
         <div className="bg-[#24364B] sm:w-full sm:px-3 py-3.5 text-white font-light text-[16px] leading-[19.5px]">
-          <p className="max-w-[48ch] sm:px-0 px-6">
+          <p className="max-w-[48ch] mx-auto lg:px-0 sm:px-2 px-6">
             Recientemente hemos visto un incremento en clientes que optan por
             más de un crédito, esto quiere decir que son clientes recurrentes
             que han pagado su crédito y necesitan uno nuevo o necesitan capital
