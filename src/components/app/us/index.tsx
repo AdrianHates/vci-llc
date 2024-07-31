@@ -33,9 +33,9 @@ const Us = ({ id }: Props) => {
   ];
 
   return (
-    <section className="pb-32 pt-[100px] mt-[-100px]" id={id}>
+    <section className="sm:pb-32 pb-0 pt-[100px] mt-[-100px]" id={id}>
       {listFeatures && (
-        <div className="flex sm:flex-row flex-col justify-between sm:mx-20 mx-11 py-[41.5px]">
+        <div className="flex sm:flex-row flex-col sm:gap-0 gap-10 justify-between sm:mx-20 mx-11 py-[41.5px]">
           {listFeatures.map((feat, i) => (
             <motion.div
               ref={featRef}
@@ -44,7 +44,7 @@ const Us = ({ id }: Props) => {
               initial="initial"
               animate={featInView ? "animate" : "initial"}
               transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-              className="flex flex-col gap-11 origin-top"
+              className="flex flex-col gap-11 origin-top items-center"
             >
               <img
                 src={`/inicio/feat_icon_${i + 1}.svg`}
@@ -54,7 +54,7 @@ const Us = ({ id }: Props) => {
                 <h3 className="text-secondary font-bold text-center text-[20px] leading-[24.38px]">
                   {feat.name}
                 </h3>
-                <p className="sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light text-center text-[#595959] max-w-[330px]">
+                <p className="lg:text-[18px] sm:text-[14px] text-[16px] lg:leading-[21.94px] sm:leading-[18px] leading-[19.5px] font-light text-center text-[#595959] max-w-[330px]">
                   {feat.description}
                 </p>
               </div>

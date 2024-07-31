@@ -14,7 +14,7 @@ const SecondSection = () => {
   });*/
 
   return (
-    <div className="sm:pl-16 pl-12 sm:pr-0 pr-12 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative sm:gap-0 gap-10">
+    <div className="lg:pl-16 pl-0 lg:pr-0 pr-0 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative lg:gap-0 gap-10">
       <Icon_Text
         variants={fadeInFromXY(0, 0, 0)}
         initial="initial"
@@ -42,19 +42,19 @@ const SecondSection = () => {
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
-        className="flex flex-col gap-3 w-full lg:ml-[-15px] ml-0 justify-center"
+        className="flex flex-col gap-3 w-full lg:ml-[-15px] ml-0 justify-center sm:items-start items-center"
       >
-        <h3 className="text-quaternary font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
+        <h3 className="text-quaternary sm:max-w-[35ch] max-w-[37ch] w-full font-bold sm:px-0 px-6 sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           ¡Impacto positivo!
         </h3>
 
-        <p className="text-[#595959] font-medium sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] w-full max-w-[45ch] mt-3.5">
+        <p className="sm:px-0 px-6 text-[#595959] sm:self-start font-medium sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] w-full sm:max-w-[45ch] max-w-[47ch] mt-3.5">
           Más del 50% de nuestros créditos han sido otorgados a personas que
           viven fuera de las capitales financieras de El Salvador y Texas.
         </p>
 
-        <div className="bg-[#24364B] px-3 py-3.5 text-white font-light text-[16px] leading-[19.5px]">
-          <p className="max-w-[48ch]">
+        <div className="bg-[#24364B] sm:w-full sm:px-3 py-3.5 text-white font-light text-[16px] leading-[19.5px]">
+          <p className="max-w-[48ch] sm:px-0 px-6">
             Recientemente hemos visto un incremento en clientes que optan por
             más de un crédito, esto quiere decir que son clientes recurrentes
             que han pagado su crédito y necesitan uno nuevo o necesitan capital

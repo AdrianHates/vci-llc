@@ -62,7 +62,7 @@ const Inicio = ({ id }: Props) => {
       className="flex flex-col items-center justify-center"
       id={id}
     >
-      <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[249.5px] pt-[50px] sm:pb-[434px] pb-[152.75px]">
+      <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[249.5px] pt-[150px] sm:pb-[434px] pb-[152.75px]">
         <motion.p
           variants={fadeInFromTop}
           initial="initial"

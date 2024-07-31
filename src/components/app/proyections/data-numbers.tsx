@@ -14,25 +14,25 @@ const dataNumbers: {
     name: "Créditos Aprobados",
     number: 395,
     symbol: "+",
-    className: "w-[202px]",
+    className: "lg:w-[202px]",
   },
   {
     name: "Años de Experiencia",
     number: 4,
     symbol: "+",
-    className: "w-[207px]",
+    className: "lg:w-[207px]",
   },
   {
     name: "Rentabilidad Neta",
     number: 49.41,
     symbol: "%",
-    className: "w-[227.26px]",
+    className: "lg:w-[227.26px]",
   },
   {
     name: "Comunidad Beneficiada",
     number: 200,
     symbol: "+",
-    className: "w-[250px]",
+    className: "lg:w-[250px]",
   },
 ];
 
@@ -47,7 +47,7 @@ const DataNumbers = () => {
       initial="initial"
       animate={dataNumbersInView ? "animate" : "initial"}
       transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
-      className="lg:flex-row flex-col flex items-center justify-center gap-[87px] py-[72px]"
+      className="flex items-center lg:justify-center justify-between lg:gap-[87px] gap-0 py-[72px]"
       ref={dataNumbersRef}
     >
       {dataNumbers &&
@@ -59,7 +59,7 @@ const DataNumbers = () => {
           >
             <div
               className={cx(
-                "text-secondary text-[64.55px] leading-[78.68px] font-bold w-[250px] flex justify-center",
+                "text-secondary lg:text-[64.55px] lg:leading-[78.68px] sm:text-5xl text-xl font-bold w-auto flex justify-center",
                 i !== 0 ? "flex-row-reverse" : "flex-row",
                 dataNumber.className
               )}
@@ -71,7 +71,7 @@ const DataNumbers = () => {
               />
             </div>
 
-            <p className="text-[20px] leading-[24.38px] font-medium text-[#535967]">
+            <p className="lg:text-[20px] lg:leading-[24.38px] sm:text-base text-[6px] leading-[7.12px] font-medium text-[#535967]">
               {dataNumber.name}
             </p>
           </div>

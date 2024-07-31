@@ -126,16 +126,18 @@ const ColumnChart = () => {
 
   return (
     <div className="column-chart relative">
-      <p className="absolute top-[20%] left-0 text-[24px] leading-[29.26px] text-[#24364B] font-semibold">
+      <p className="absolute top-[20%] sm:left-0 left-5 sm:text-[24px] sm:leading-[29.26px] text-xs text-[#24364B] font-semibold">
         Crecimiento anual{" "}
-        <span className="text-[28px] leading-[34.13px] font-bold">35%</span>
+        <span className="sm:text-[28px] sm:leading-[34.13px] text-sm font-bold">
+          35%
+        </span>
       </p>
       <Chart
         options={{ ...options, colors }}
         series={series}
+        height="100%"
         type="bar"
-        width={500}
-        height={450}
+        className="sm:w-[500px] w-[320px] sm:h-[500] h-[300px]"
       />
     </div>
   );
