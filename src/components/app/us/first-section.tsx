@@ -9,9 +9,9 @@ const FirstSection = () => {
   });
 
   return (
-    <div className="flex overflow-hidden lg:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 lg:gap-0 gap-10">
+    <div className="flex lg:flex-row flex-col items-center sm:pt-[90px] pt-[75px] sm:pb-[89px] pb-8 lg:gap-0 gap-10">
       <motion.div
-        variants={fadeInFromXY(-500, 0, 0)}
+        variants={fadeInFromXY(-250, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
@@ -50,7 +50,7 @@ const FirstSection = () => {
         src="/dedication/img_1.png"
         alt="img-dedication"
         className="lg:w-[700px] w-[331.42px] relative z-10"
-        variants={fadeInFromXY(500, 0, 0)}
+        variants={fadeInFromXY(250, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}

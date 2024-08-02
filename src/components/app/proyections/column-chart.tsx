@@ -4,6 +4,9 @@ import Chart from "react-apexcharts";
 const ColumnChart = () => {
   const options: ApexOptions = {
     chart: {
+      toolbar: {
+        show: false,
+      },
       type: "bar",
       height: 450,
       stacked: true,
@@ -127,7 +130,7 @@ const ColumnChart = () => {
   return (
     <div className="column-chart relative">
       <p className="absolute top-[20%] sm:left-0 left-5 sm:text-[24px] sm:leading-[29.26px] text-xs text-[#24364B] font-semibold">
-        Crecimiento anual{" "}
+        Crecimiento anual de{" "}
         <span className="sm:text-[28px] sm:leading-[34.13px] text-sm font-bold">
           35%
         </span>

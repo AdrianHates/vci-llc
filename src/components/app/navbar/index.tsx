@@ -9,7 +9,7 @@ import "./index.css";
 import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface NavbarProps {
-  logo: string;
+  logo: string[];
   options: {
     name: string;
     classOpt: string;
@@ -21,7 +21,6 @@ const Navbar = ({ logo, options }: NavbarProps) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-
   const { ref: navbarRef, inView: navbarInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -59,7 +58,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
       <nav
         ref={navbarRef}
         className={cx(
-          " bg-primary backdrop-blur-sm flex justify-between items-center xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 py-9 fixed top-0 z-[9999] w-full max-w-[1536px]",
+          " bg-primary backdrop-blur-sm flex justify-between items-center xl:pl-[147px] sm:pl-5 pl-11 sm:pr-[70px] pr-5 py-9 fixed top-0 z-[9999] w-full max-w-[1920px]",
           scrollPosition > 50 ? "bg-opacity-40 py-0 transition-all" : ""
         )}
       >
@@ -72,8 +71,11 @@ const Navbar = ({ logo, options }: NavbarProps) => {
         >
           <img
             alt="logo"
-            src={logo}
-            className="sm:w-[343px] w-[150px] sm:h-[85px] h-[37px]"
+            src={scrollPosition > 65 ? logo[1] : logo[0]}
+            className={cx(
+              "sm:w-[343px] w-[150px] sm:h-[85px] h-[37px]",
+              scrollPosition > 65 ? "sm:w-[100px] w-[45px] sm:my-0 my-2 " : ""
+            )}
           />
         </motion.a>
 
@@ -126,7 +128,9 @@ const Navbar = ({ logo, options }: NavbarProps) => {
           </button>
         </ul>
       </nav>
-      {isOpen && <ModalNavbar onClick={onClose} options={options} logo={'icon.svg'} />}
+      {isOpen && (
+        <ModalNavbar onClick={onClose} options={options} logo={"icon.svg"} />
+      )}
     </>
   );
 };

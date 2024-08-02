@@ -29,7 +29,7 @@ const dataNumbers: {
     className: "lg:w-[227.26px]",
   },
   {
-    name: "Comunidad Beneficiada",
+    name: "Personas Beneficiadas",
     number: 200,
     symbol: "+",
     className: "lg:w-[250px]",

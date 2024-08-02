@@ -8,10 +8,6 @@ const SecondSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  /*const [secondRef, secondInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });*/
 
   return (
     <div className="xl:pl-16 pl-0 lg:pr-0 pr-0 flex lg:flex-row flex-col-reverse pt-[75.5px] pb-[78.5px] relative lg:gap-0 gap-10">
@@ -28,7 +24,7 @@ const SecondSection = () => {
       />
 
       <motion.img
-        variants={fadeInFromXY(-500, 0, 0)}
+        variants={fadeInFromXY(-250, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
@@ -38,7 +34,7 @@ const SecondSection = () => {
         className="w-[679.13px] lg:mx-0 mx-auto"
       />
       <motion.div
-        variants={fadeInFromXY(500, 0, 0)}
+        variants={fadeInFromXY(250, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}

@@ -9,7 +9,7 @@ import Us from "./components/app/us";
 
 function App() {
   const navbar = {
-    logo: "logo.svg",
+    logo: ["logo.svg", "icon_logo.svg"],
     options: [
       {
         name: "Inicio",
