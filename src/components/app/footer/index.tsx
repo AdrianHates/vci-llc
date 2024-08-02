@@ -24,7 +24,7 @@ const Footer = () => {
   ];
   return (
     <footer ref={footerRef}>
-      <div className="flex sm:flex-row flex-col bg-[#24364B] lg:pl-[135px] pl-6 sm:pr-0 pr-6 pt-[82.5px] sm:pb-[139px] pb-0 lg:gap-[136px] gap-[60px] relative overflow-hidden">
+      <div className="flex sm:flex-row flex-col bg-[#24364B] lg :pl-[135px] pl-6 sm:pr-0 pr-6 pt-[82.5px] sm:pb-[139px] pb-0 lg:gap-[136px] gap-[60px] relative overflow-hidden">
         <motion.div
           variants={fadeInFromXY(0, 0, 0)}
           initial="initial"

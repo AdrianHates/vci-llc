@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-quinuary font-montserrat">
+      <div className="bg-quinuary font-montserrat overflow-hidden">
         <Navbar logo={navbar.logo} options={navbar.options} />
         <Inicio id={navbar.options[0].name.toLowerCase()} />
         <Us id={navbar.options[1].name.toLowerCase()} />
