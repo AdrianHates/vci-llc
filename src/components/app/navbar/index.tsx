@@ -78,7 +78,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
         </motion.a>
 
         <button
-          className="text-white lg:hidden block"
+          className="text-white lg:hidden block order-3"
           onClick={() => {
             onToggle();
           }}
@@ -86,7 +86,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
           <img src="toggle.svg" alt="toggle" className="w-6 h-6" />
         </button>
 
-        <ul className="sm:flex hidden gap-3 items-center justify-center text-[15.5px] leading-[19px] text-white">
+        <ul className="sm:flex hidden gap-3 order-2 items-center justify-center text-[15.5px] leading-[19px] text-white">
           {options.map((opt, i) => (
             <li
               key={i}

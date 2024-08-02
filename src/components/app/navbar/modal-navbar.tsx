@@ -47,11 +47,11 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
             options.map((opt, i) => (
               <li
                 key={i}
-                className="font-montserrat font-light text-[20px] hover:bg-quaternary hover:brightness-125 duration-300 cursor-pointer"
+                className="font-light text-[20px] hover:bg-quaternary hover:brightness-125 duration-300 cursor-pointer"
               >
                 <a
                   href={"#" + opt.name.toLowerCase()}
-                  className="flex h-full py-[.5rem] px-[2rem]"
+                  className="flex h-full py-[1rem] px-[2rem]"
                   onClick={() => {
                     setIsVisible(false);
                     setTimeout(() => {
@@ -64,6 +64,9 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
               </li>
             ))}
         </ul>
+        <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] text-[20px] duration-300 mx-auto py-2.5 px-[22px] rounded-md font-bold text-white">
+          Ingresar
+        </button>
       </div>
     </Modal>
   );
