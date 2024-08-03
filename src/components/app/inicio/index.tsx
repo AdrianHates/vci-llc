@@ -7,6 +7,7 @@ import cx from "../../libs/cx";
 import Icon_Text from "../../shared/icon_text";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Carousel from "../../shared/icon_text/carousel";
 
 interface Props {
   id: string;
@@ -17,6 +18,12 @@ const Inicio = ({ id }: Props) => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const carouselItems: string[] = [
+    "/inicio/carousel_1.png",
+    "/inicio/carousel_2.png",
+    "/inicio/carousel_3.png",
+  ];
 
   const textPrincipal: { first: string; second: string } = {
     first:
@@ -59,7 +66,7 @@ const Inicio = ({ id }: Props) => {
   return (
     <section
       ref={inicioRef}
-      className="flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center mb-16"
       id={id}
     >
       <div className="relative bg-primary w-full flex items-center justify-center sm:pt-[249.5px] pt-[150px] sm:pb-[434px] pb-[152.75px]">
@@ -79,7 +86,7 @@ const Inicio = ({ id }: Props) => {
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
-        <div className="sm:max-w-[1142px] sm:max-h-[773px] max-w-[333px] sm:mt-0 mt-[-132px]">
+        <div className="relative sm:max-w-[1142px] sm:max-h-[773px] max-w-[333px] sm:mt-0 mt-[-132px]">
           <motion.img
             variants={fadeInFromBottomToTopReturn}
             initial="initial"
@@ -93,6 +100,34 @@ const Inicio = ({ id }: Props) => {
             src="/inicio/img_1.png"
             className="w-full"
           />
+          {inicioInView && (
+            <Carousel
+              variants={{
+                initial: {
+                  opacity: 0,
+                  y: 500,
+                  top: "50%",
+                  left: "50%",
+                  translateX: "-51%",
+                  translateY: "-69%",
+                },
+                animate: {
+                  opacity: [0, 1, 1],
+                  y: [500, -20, 0],
+                },
+              }}
+              initial="initial"
+              animate={inicioInView ? "animate" : "initial"}
+              transition={{
+                duration: 1,
+                ease: "easeOut",
+                delay: 1.5,
+                times: [0, 0.5, 1],
+              }}
+              carouselItems={carouselItems}
+              className="bg-white overflow-hidden absolute w-[59.9%] h-[55.6%]"
+            />
+          )}
         </div>
         {textIcons.map((tIcon, i) => (
           <Icon_Text
