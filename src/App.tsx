@@ -9,7 +9,13 @@ import Us from "./components/app/us";
 
 function App() {
   const navbar = {
-    logo: ["logo.svg", "icon_logo.svg"],
+    button: {
+      name: "Ingresar",
+    },
+    logo: {
+      normal: "logo.svg",
+      scroll: "icon_logo.svg",
+    },
     options: [
       {
         name: "Inicio",
@@ -37,7 +43,11 @@ function App() {
   return (
     <>
       <div className="bg-quinuary font-montserrat overflow-hidden">
-        <Navbar logo={navbar.logo} options={navbar.options} />
+        <Navbar
+          logo={navbar.logo}
+          options={navbar.options}
+          button={navbar.button}
+        />
         <Inicio id={navbar.options[0].name.toLowerCase()} />
         <Us id={navbar.options[1].name.toLowerCase()} />
         <Proyections id={navbar.options[2].name.toLowerCase()} />

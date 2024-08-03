@@ -1,8 +1,3 @@
-.duration-class {
-  transition: scale 300ms ease-in-out;
-  transition: filter 300ms ease-in-out;
-}
-
 .modal-navbar {
   animation: FadeInFromLeft 0.5s ease-out forwards;
 }

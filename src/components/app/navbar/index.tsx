@@ -9,18 +9,24 @@ import "./index.css";
 import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface NavbarProps {
-  logo: string[];
+  logo: {
+    normal: string;
+    scroll: string;
+  };
   options: {
     name: string;
     classOpt: string;
   }[];
+  button: {
+    name: string;
+  };
 }
 
-const Navbar = ({ logo, options }: NavbarProps) => {
-  //const [currentIndex, setCurrentIndex] = useState(0);
+const Navbar = ({ logo, options, button }: NavbarProps) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+
   const { ref: navbarRef, inView: navbarInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -71,7 +77,7 @@ const Navbar = ({ logo, options }: NavbarProps) => {
         >
           <img
             alt="logo"
-            src={scrollPosition > 65 ? logo[1] : logo[0]}
+            src={scrollPosition > 65 ? logo.scroll : logo.normal}
             className={cx(
               "sm:w-[343px] w-[150px] sm:h-[85px] h-[37px]",
               scrollPosition > 65 ? "sm:w-[100px] w-[45px] sm:my-0 my-2 " : ""
@@ -123,20 +129,27 @@ const Navbar = ({ logo, options }: NavbarProps) => {
             </li>
           ))}
 
-          <motion.div
-            variants={fadeInFromTop}
-            initial="initial"
-            animate={navbarInView ? "animate" : "initial"}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <button className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold">
-              Ingresar
-            </button>
-          </motion.div>
+          {button && (
+            <motion.div
+              variants={fadeInFromTop}
+              initial="initial"
+              animate={navbarInView ? "animate" : "initial"}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <button className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold">
+                {button.name}
+              </button>
+            </motion.div>
+          )}
         </ul>
       </nav>
       {isOpen && (
-        <ModalNavbar onClick={onClose} options={options} logo={"icon.svg"} />
+        <ModalNavbar
+          onClick={onClose}
+          options={options}
+          button={button}
+          logo={logo.scroll}
+        />
       )}
     </>
   );
