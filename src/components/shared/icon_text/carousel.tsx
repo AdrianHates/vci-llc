@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
 import cx from "../../libs/cx";
 
@@ -14,9 +14,9 @@ interface Props {
 const Carousel = ({ className, carouselItems, ...props }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
-  };
+  }, [carouselItems.length]);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -37,7 +37,7 @@ const Carousel = ({ className, carouselItems, ...props }: Props) => {
     }, initialDelay);
 
     return () => clearTimeout(timeoutId);
-  }, []);
+  }, [handleNext]);
 
   return (
     <motion.div className={cx("carousel-container flex", className)} {...props}>
