@@ -24,7 +24,7 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
           isVisible ? "" : "fade-out"
         )}
       >
-        <div className="h-[100px] flex items-center justify-center border-[red] border-[#24364BCC] border-b-[.5px]">
+        <div className="h-[100px] py-4 flex items-center justify-center border-[red] border-[#24364BCC] border-b-[.5px]">
           {logo && (
             <a href="#">
               <img alt="logo" width={100} src={logo} />
@@ -64,9 +64,11 @@ const ModalNavbar = ({ logo, onClick, options, ...toggle }: Props) => {
               </li>
             ))}
         </ul>
-        <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] text-[20px] duration-300 mx-auto py-2.5 px-[22px] rounded-md font-bold text-white">
-          Ingresar
-        </button>
+        <div className="w-full h-full flex items-center justify-center">
+          <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] text-[20px] duration-300 py-2.5 px-[22px] rounded-md font-bold text-white">
+            Ingresar
+          </button>
+        </div>
       </div>
     </Modal>
   );
