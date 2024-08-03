@@ -123,9 +123,16 @@ const Navbar = ({ logo, options }: NavbarProps) => {
             </li>
           ))}
 
-          <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 py-2.5 px-[22px] rounded-md font-bold">
-            Ingresar
-          </button>
+          <motion.div
+            variants={fadeInFromTop}
+            initial="initial"
+            animate={navbarInView ? "animate" : "initial"}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <button className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold">
+              Ingresar
+            </button>
+          </motion.div>
         </ul>
       </nav>
       {isOpen && (
