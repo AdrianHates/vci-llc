@@ -2,7 +2,7 @@ import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import cx from "../../libs/cx";
 
-const DonutChart = () => {
+const DonutChart1 = () => {
   const options: ApexOptions = {
     stroke: {
       show: true,
@@ -69,7 +69,7 @@ const DonutChart = () => {
     },
   ];
   return (
-    <div className="relative sm:w-[400px] w-[300px] sm:h-[400px] h-[300px] lg:my-[85px] my-0">
+    <div className="relative flex justify-end sm:w-[500px] w-[300px] sm:h-[500px] h-[300px] lg:my-[85px] my-0">
       <Chart
         options={options}
         series={series}
@@ -101,4 +101,4 @@ const DonutChart = () => {
   );
 };
 
-export default DonutChart;
+export default DonutChart1;

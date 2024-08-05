@@ -43,11 +43,7 @@ function App() {
   return (
     <>
       <div className="bg-quinuary font-montserrat overflow-hidden">
-        <Navbar
-          logo={navbar.logo}
-          options={navbar.options}
-          button={navbar.button}
-        />
+        <Navbar {...navbar} />
         <Inicio id={navbar.options[0].name.toLowerCase()} />
         <Us id={navbar.options[1].name.toLowerCase()} />
         <Proyections id={navbar.options[2].name.toLowerCase()} />

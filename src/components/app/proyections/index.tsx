@@ -5,8 +5,8 @@ import {
   fadeInFromTop,
 } from "../../../animations/animations";
 import DataNumbers from "./data-numbers";
-import DonutChart from "./donut-chart";
-import ColumnChart from "./column-chart";
+import StackedColumnWithLineChart from "./stacked-column-chart";
+import DonutChart from "./donut-d3-chart";
 
 interface Props {
   id: string;
@@ -61,11 +61,11 @@ const Proyections = ({ id }: Props) => {
           variants={appearFromCenterScale}
           initial="initial"
           animate={chartsInView ? "animate" : "initial"}
-          transition={{ duration: 0.25, ease: "easeIn" }}
+          transition={{ duration: .5, ease: "easeIn", delay: .5 }}
           ref={chartsRef}
-          className="lg:flex-row flex-col flex items-center justify-center lg:gap-28 gap-0"
+          className="lg:flex-row flex-col flex items-center justify-center gap-0"
         >
-          {chartsInView && <DonutChart />} <ColumnChart />
+          {chartsInView && <DonutChart />} <StackedColumnWithLineChart />
         </motion.div>
       </div>
     </section>
