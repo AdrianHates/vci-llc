@@ -65,7 +65,8 @@ const Proyections = ({ id }: Props) => {
           ref={chartsRef}
           className="lg:flex-row flex-col flex items-center justify-center py-5"
         >
-          {chartsInView && <DonutChart />} <StackedColumnWithLineChart />
+          {chartsInView && <DonutChart />}
+          {chartsInView && <StackedColumnWithLineChart />}
         </motion.div>
       </div>
     </section>
