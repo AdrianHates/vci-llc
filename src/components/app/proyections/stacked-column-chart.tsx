@@ -145,8 +145,8 @@ const StackedColumnWithLineChart = () => {
   }, [xScale, yScale, boundsHeight]);
 
   return (
-    <div className="overflow-hidden w-full">
-      <svg viewBox="0 0 900 450" className="">
+    <div className="overflow-hidden w-[125%] sm:w-full lg:w-[150%] lg:translate-x-[10%]">
+      <svg viewBox="0 0 900 450">
         <g className="relative">
           {series.map((layer, layerIndex) => (
             <g key={layerIndex}>
@@ -178,7 +178,6 @@ const StackedColumnWithLineChart = () => {
                       const percentage = ((crecimiento / total) * 100).toFixed(
                         2
                       );
-                      console.log(x);
 
                       setTooltip({
                         visible: true,
@@ -195,14 +194,14 @@ const StackedColumnWithLineChart = () => {
                       handleMouseLeave(year);
                       setTooltip({ ...tooltip, visible: false });
                     }}
-                    initial={{ y: 1000, opacity: 0 }}
+                    initial={{ y: 1000, opacity: 1 }}
                     animate={{
                       y: 0,
                       opacity: 1,
                     }}
                     transition={{
                       duration: 1,
-                      delay: 0.5 + groupIndex * 0.1,
+                      delay: (groupIndex + 1) * 0.3,
                     }}
                   />
                 );
@@ -226,9 +225,9 @@ const StackedColumnWithLineChart = () => {
               strokeDashoffset: 0,
               strokeDasharray: finish ? "5 5" : "1000",
               transition: {
-                duration: 1,
+                duration: 1.25,
                 ease: "easeIn",
-                delay: 1,
+                delay: 1.25,
                 onComplete: () => {
                   setFinish(true);
                 },
@@ -283,7 +282,7 @@ const StackedColumnWithLineChart = () => {
             backgroundColor: "white",
             padding: "8px",
           }}
-          className="rounded-[8px] opacity-85 bg-white border-[1px] border-[#ddd] pointer-events-none absolute translate-y-[-50%]"
+          className="rounded-[8px] opacity-85 bg-white border-[1px] border-[#ddd] pointer-events-none absolute translate-y-[-50%] xl:text-base sm:text-xs text-[10px] leading-[14px]"
         >
           <div>Capital: {tooltip.data?.Capital}</div>
           <div>Crecimiento: {tooltip.data?.Crecimiento}</div>

@@ -61,9 +61,9 @@ const Proyections = ({ id }: Props) => {
           variants={appearFromCenterScale}
           initial="initial"
           animate={chartsInView ? "animate" : "initial"}
-          transition={{ duration: .5, ease: "easeIn", delay: .5 }}
+          transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
           ref={chartsRef}
-          className="lg:flex-row flex-col flex items-center justify-center gap-0"
+          className="lg:flex-row flex-col flex items-center justify-center py-5"
         >
           {chartsInView && <DonutChart />} <StackedColumnWithLineChart />
         </motion.div>

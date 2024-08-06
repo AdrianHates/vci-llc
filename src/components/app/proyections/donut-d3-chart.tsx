@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import * as d3 from "d3";
+import cx from "../../libs/cx";
 
 interface DonutData {
   label: string;
@@ -10,8 +11,8 @@ const DonutChart = () => {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const data: DonutData[] = [
-    { label: "Hombres", value: 70 },
-    { label: "Mujeres", value: 30 },
+    { label: "Mujeres", value: 70 },
+    { label: "Hombres", value: 30 },
   ];
   const colors = ["#ee8f4d", "#63abfd"];
   const width = 500;
@@ -144,20 +145,57 @@ const DonutChart = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const series = [70, 30];
+
+  const classHistory: { contain: string; line?: string }[] = [
+    {
+      contain:
+        "absolute top-1/2 translate-y-[-100%] left-1/2 translate-x-[-175%] lg:translate-x-[-150%] xl:translate-x-[-175%] 2xl:translate-x-[-200%] sm:flex hidden flex-col gap-3",
+    },
+    {
+      contain:
+        "absolute top-1/2 translate-y-[-25%] lg:translate-y-[-50%] left-1/2 translate-x-[150%] lg:translate-x-[140%] 2xl:translate-x-[150%] sm:flex hidden flex-col gap-3",
+      line: "border-l-0 border-r-[3px] relative right-[75%]",
+    },
+  ];
+
   return (
     <>
-      <svg
-        ref={svgRef}
-        viewBox="0 0 400 350"
-        className="lg:w-[50%] lg:h-[100%] lg:self-end lg:mb-[5%]"
-      />
+      <div className="lg:w-[90%] w-[100%] lg:h-[100%] lg:self-end relative lg:translate-x-[15%]">
+        <svg
+          ref={svgRef}
+          viewBox="0 0 400 350"
+          className="lg:w-[100%] w-[100%] lg:h-[100%] lg:self-end"
+        />
+
+        {series &&
+          series.map((serie, i) => (
+            <div key={i} className={cx("", classHistory[i].contain)}>
+              <p className="text-[24.91px] leading-[30.37px] font-normal">
+                {data[i]?.label}
+              </p>
+              <p
+                style={{ color: colors?.[i] }}
+                className="font-bold text-[24.3px] leading-[29.62px]"
+              >
+                {serie} %
+              </p>
+              <div
+                className={cx(
+                  "ml-7 border-l-[3px] border-b-[3px] border-[#24364B] h-[41.52px] w-[98.61px]",
+                  classHistory[i].line
+                )}
+              />
+            </div>
+          ))}
+      </div>
       <div
         ref={tooltipRef}
         style={{
           transition: "opacity .3s",
         }}
-        className="rounded-[8px] absolute opacity-0 bg-white border-[1px] border-[#ddd] p-2 pointer-events-none"
-      ></div>{" "}
+        className="xl:text-base text-xs rounded-[8px] absolute z-[100] opacity-0 bg-white border-[1px] border-[#ddd] p-2 pointer-events-none"
+      />{" "}
     </>
   );
 };
