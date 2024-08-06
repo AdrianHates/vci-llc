@@ -194,7 +194,7 @@ const DonutChart = () => {
         style={{
           transition: "opacity .3s",
         }}
-        className="xl:text-base text-xs rounded-[8px] absolute z-[100] opacity-0 bg-white border-[1px] border-[#ddd] p-2 pointer-events-none"
+        className="xl:text-sm text-xs rounded-[8px] absolute z-[100] opacity-0 bg-white border-[1px] border-[#ddd] p-2 pointer-events-none"
       />{" "}
     </>
   );

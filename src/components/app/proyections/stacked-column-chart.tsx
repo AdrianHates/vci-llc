@@ -145,151 +145,169 @@ const StackedColumnWithLineChart = () => {
   }, [xScale, yScale, boundsHeight]);
 
   return (
-    <div className="overflow-hidden w-[125%] sm:w-full lg:w-[150%] lg:translate-x-[10%]">
-      <svg viewBox="0 0 900 450">
-        <g className="relative">
-          {series.map((layer, layerIndex) => (
-            <g key={layerIndex}>
-              {layer.map((d, groupIndex) => {
-                const year = d.data.year;
-                const color = colors[year][layerIndex];
-                const dataPoint = data.find((item) => item.year === year);
-                const capital = dataPoint?.Capital ?? 0;
-                const crecimiento = dataPoint?.Crecimiento ?? 0;
-                return (
-                  <motion.rect
-                    key={groupIndex}
-                    x={xScale(year)}
-                    y={yScale(d[1])}
-                    data-year={year}
-                    width={xScale.bandwidth()}
-                    height={yScale(d[0]) - yScale(d[1])}
-                    fill={color}
-                    className={cx(
-                      groupIndex === 0 || layer.length - 1 === groupIndex
-                        ? "hidden"
-                        : ""
-                    )}
-                    onMouseMoveCapture={(e) => {
-                      handleMouseEnter(year);
-                      const x = e.pageX;
-                      const y = e.pageY;
-                      const total = capital + crecimiento;
-                      const percentage = ((crecimiento / total) * 100).toFixed(
-                        2
-                      );
+    <>
+      <div className="w-[125%] sm:w-full lg:w-[150%] lg:translate-x-[15%] xl:translate-x-[10%] overflow-hidden relative">
+        <svg viewBox="0 0 900 450">
+          <g className="relative">
+            {series.map((layer, layerIndex) => (
+              <g key={layerIndex}>
+                {layer.map((d, groupIndex) => {
+                  const year = d.data.year;
+                  const color = colors[year][layerIndex];
+                  const dataPoint = data.find((item) => item.year === year);
+                  const capital = dataPoint?.Capital ?? 0;
+                  const crecimiento = dataPoint?.Crecimiento ?? 0;
+                  return (
+                    <motion.rect
+                      key={groupIndex}
+                      x={xScale(year)}
+                      y={yScale(d[1])}
+                      data-year={year}
+                      width={xScale.bandwidth()}
+                      height={yScale(d[0]) - yScale(d[1])}
+                      fill={color}
+                      className={cx(
+                        groupIndex === 0 || layer.length - 1 === groupIndex
+                          ? "hidden"
+                          : ""
+                      )}
+                      onMouseMoveCapture={(e) => {
+                        handleMouseEnter(year);
+                        const x = e.pageX;
+                        const y = e.pageY;
+                        const total = capital + crecimiento;
+                        const percentage = (
+                          (crecimiento / total) *
+                          100
+                        ).toFixed(2);
 
-                      setTooltip({
-                        visible: true,
-                        x: x,
-                        y: y,
-                        data: {
-                          Capital: capital,
-                          Crecimiento: crecimiento,
-                          percentage,
-                        },
-                      });
-                    }}
-                    onMouseOut={() => {
-                      handleMouseLeave(year);
-                      setTooltip({ ...tooltip, visible: false });
-                    }}
-                    initial={{ y: 1000, opacity: 1 }}
-                    animate={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    transition={{
-                      duration: 1,
-                      delay: (groupIndex + 1) * 0.3,
-                    }}
-                  />
-                );
-              })}
-            </g>
-          ))}
+                        setTooltip({
+                          visible: true,
+                          x: x,
+                          y: y,
+                          data: {
+                            Capital: capital,
+                            Crecimiento: crecimiento,
+                            percentage,
+                          },
+                        });
+                      }}
+                      onMouseOut={() => {
+                        handleMouseLeave(year);
+                        setTooltip({ ...tooltip, visible: false });
+                      }}
+                      initial={{ y: 1000, opacity: 1 }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      transition={{
+                        duration: 1,
+                        delay: groupIndex * 0.3,
+                      }}
+                    />
+                  );
+                })}
+              </g>
+            ))}
 
-          {/* Line */}
-          <motion.path
-            d={lineGenerator(lineData) ?? ""}
-            fill="none"
-            stroke="#006580"
-            strokeWidth={2}
-            initial={{
-              opacity: 0.5,
-              strokeDashoffset: 1000,
-              strokeDasharray: 1000,
-            }}
-            animate={{
-              opacity: 1,
-              strokeDashoffset: 0,
-              strokeDasharray: finish ? "5 5" : "1000",
-              transition: {
-                duration: 1.25,
-                ease: "easeIn",
-                delay: 1.25,
-                onComplete: () => {
-                  setFinish(true);
-                },
-              },
-            }}
-          />
-
-          {/* Points on the line */}
-          {lineData.map((d, i) => {
-            const xValue = xScale(d.year);
-            const yValue = yScale(d.value);
-
-            if (xValue === undefined || yValue === undefined) {
-              console.warn(
-                `Scale function returned undefined for d.year: ${d.year} or d.value: ${d.value}`
-              );
-              return null;
-            }
-
-            const cx = xValue + xScale.bandwidth() / 2;
-
-            return (
-              <motion.circle
-                key={i}
-                cx={cx}
-                cy={yValue}
-                r={4}
-                fill="#006580"
-                className={i === 0 || lineData.length - 1 === i ? "hidden" : ""}
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: "100%",
-                  transition: {
-                    duration: 1,
-                    ease: "easeIn",
-                    delay: 1,
+            {/* Line */}
+            <motion.path
+              d={lineGenerator(lineData) ?? ""}
+              fill="none"
+              stroke="#006580"
+              strokeWidth={2}
+              initial={{
+                opacity: 0.5,
+                strokeDashoffset: 1000,
+                strokeDasharray: 1000,
+              }}
+              animate={{
+                opacity: 1,
+                strokeDashoffset: 0,
+                strokeDasharray: finish ? "5 5" : "1000",
+                transition: {
+                  duration: 1.1,
+                  ease: "easeIn",
+                  delay: 1.1,
+                  onComplete: () => {
+                    setFinish(true);
                   },
-                }}
-              />
-            );
-          })}
-        </g>
+                },
+              }}
+            />
 
-        <g ref={axesRef} />
-      </svg>
+            {/* Points on the line */}
+            {lineData.map((d, i) => {
+              const xValue = xScale(d.year);
+              const yValue = yScale(d.value);
+
+              if (xValue === undefined || yValue === undefined) {
+                console.warn(
+                  `Scale function returned undefined for d.year: ${d.year} or d.value: ${d.value}`
+                );
+                return null;
+              }
+
+              const cx = xValue + xScale.bandwidth() / 2;
+
+              return (
+                <motion.circle
+                  key={i}
+                  cx={cx}
+                  cy={yValue}
+                  r={4}
+                  fill="#006580"
+                  className={
+                    i === 0 || lineData.length - 1 === i ? "hidden" : ""
+                  }
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: "100%",
+                    transition: {
+                      duration: 1,
+                      ease: "easeIn",
+                      delay: 1.5,
+                    },
+                  }}
+                />
+              );
+            })}
+          </g>
+
+          <g ref={axesRef} />
+        </svg>
+        <p className="absolute top-[10%] w-[25ch] left-[50%] translate-x-[-70%] 2xl:text-3xl xl:text-[24px]  xl:leading-[29.26px] lg:text-lg md:text-2xl min-[450px]:text-lg text-xs text-[#24364B] font-semibold">
+          Crecimiento anual de{" "}
+          <span className="xl:text-[28px] 2xl:text-3xl xl:leading-[34.13px] lg:text-lg md:text-2xl min-[450px]:text-xl text-sm font-bold">
+            35%
+          </span>
+        </p>
+      </div>
       {tooltip.visible && (
         <div
           ref={tooltipRef}
           style={{
-            left: `${tooltip.x + 5}px`,
+            left: `${tooltip.x}px`,
             top: `${tooltip.y}px`,
-            backgroundColor: "white",
             padding: "8px",
           }}
-          className="rounded-[8px] opacity-85 bg-white border-[1px] border-[#ddd] pointer-events-none absolute translate-y-[-50%] xl:text-base sm:text-xs text-[10px] leading-[14px]"
+          className="rounded-[8px] z-[9999] opacity-85 bg-white border-[1px] border-[#ddd] pointer-events-none absolute translate-y-[-50%] xl:text-sm sm:text-xs text-[10px] leading-[14px]"
         >
-          <div>Capital: {tooltip.data?.Capital}</div>
-          <div>Crecimiento: {tooltip.data?.Crecimiento}</div>
-          <div>Porcentaje: {tooltip.data?.percentage}%</div>
+          <div>
+            <span className="font-bold">Capital:</span> {tooltip.data?.Capital}
+          </div>
+          <div>
+            <span className="font-bold">Crecimiento:</span>{" "}
+            {tooltip.data?.Crecimiento}
+          </div>
+          <div>
+            <span className="font-bold">Porcentaje: </span>{" "}
+            {tooltip.data?.percentage}%
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
