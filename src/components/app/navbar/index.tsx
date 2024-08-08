@@ -9,20 +9,40 @@ import "./index.css";
 import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface NavbarProps {
-  logo: {
-    normal: string;
-    scroll: string;
-  };
-  options: {
-    name: string;
-    classOpt: string;
-  }[];
-  button: {
-    name: string;
+  dictionary: {
+    button?: {
+      name: string;
+    };
+    options: {
+      name: string;
+    }[];
   };
 }
 
-const Navbar = ({ logo, options, button }: NavbarProps) => {
+const logo = {
+  normal: "logo.svg",
+  scroll: "icon_logo.svg",
+};
+
+const classOptions = [
+  {
+    classOpt: "w-[45px]",
+  },
+  {
+    classOpt: "w-[73px]",
+  },
+  {
+    classOpt: "w-[109px]",
+  },
+  {
+    classOpt: "w-[80px]",
+  },
+  {
+    classOpt: "w-[76px]",
+  },
+];
+
+const Navbar = ({ dictionary }: NavbarProps) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -37,7 +57,7 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
       const currentPosition = window.scrollY;
       setScrollPosition(currentPosition);
     };
-    const sections = options.map((opt) =>
+    const sections = dictionary?.options.map((opt) =>
       document.getElementById(opt.name.toLowerCase())
     );
 
@@ -57,7 +77,7 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [options, scrollPosition]);
+  }, [dictionary?.options, scrollPosition]);
 
   return (
     <>
@@ -95,12 +115,12 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
         </button>
 
         <ul className="sm:flex hidden gap-3 order-2 items-center justify-center text-[15.5px] leading-[19px] text-white">
-          {options.map((opt, i) => (
+          {dictionary?.options.map((opt, i) => (
             <li
               key={i}
               className={cx(
                 "hover:text-secondary hover:font-bold font-extralight mx-auto text-center lg:block hidden relative",
-                opt.classOpt,
+                classOptions[i].classOpt,
                 activeSection === opt.name.toLowerCase()
                   ? "text-secondary font-bold"
                   : ""
@@ -129,7 +149,7 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
             </li>
           ))}
 
-          {button && (
+          {dictionary?.button && (
             <motion.div
               variants={fadeInFromTop}
               initial="initial"
@@ -137,7 +157,7 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <button className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold">
-                {button.name}
+                {dictionary?.button.name}
               </button>
             </motion.div>
           )}
@@ -146,8 +166,8 @@ const Navbar = ({ logo, options, button }: NavbarProps) => {
       {isOpen && (
         <ModalNavbar
           onClick={onClose}
-          options={options}
-          button={button}
+          options={dictionary?.options}
+          button={dictionary?.button}
           logo={logo.scroll}
         />
       )}

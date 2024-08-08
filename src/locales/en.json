@@ -1,0 +1,30 @@
+{
+  "navbar": {
+    "button": {
+      "name": "Login"
+    },
+    "options": [
+      {
+        "name": "Home"
+      },
+      {
+        "name": "About Us"
+      },
+      {
+        "name": "Projections"
+      },
+      {
+        "name": "Portfolio"
+      },
+      {
+        "name": "Contact"
+      }
+    ]
+  },
+  "home": {
+    "textPrincipal": {
+      "first": "Discover the future of investments with Verri Capital Investments, LLC.",
+      "second": "Our expertise and vision open doors to exceptional financial opportunities."
+    }
+  }
+}

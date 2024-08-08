@@ -24,7 +24,7 @@ const Portfolio = ({ id }: Props) => {
       text: "Somos una Neo Cooperativa especializada en atención al cliente con servicios financieros de primera clase; con la nueva vanguardia de seguridad, apegados a las leyes en créditos, depósitos a plazos, cuentas de ahorro y otros productos.",
     },
     {
-      link: "https://www.inversionestauro.com/lander",
+      link: "https://www.inversionestauro.com/",
       class_img: "w-[185px]",
       text: "Ofrecemos créditos a personas que normalmente no tienen oportunidad de inclusión financiera en la banca tradicional. Nuestros servicios son rápidos y seguros para nuestros clientes e inversionistas.",
     },

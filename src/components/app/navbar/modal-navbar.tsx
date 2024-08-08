@@ -4,13 +4,12 @@ import cx from "../../libs/cx";
 
 interface Props {
   logo?: string;
-  button: {
+  button?: {
     name: string;
   };
   onClick: () => void;
   options?: {
     name: string;
-    classOpt: string;
   }[];
   toggle?: boolean;
 }

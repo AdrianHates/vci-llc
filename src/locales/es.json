@@ -1,0 +1,42 @@
+{
+  "navbar": {
+    "button": {
+      "name": "Ingresar"
+    },
+    "options": [
+      {
+        "name": "Inicio"
+      },
+      {
+        "name": "Nosotros"
+      },
+      {
+        "name": "Proyecciones"
+      },
+      {
+        "name": "Portafolio"
+      },
+      {
+        "name": "Contacto"
+      }
+    ]
+  },
+
+  "home": {
+    "textPrincipal": {
+      "first": "Descubre el futuro de las inversiones con Verri Capital Investments, LLC.",
+      "second": "Nuestra experiencia y visión te abre las puertas a oportunidades financieras excepcionales."
+    },
+    "textIcons": [
+      {
+        "text": "Ofrecemos un análisis financiero exclusivo, adaptado a necesidades específicas."
+      },
+      {
+        "text": "Utilizamos herramientas avanzadas y criterios personalizados."
+      },
+      {
+        "text": "Identificamos oportunidades que otros pasan por alto."
+      }
+    ]
+  }
+}
