@@ -3,6 +3,16 @@ import * as d3 from "d3";
 import { motion } from "framer-motion";
 import cx from "../../libs/cx";
 
+interface Props {
+  dictionary: {
+    title: {
+      normal: string;
+      big: string;
+    };
+    keys: string[];
+  };
+}
+
 interface DataPoint {
   year: string;
   Capital: number;
@@ -13,7 +23,7 @@ interface Colors {
   [key: string]: string[];
 }
 
-const StackedColumnWithLineChart = () => {
+const StackedColumnWithLineChart = ({ dictionary }: Props) => {
   const [finish, setFinish] = useState<boolean>(false);
   const tooltipRef = useRef(null);
   const [tooltip, setTooltip] = useState({
@@ -278,9 +288,9 @@ const StackedColumnWithLineChart = () => {
           <g ref={axesRef} />
         </svg>
         <p className="absolute top-[10%] w-[25ch] left-[50%] translate-x-[-70%] 2xl:text-3xl xl:text-[24px]  xl:leading-[29.26px] lg:text-lg md:text-2xl min-[450px]:text-lg text-xs text-[#24364B] font-semibold">
-          Crecimiento anual de{" "}
+          {dictionary?.title?.normal}{" "}
           <span className="xl:text-[28px] 2xl:text-3xl xl:leading-[34.13px] lg:text-lg md:text-2xl min-[450px]:text-xl text-sm font-bold">
-            35%
+            {dictionary?.title?.big}
           </span>
         </p>
       </div>
@@ -295,14 +305,15 @@ const StackedColumnWithLineChart = () => {
           className="rounded-[8px] z-[9999] opacity-85 bg-white border-[1px] border-[#ddd] pointer-events-none absolute translate-y-[-50%] xl:text-sm sm:text-xs text-[10px] leading-[14px]"
         >
           <div>
-            <span className="font-bold">Capital:</span> {tooltip.data?.Capital}
+            <span className="font-bold">{dictionary?.keys[0]}:</span>{" "}
+            {tooltip.data?.Capital}
           </div>
           <div>
-            <span className="font-bold">Crecimiento:</span>{" "}
+            <span className="font-bold">{dictionary?.keys[1]}:</span>{" "}
             {tooltip.data?.Crecimiento}
           </div>
           <div>
-            <span className="font-bold">Porcentaje: </span>{" "}
+            <span className="font-bold">{dictionary?.keys[2]}: </span>{" "}
             {tooltip.data?.percentage}%
           </div>
         </div>

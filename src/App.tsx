@@ -17,8 +17,14 @@ function App() {
           id={dictionary.navbar.options[0].name.toLowerCase()}
           dictionary={dictionary?.home}
         />
-        <Us id={dictionary.navbar.options[1].name.toLowerCase()} />
-        <Proyections id={dictionary.navbar.options[2].name.toLowerCase()} />
+        <Us
+          id={dictionary.navbar.options[1].name.toLowerCase()}
+          dictionary={dictionary.us}
+        />
+        <Proyections
+          id={dictionary.navbar.options[2].name.toLowerCase()}
+          dictionary={dictionary.proyections}
+        />
         <Portfolio id={dictionary.navbar.options[3].name.toLowerCase()} />
         <Contact id={dictionary.navbar.options[4].name.toLowerCase()} />
         <Footer />

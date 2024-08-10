@@ -1,36 +1,33 @@
 import { useInView } from "react-intersection-observer";
-import FirstSection from "./first-section";
-import SecondSection from "./second-section";
 import { motion } from "framer-motion";
 import { appearFromCenter } from "../../../animations/animations";
+import SecondPart from "./second-section";
+import FirstPart from "./first-part";
 
 interface Props {
   id: string;
+  dictionary: {
+    listFeatures: { name: string; description: string }[];
+    firstPart: {
+      title: string;
+      main: string;
+      inner: string;
+      aditional: string;
+    };
+    secondPart: {
+      title: string;
+      main: string;
+      inner: string;
+      icon: string;
+    };
+  };
 }
 
-const Us = ({ id }: Props) => {
+const Us = ({ id, dictionary }: Props) => {
   const [featRef, featInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const listFeatures: { name: string; description: string }[] = [
-    {
-      name: "Diversificación",
-      description:
-        "Es nuestra clave para gestionar el riesgo y potenciar el crecimiento de los territorios donde operan nuestras empresas subsidiarías.",
-    },
-    {
-      name: "Innovación",
-      description:
-        "Adoptamos las últimas tendencias y tecnologías financieras para optimizar la gestión de activos y pasivos; ofrecer a nuestros clientes soluciones vanguardistas que respalden sus inversiones.",
-    },
-    {
-      name: "Comunidad",
-      description:
-        "La visión de apoyo al mercado, es fundamental en nuestra visión de generar comunidades sostenibles.",
-    },
-  ];
 
   return (
     <section
@@ -38,9 +35,9 @@ const Us = ({ id }: Props) => {
       id={id}
       ref={featRef}
     >
-      {listFeatures && (
+      {dictionary.listFeatures && (
         <div className="flex sm:flex-row flex-col sm:gap-6 gap-10 justify-between lg:mx-20 sm:mx-6 mx-11 py-[41.5px]">
-          {listFeatures.map((feat, i) => (
+          {dictionary.listFeatures.map((feat, i) => (
             <motion.div
               ref={featRef}
               key={i}
@@ -66,8 +63,8 @@ const Us = ({ id }: Props) => {
           ))}
         </div>
       )}
-      <FirstSection />
-      <SecondSection />
+      <FirstPart dictionary={dictionary.firstPart} />
+      <SecondPart dictionary={dictionary.secondPart} />
     </section>
   );
 };

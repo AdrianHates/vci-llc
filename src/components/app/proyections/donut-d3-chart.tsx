@@ -2,18 +2,28 @@ import { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import cx from "../../libs/cx";
 
+interface Props {
+  dictionary: {
+    keys: string[];
+  };
+}
+
 interface DonutData {
   label: string;
   value: number;
 }
 
-const DonutChart = () => {
+const dataValues: number[] = [70, 30];
+
+const DonutChart = ({ dictionary }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const data: DonutData[] = [
-    { label: "Mujeres", value: 70 },
-    { label: "Hombres", value: 30 },
-  ];
+
+  const data: DonutData[] = dictionary.keys.map((key, i) => ({
+    label: key,
+    value: dataValues[i],
+  }));
+
   const colors = ["#ee8f4d", "#63abfd"];
   const width = 500;
   const height = 350;

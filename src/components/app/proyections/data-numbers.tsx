@@ -4,39 +4,38 @@ import CountUp from "../../ui/count-up";
 import { motion } from "framer-motion";
 import { appearFromCenterScale } from "../../../animations/animations";
 
+interface Props {
+  dictionary: string[];
+}
+
 const dataNumbers: {
-  name: string;
   number: number;
   symbol: string;
   className?: string;
 }[] = [
   {
-    name: "Créditos Aprobados",
     number: 395,
     symbol: "+",
     className: "lg:w-[202px]",
   },
   {
-    name: "Años de Experiencia",
     number: 4,
     symbol: "+",
     className: "lg:w-[207px]",
   },
   {
-    name: "Rentabilidad Neta",
     number: 49.41,
     symbol: "%",
     className: "lg:w-[227.26px]",
   },
   {
-    name: "Personas Beneficiadas",
     number: 200,
     symbol: "+",
     className: "lg:w-[250px]",
   },
 ];
 
-const DataNumbers = () => {
+const DataNumbers = ({ dictionary }: Props) => {
   const [dataNumbersRef, dataNumbersInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -53,10 +52,7 @@ const DataNumbers = () => {
       {dataNumbers &&
         dataNumbersInView &&
         dataNumbers.map((dataNumber, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center gap-1"
-          >
+          <div key={i} className="flex flex-col items-center gap-1">
             <div
               className={cx(
                 "text-secondary xl:text-[64.55px] xl:leading-[78.68px] md:text-5xl sm:text-3xl text-xl font-bold w-auto flex justify-center",
@@ -72,7 +68,7 @@ const DataNumbers = () => {
             </div>
 
             <p className="lg:text-[20px] text-center lg:leading-[24.38px] sm:text-sm text-[6px] leading-[7.12px] font-medium text-[#535967]">
-              {dataNumber.name}
+              {dictionary[i]}
             </p>
           </div>
         ))}

@@ -10,8 +10,32 @@ import DonutChart from "./donut-d3-chart";
 
 interface Props {
   id: string;
+  dictionary: {
+    title: string;
+    description: {
+      resalted: {
+        first: string;
+        second: string;
+      };
+      normal: {
+        first: string;
+        second: string;
+      };
+    };
+    dataNumbers: string[];
+    donutChart: {
+      keys: string[];
+    };
+    stackedColumnChart: {
+      title: {
+        normal: string;
+        big: string;
+      };
+      keys: string[];
+    };
+  };
 }
-const Proyections = ({ id }: Props) => {
+const Proyections = ({ id, dictionary }: Props) => {
   const [proyectionsRef, proyectionsInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -35,7 +59,7 @@ const Proyections = ({ id }: Props) => {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
           className="mx-auto max-w-[15ch] text-center font-nanum-myeongjo text-tertiary font-semibold sm:text-[65px] text-[32px] sm:leading-[56px] leading-[30.94px] tracking-[0.024rem]"
         >
-          Verri Capital Investments, LLC
+          {dictionary?.title}
         </motion.h3>
         <motion.p
           variants={fadeInFromTop}
@@ -45,28 +69,32 @@ const Proyections = ({ id }: Props) => {
           className="sm:text-[18px] text-[16px] sm:leading-[21.94px] leading-[19.5px] font-light max-w-[80ch] text-center mx-auto my-[39px]"
         >
           <span className="font-semibold text-quaternary">
-            Somos un conglomerado Americano
+            {dictionary?.description?.resalted?.first}
           </span>{" "}
-          que invierte en sus subsidiarías, bajo una estricta política interna
-          de evaluación,
+          {dictionary?.description?.normal?.first}
           <span className="font-semibold text-quaternary">
             {" "}
-            con analistas capacitados y un puntaje propio.
+            {dictionary?.description?.resalted?.second}
           </span>{" "}
-          Nuestras subsidiarías ofrecen microcréditos a individuos que
-          normalmente no tienen acceso al sistema bancario tradicional.
+          {dictionary?.description?.normal?.second}
         </motion.p>
-        <DataNumbers />
+        <DataNumbers dictionary={dictionary.dataNumbers} />
         <motion.div
           variants={appearFromCenterScale}
           initial="initial"
           animate={chartsInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
           ref={chartsRef}
-          className="lg:flex-row flex-col flex items-center justify-center py-5"
+          className="lg:flex-row flex-col flex items-center justify-center my-5"
         >
-          {chartsInView && <DonutChart />}
-          {chartsInView && <StackedColumnWithLineChart />}
+          {chartsInView && (
+            <>
+              <DonutChart dictionary={dictionary.donutChart} />
+              <StackedColumnWithLineChart
+                dictionary={dictionary.stackedColumnChart}
+              />
+            </>
+          )}
         </motion.div>
       </div>
     </section>

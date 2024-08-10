@@ -21,10 +21,79 @@
       }
     ]
   },
+
   "home": {
     "textPrincipal": {
       "first": "Discover the future of investments with Verri Capital Investments, LLC.",
       "second": "Our expertise and vision open doors to exceptional financial opportunities."
+    },
+    "textIcons": [
+      {
+        "text": "We offer exclusive financial analysis tailored to specific needs."
+      },
+      {
+        "text": "We use advanced tools and personalized criteria."
+      },
+      {
+        "text": "We identify opportunities that others overlook."
+      }
+    ]
+  },
+  "us": {
+    "listFeatures": [
+      {
+        "name": "Diversification",
+        "description": "It is our key to managing risk and boosting the growth of the territories where our subsidiary companies operate."
+      },
+      {
+        "name": "Innovation",
+        "description": "We adopt the latest financial trends and technologies to optimize asset and liability management; offering our clients cutting-edge solutions to support their investments."
+      },
+      {
+        "name": "Community",
+        "description": "The vision of supporting the market is fundamental to our goal of creating sustainable communities."
+      }
+    ],
+    "firstPart": {
+      "title": "Why is financial inclusion important in Latin America?",
+      "main": "El Salvador has a population of 6.3 million, and 77%, or 4.9 million, do not have access to a checking or savings account, and 5.5 million* lack access to credit. We are the best available option for financial inclusion and support.",
+      "inner": "The population of Texas is 31.1 million, with 12.5 million being Latino, and of those, 500 thousand are Salvadorans. 1.7 million* people do not have a checking or savings account.",
+      "aditional": "*Between both markets, we have 7.2 million potential customers."
+    },
+    "secondPart": {
+      "title": "Positive Impact!",
+      "main": "More than 50% of our loans have been granted to individuals living outside the financial capitals of El Salvador and Texas.",
+      "inner": "Recently, we have seen an increase in clients opting for multiple loans, which means they are recurring clients who have paid off their previous loan and need a new one or additional capital.",
+      "icon": "This type of client and loan represents a much lower risk for us, as they have demonstrated excellent payment behavior and creditworthiness."
+    }
+  },
+  "proyections": {
+    "title": "Verri Capital Investments, LLC",
+    "description": {
+      "resalted": {
+        "first": "We are an American conglomerate",
+        "second": "with trained analysts and our own rating."
+      },
+      "normal": {
+        "first": "that invests in its subsidiaries, under a strict internal evaluation policy,",
+        "second": "Our subsidiaries provide microloans to individuals who typically do not have access to traditional banking systems."
+      }
+    },
+    "dataNumbers": [
+      "Approved Loans",
+      "Years of Experience",
+      "Net Profitability",
+      "Beneficiaries"
+    ],
+    "donutChart": {
+      "keys": ["Women", "Men"]
+    },
+    "stackedColumnChart": {
+      "title": {
+        "normal": "Annual Growth of",
+        "big": "35%"
+      },
+      "keys": ["Capital", "Growth", "Percentage"]
     }
   }
 }
