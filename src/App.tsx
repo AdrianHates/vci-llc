@@ -25,8 +25,14 @@ function App() {
           id={dictionary.navbar.options[2].name.toLowerCase()}
           dictionary={dictionary.proyections}
         />
-        <Portfolio id={dictionary.navbar.options[3].name.toLowerCase()} />
-        <Contact id={dictionary.navbar.options[4].name.toLowerCase()} />
+        <Portfolio
+          id={dictionary.navbar.options[3].name.toLowerCase()}
+          dictionary={dictionary.portfolio}
+        />
+        <Contact
+          id={dictionary.navbar.options[4].name.toLowerCase()}
+          dictionary={dictionary?.contact}
+        />
         <Footer />
       </div>
       <div id="portal" />

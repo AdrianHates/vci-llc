@@ -9,9 +9,24 @@ import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface Props {
   id: string;
+  dictionary: {
+    title: string;
+    form: {
+      placeholder: {
+        name: string;
+        email: string;
+        phone: string;
+        company: string;
+        message: string;
+      };
+      button: {
+        name: string;
+      };
+    };
+  };
 }
 
-const Contact = ({ id }: Props) => {
+const Contact = ({ id, dictionary }: Props) => {
   const [phone, setPhone] = useState<string | undefined>("");
   const [textRef, textInView] = useInView({
     triggerOnce: true,
@@ -30,7 +45,7 @@ const Contact = ({ id }: Props) => {
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
           className="text-[#24364B] font-bold sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px]"
         >
-          Contacto
+          {dictionary?.title}
         </motion.h3>
         <motion.form
           variants={fadeInFromXY(0, 100, 0)}
@@ -40,25 +55,34 @@ const Contact = ({ id }: Props) => {
           className="flex flex-col gap-4 max-w-[871px] mx-auto w-full"
         >
           <div className="flex sm:flex-row flex-col gap-6">
-            <InputIcon icon_path="user.svg" placeholder="Nombre completo" />
-            <InputIcon icon_path="mail.svg" placeholder="Correo electrónico" />
+            <InputIcon
+              icon_path="user.svg"
+              placeholder={dictionary?.form?.placeholder?.name}
+            />
+            <InputIcon
+              icon_path="mail.svg"
+              placeholder={dictionary?.form?.placeholder?.email}
+            />
           </div>
           <div className="flex sm:flex-row flex-col gap-6">
             <PhoneInput
-              placeholder="Número de celular"
+              placeholder={dictionary?.form?.placeholder?.phone}
               className="phone-input"
               defaultCountry="sv"
               value={phone}
               onChange={(phone) => setPhone(phone)}
             />
-            <InputIcon icon_path="company.svg" placeholder="Empresa" />
+            <InputIcon
+              icon_path="company.svg"
+              placeholder={dictionary?.form?.placeholder?.company}
+            />
           </div>
           <textarea
             className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
-            placeholder="Mensaje"
+            placeholder={dictionary?.form?.placeholder?.message}
           />
           <button className="mt-[23px] bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
-            Enviar
+            {dictionary?.form?.button?.name}
           </button>
         </motion.form>
       </div>
