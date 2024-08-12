@@ -33,7 +33,7 @@ function App() {
           id={dictionary.navbar.options[4].name.toLowerCase()}
           dictionary={dictionary?.contact}
         />
-        <Footer />
+        <Footer dictionary={dictionary?.footer} />
       </div>
       <div id="portal" />
     </>

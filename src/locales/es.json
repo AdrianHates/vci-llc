@@ -131,5 +131,20 @@
         "name": "Enviar"
       }
     }
+  },
+  "footer": {
+    "description": {
+      "resalted": {
+        "first": "Somos un conglomerado Americano",
+        "second": "con analistas capacitados y un puntaje propio."
+      },
+      "normal": {
+        "first": "que invierte en sus subsidiarías, bajo una estricta política interna de evaluación,"
+      }
+    },
+    "contact": {
+      "name": "contacto"
+    },
+    "copyright": "2024 Verri capital investment all rights reserved"
   }
 }

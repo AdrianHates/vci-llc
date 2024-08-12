@@ -1,8 +1,26 @@
 import { useInView } from "react-intersection-observer";
 import { fadeInFromXY } from "../../../animations/animations";
 import { motion } from "framer-motion";
+import cx from "../../libs/cx";
 
-const Footer = () => {
+interface Props {
+  dictionary: {
+    description: {
+      resalted: {
+        first: string;
+        second: string;
+      };
+      normal: {
+        first: string;
+      };
+    };
+    contact: {
+      name: string;
+    };
+    copyright: string;
+  };
+}
+const Footer = ({ dictionary }: Props) => {
   const { ref: footerRef, inView: footerInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -34,12 +52,11 @@ const Footer = () => {
         >
           <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
           <p className="ml-[5px] sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">
-            Somos un conglomerado Americano{" "}
+            {dictionary?.description?.resalted?.first}{" "}
             <span className="font-[250]">
-              que invierte en sus subsidiarías, bajo una estricta política
-              interna de evaluación,
+              {dictionary?.description?.normal?.first}
             </span>{" "}
-            con analistas capacitados y un puntaje propio.
+            {dictionary?.description?.resalted?.second}
           </p>
         </motion.div>
 
@@ -51,7 +68,7 @@ const Footer = () => {
           className="text-white flex flex-col justify-center gap-2"
         >
           <h3 className="text-[#0295BC] font-bold sm:text-[20px] text-[16px] sm:leading-[24.38px] leading-[19.5px] mt-2">
-            Contacto
+            {dictionary?.contact?.name}
           </h3>
           <div className="flex gap-[7.13px] mt-4 text-[16px] leading-[19.5px]">
             <img alt="phone" src="phone.svg" className="w-[21.4px]" />
@@ -68,7 +85,10 @@ const Footer = () => {
                   alt={social.name}
                   key={i}
                   src={`${social.name}.svg`}
-                  className={social.class_icon}
+                  className={cx(
+                    social.class_icon,
+                    "hover:scale-[1.1] transition-scale duration-300"
+                  )}
                 />
               ))}
             </div>
@@ -86,7 +106,7 @@ const Footer = () => {
         />
       </div>
       <div className="bg-[#1B2A3C] h-[40px] flex items-center justify-center text-white text-opacity-[69%] sm:text-[14px] text-[12px] sm:leading-[17.07px] leading-[14.63px] font-[250]">
-        2024 Verri capital investment all rights reserved
+        {dictionary?.copyright}
       </div>
     </footer>
   );
