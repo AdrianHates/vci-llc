@@ -36,7 +36,7 @@ const Us = ({ id, dictionary }: Props) => {
       ref={featRef}
     >
       {dictionary.listFeatures && (
-        <div className="flex sm:flex-row flex-col sm:gap-6 gap-10 justify-between lg:mx-20 sm:mx-6 mx-11 py-[41.5px]">
+        <div className="flex sm:flex-row flex-col sm:gap-6 gap-10 justify-between min-[1920px]:max-w-[1650px] min-[1920px]:mx-auto lg:mx-20 sm:mx-6 mx-11 py-[41.5px]">
           {dictionary.listFeatures.map((feat, i) => (
             <motion.div
               ref={featRef}

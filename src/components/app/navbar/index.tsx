@@ -24,24 +24,6 @@ const logo = {
   scroll: "icon_logo.svg",
 };
 
-const classOptions = [
-  {
-    classOpt: "w-[45px]",
-  },
-  {
-    classOpt: "w-[73px]",
-  },
-  {
-    classOpt: "w-[109px]",
-  },
-  {
-    classOpt: "w-[80px]",
-  },
-  {
-    classOpt: "w-[76px]",
-  },
-];
-
 const Navbar = ({ dictionary }: NavbarProps) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -114,13 +96,12 @@ const Navbar = ({ dictionary }: NavbarProps) => {
           <img src="toggle.svg" alt="toggle" className="w-6 h-6" />
         </button>
 
-        <ul className="sm:flex hidden gap-3 order-2 items-center justify-center text-[15.5px] leading-[19px] text-white">
+        <ul className="sm:flex hidden gap-[18px] order-2 items-center justify-center text-[15.5px] leading-[19px] text-white">
           {dictionary?.options.map((opt, i) => (
             <li
               key={i}
               className={cx(
-                "hover:text-secondary hover:font-bold font-extralight mx-auto text-center lg:block hidden relative",
-                classOptions[i].classOpt,
+                "hover:text-secondary hover:font-bold font-extralight text-center lg:block hidden relative",
                 activeSection === opt.name.toLowerCase()
                   ? "text-secondary font-bold"
                   : ""
@@ -133,7 +114,10 @@ const Navbar = ({ dictionary }: NavbarProps) => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <a href={"#" + opt.name.toLowerCase()}>
-                  <p>{opt.name}</p>
+                  <p className="font-bold opacity-0">{opt.name}</p>
+                  <p className="absolute left-1/2 translate-x-[-50%] top-1/2 translate-y-[-50%] w-full">
+                    {opt.name}
+                  </p>
                 </a>
               </motion.div>
               <motion.div

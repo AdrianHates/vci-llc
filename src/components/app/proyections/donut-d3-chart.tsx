@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import cx from "../../libs/cx";
 
@@ -16,6 +16,8 @@ interface DonutData {
 const dataValues: number[] = [70, 30];
 
 const DonutChart = ({ dictionary }: Props) => {
+  const [initialAnimationDone, setInitialAnimationDone] =
+    useState<boolean>(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -97,7 +99,6 @@ const DonutChart = ({ dictionary }: Props) => {
           .style("top", `${event.pageY}px`);
       })
       .on("mousemove", function (event) {
-        // Actualizar la posición del tooltip
         tooltip
           .style("left", `${event.pageX + 10}px`)
           .style("top", `${event.pageY - 28}px`);
@@ -111,49 +112,54 @@ const DonutChart = ({ dictionary }: Props) => {
         tooltip.style("opacity", 0);
       });
 
-    paths
-      .transition()
-      .duration(2500)
-      .attrTween("d", function (d) {
-        const interpolate = d3.interpolate<d3.PieArcDatum<DonutData>>(
-          {
-            startAngle: 0,
-            endAngle: 0,
-            padAngle: 0,
-            innerRadius: 0,
-            outerRadius: 0,
-          },
-          d
-        );
-        return (t: number) => {
-          const interpolatedDatum = interpolate(t);
-          return arc(interpolatedDatum) as string;
-        };
-      })
-      .on("end", function () {
-        svg
-          .selectAll("path")
-          .transition()
-          .duration(500)
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          .attrTween("d", function (d: any) {
-            const start = arc(d) || "";
-            const end = arcUpdated(d) || "";
+    if (!initialAnimationDone) {
+      paths
+        .transition()
+        .duration(2500)
+        .attrTween("d", function (d) {
+          const interpolate = d3.interpolate<d3.PieArcDatum<DonutData>>(
+            {
+              startAngle: 0,
+              endAngle: 0,
+              padAngle: 0,
+              innerRadius: 0,
+              outerRadius: 0,
+            },
+            d
+          );
+          return (t: number) => {
+            const interpolatedDatum = interpolate(t);
+            return arc(interpolatedDatum) as string;
+          };
+        })
+        .on("end", function () {
+          svg
+            .selectAll("path")
+            .transition()
+            .duration(500)
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            .attrTween("d", function (d: any) {
+              const start = arc(d) || "";
+              const end = arcUpdated(d) || "";
 
-            const interpolate = d3.interpolateString(start, end);
+              const interpolate = d3.interpolateString(start, end);
 
-            return function (t: number): string {
-              return interpolate(t);
-            };
-          });
-      });
+              return function (t: number): string {
+                return interpolate(t);
+              };
+            });
+        });
+      setInitialAnimationDone(true);
+    } else {
+      paths.attr("d", arcUpdated);
+    }
 
     svg.attr(
       "transform",
       `translate(${width / 2 - margin}, ${height / 2}) rotate(180)`
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dictionary]);
 
   const series = [70, 30];
 
@@ -205,7 +211,7 @@ const DonutChart = ({ dictionary }: Props) => {
           transition: "opacity .3s",
         }}
         className="xl:text-sm text-xs rounded-[8px] absolute z-[100] opacity-0 bg-white border-[1px] border-[#ddd] p-2 pointer-events-none"
-      />{" "}
+      />
     </>
   );
 };

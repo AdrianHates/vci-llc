@@ -29,7 +29,7 @@ const FirstPart = ({ dictionary }: Props) => {
         className="2xl:w-1/2"
       >
         <div className="flex flex-col items-center gap-14 xl:pl-[147px] lg:pl-20 pl-6 lg:pr-0 pr-6">
-          <h3 className="text-quaternary sm:max-w-none max-w-[35ch] lg:text-start text-center sm:text-[32px] text-[20px] sm:leading-[39px] leading-[24px] font-bold sm:w-[25ch] w-full">
+          <h3 className="text-quaternary sm:min-h-[7.3rem] sm:max-w-none max-w-[35ch] lg:text-start text-center sm:text-[32px] text-[20px] sm:leading-[39px] leading-[24px] font-bold sm:w-[25ch] w-full">
             {dictionary?.title}
           </h3>
           <p className="sm:pr-0 pr-1 2xl:max-w-[45ch] max-w-[39ch] 2xl:self-center lg:self-start w-full text-[#595959] sm:text-[18px] text-[16px] sm:leading-[21.95px] leading-[19.5px] font-normal">
@@ -47,7 +47,7 @@ const FirstPart = ({ dictionary }: Props) => {
           </div>
         </div>
 
-        <p className="2xl:ml-48 xl:ml-36 lg:ml-20 ml-6 lg:mr-0 mr-10 text-[13px] leading-[15.85px] italic font-light">
+        <p className="2xl:px-[15%] 2xl:w-full 2xl:ml-[147px] xl:ml-36 lg:ml-20 ml-6 lg:mr-0 mr-10 text-[13px] leading-[15.85px] italic font-light">
           {dictionary?.aditional}
         </p>
       </motion.div>

@@ -46,7 +46,7 @@ const DataNumbers = ({ dictionary }: Props) => {
       initial="initial"
       animate={dataNumbersInView ? "animate" : "initial"}
       transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
-      className="flex xl:justify-center justify-between xl:gap-[87px] gap-0 py-[72px]"
+      className="flex xl:justify-center justify-between xl:gap-[87px] gap-0 sm:pt-[72px] sm:pb-[72px] pt-10"
       ref={dataNumbersRef}
     >
       {dataNumbers &&
