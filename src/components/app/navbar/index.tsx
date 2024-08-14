@@ -10,6 +10,7 @@ import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface Props {
   dictionary: Navbar;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const logo = {
@@ -17,7 +18,7 @@ const logo = {
   scroll: "icon_logo.svg",
 };
 
-const Navbar = ({ dictionary }: Props) => {
+const Navbar = ({ dictionary, setLogin }: Props) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -133,7 +134,12 @@ const Navbar = ({ dictionary }: Props) => {
               animate={navbarInView ? "animate" : "initial"}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <button className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold">
+              <button
+                onClick={() => {
+                  setLogin(true);
+                }}
+                className="duration-300 bg-quaternary hover:brightness-125 hover:scale-[1.05] py-2.5 px-[22px] rounded-md font-bold"
+              >
                 {dictionary?.button.name}
               </button>
             </motion.div>
@@ -146,6 +152,7 @@ const Navbar = ({ dictionary }: Props) => {
           options={dictionary?.options}
           button={dictionary?.button}
           logo={logo.scroll}
+          setLogin={setLogin}
         />
       )}
     </>

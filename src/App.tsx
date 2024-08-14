@@ -12,7 +12,7 @@ import Login from "./components/app/login";
 function App() {
   const [language, setLanguage] = useState("es");
   const [dictionary, setDictionary] = useState<Dictionary | null>(null);
-  const [login] = useState(false);
+  const [login, setLogin] = useState<boolean>(false);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => (prevLanguage === "es" ? "en" : "es"));
@@ -33,11 +33,11 @@ function App() {
   return (
     <>
       {login ? (
-        <Login />
+        <Login setLogin={setLogin}/>
       ) : (
         dictionary && (
           <div className="bg-quinuary font-montserrat overflow-hidden">
-            <Navbar dictionary={dictionary?.navbar} />
+            <Navbar dictionary={dictionary?.navbar} setLogin={setLogin} />
             <Inicio
               id={dictionary.navbar.options[0].name.toLowerCase()}
               dictionary={dictionary?.home}

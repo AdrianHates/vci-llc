@@ -12,9 +12,17 @@ interface Props {
     name: string;
   }[];
   toggle?: boolean;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ModalNavbar = ({ logo, button, onClick, options, ...toggle }: Props) => {
+const ModalNavbar = ({
+  logo,
+  button,
+  onClick,
+  options,
+  setLogin,
+  ...toggle
+}: Props) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -69,7 +77,12 @@ const ModalNavbar = ({ logo, button, onClick, options, ...toggle }: Props) => {
 
         {button && (
           <div className="w-full h-full flex items-center justify-center">
-            <button className="bg-quaternary hover:brightness-125 hover:scale-[1.05] text-[20px] duration-300 py-2.5 px-[22px] rounded-md font-bold text-white">
+            <button
+              onClick={() => {
+                setLogin(true);
+              }}
+              className="bg-quaternary hover:brightness-125 hover:scale-[1.05] text-[20px] duration-300 py-2.5 px-[22px] rounded-md font-bold text-white"
+            >
               {button.name}
             </button>
           </div>
