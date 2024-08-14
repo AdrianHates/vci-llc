@@ -6,21 +6,7 @@ import FirstPart from "./first-part";
 
 interface Props {
   id: string;
-  dictionary: {
-    listFeatures: { name: string; description: string }[];
-    firstPart: {
-      title: string;
-      main: string;
-      inner: string;
-      aditional: string;
-    };
-    secondPart: {
-      title: string;
-      main: string;
-      inner: string;
-      icon: string;
-    };
-  };
+  dictionary: Us;
 }
 
 const Us = ({ id, dictionary }: Props) => {

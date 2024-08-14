@@ -11,12 +11,7 @@ import Carousel from "../../shared/icon_text/carousel";
 
 interface Props {
   id: string;
-  dictionary: {
-    textPrincipal: { first: string; second: string };
-    textIcons: {
-      text: string;
-    }[];
-  };
+  dictionary: Home;
 }
 
 const carouselItems: string[] = [

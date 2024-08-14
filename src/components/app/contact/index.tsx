@@ -9,21 +9,7 @@ import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
 interface Props {
   id: string;
-  dictionary: {
-    title: string;
-    form: {
-      placeholder: {
-        name: string;
-        email: string;
-        phone: string;
-        company: string;
-        message: string;
-      };
-      button: {
-        name: string;
-      };
-    };
-  };
+  dictionary: Contact;
 }
 
 const Contact = ({ id, dictionary }: Props) => {

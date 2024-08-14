@@ -5,13 +5,13 @@ import Footer from "./components/app/footer";
 import Inicio from "./components/app/inicio";
 import Navbar from "./components/app/navbar";
 import Portfolio from "./components/app/portfolio";
-import Proyections from "./components/app/proyections";
+import Proyections from "./components/app/projections";
 import Us from "./components/app/us";
 import Login from "./components/app/login";
 
 function App() {
   const [language, setLanguage] = useState("es");
-  const [dictionary, setDictionary] = useState<any>(null);
+  const [dictionary, setDictionary] = useState<Dictionary | null>(null);
   const [login] = useState(false);
 
   const toggleLanguage = () => {

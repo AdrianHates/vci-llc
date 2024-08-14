@@ -8,15 +8,8 @@ import { useInView } from "react-intersection-observer";
 import "./index.css";
 import { fadeInFromTop, fadeInFromXY } from "../../../animations/animations";
 
-interface NavbarProps {
-  dictionary: {
-    button?: {
-      name: string;
-    };
-    options: {
-      name: string;
-    }[];
-  };
+interface Props {
+  dictionary: Navbar;
 }
 
 const logo = {
@@ -24,7 +17,7 @@ const logo = {
   scroll: "icon_logo.svg",
 };
 
-const Navbar = ({ dictionary }: NavbarProps) => {
+const Navbar = ({ dictionary }: Props) => {
   const { isOpen, onToggle, onClose } = useToggle();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);

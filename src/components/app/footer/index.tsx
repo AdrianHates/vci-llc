@@ -4,21 +4,7 @@ import { motion } from "framer-motion";
 import cx from "../../libs/cx";
 
 interface Props {
-  dictionary: {
-    description: {
-      resalted: {
-        first: string;
-        second: string;
-      };
-      normal: {
-        first: string;
-      };
-    };
-    contact: {
-      name: string;
-    };
-    copyright: string;
-  };
+  dictionary: Footer;
 }
 const Footer = ({ dictionary }: Props) => {
   const { ref: footerRef, inView: footerInView } = useInView({

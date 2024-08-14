@@ -10,30 +10,7 @@ import DonutChart from "./donut-d3-chart";
 
 interface Props {
   id: string;
-  dictionary: {
-    title: string;
-    description: {
-      resalted: {
-        first: string;
-        second: string;
-      };
-      normal: {
-        first: string;
-        second: string;
-      };
-    };
-    dataNumbers: string[];
-    donutChart: {
-      keys: string[];
-    };
-    stackedColumnChart: {
-      title: {
-        normal: string;
-        big: string;
-      };
-      keys: string[];
-    };
-  };
+  dictionary: Projections
 }
 const Proyections = ({ id, dictionary }: Props) => {
   const [proyectionsRef, proyectionsInView] = useInView({

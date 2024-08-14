@@ -9,17 +9,7 @@ import {
 
 interface Props {
   id: string;
-  dictionary: {
-    title: string;
-    description: string;
-    listPortfolio: {
-      name: string;
-      description: string;
-    }[];
-    button: {
-      name: string;
-    };
-  };
+  dictionary: Portfolio;
 }
 
 const listPortfolio: { class_img: string; link?: string }[] = [
