@@ -10,7 +10,7 @@ import DonutChart from "./donut-d3-chart";
 
 interface Props {
   id: string;
-  dictionary: Projections
+  dictionary: Projections;
 }
 const Proyections = ({ id, dictionary }: Props) => {
   const [proyectionsRef, proyectionsInView] = useInView({
@@ -62,7 +62,7 @@ const Proyections = ({ id, dictionary }: Props) => {
           animate={chartsInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
           ref={chartsRef}
-          className="lg:flex-row flex-col flex items-center justify-center my-5"
+          className="lg:flex-row flex-col flex items-center justify-center my-5 max-w-screen-2xl 2xl:mx-auto"
         >
           {chartsInView && (
             <>
