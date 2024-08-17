@@ -43,19 +43,21 @@ const FirstPart = ({ dictionary }: Props) => {
           </p>
 
           <div className="bg-[#24364B] absolute h-full w-[60px] left-[100%] top-0 z-0 lg:block hidden">
-            <div className="bg-white absolute w-[267px] h-[267px] rounded-[50%] left-[8.9%] top-[-64%]" />
+            <div className="bg-white absolute 2xl:w-[375px] 2xl:h-[375px] w-[267px] h-[267px] rounded-[50%] 2xl:left-[12.5%] left-[8.9%] 2xl:top-[-70%] xl:top-[-57.5%] top-[-64%]" />
           </div>
         </div>
 
-        <p className="2xl:px-[15%] 2xl:w-full 2xl:ml-[147px] xl:ml-36 lg:ml-20 ml-6 lg:mr-0 mr-10 text-[13px] leading-[15.85px] italic font-light">
-          {dictionary?.aditional}
-        </p>
+        <div>
+          <p className="xl:pl-36 xl:pr-0 pl-6 pr-6 2xl:mx-auto xl:mx-0 mx-auto 2xl:max-w-[80ch] sm:max-w-[62ch] max-w-[55ch] text-[13px] leading-[15.85px] italic font-light">
+            {dictionary?.aditional}
+          </p>
+        </div>
       </motion.div>
 
       <motion.img
         src={imgPath}
         alt="img-dedication"
-        className="lg:w-[700px] w-[331.42px] relative z-10"
+        className="2xl:w-[950px] lg:w-[700px] w-[331.42px] relative z-10"
         variants={fadeInFromXY(250, 0, 0)}
         initial="initial"
         animate={firstInView ? "animate" : "initial"}
