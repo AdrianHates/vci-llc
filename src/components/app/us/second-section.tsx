@@ -42,7 +42,7 @@ const SecondPart = ({ dictionary }: Props) => {
         ref={firstRef}
         src={imgPath}
         alt="dedication_img_2"
-        className="2xl:w-1/2 w-[679.13px] lg:mx-0 mx-auto"
+        className="2xl:w-[950px] 2xl:ml-[calc(50%-935px)] w-[679.13px] lg:mx-0 mx-auto"
       />
       <motion.div
         variants={fadeInFromXY(250, 0, 0)}
@@ -51,7 +51,7 @@ const SecondPart = ({ dictionary }: Props) => {
         transition={{ duration: 0.25, ease: "easeOut", delay: 0.5 }}
         className="flex flex-col gap-3 2xl:w-1/2 w-full lg:ml-[-15px] ml-0 justify-center sm:items-start items-center"
       >
-        <h3 className="text-quaternary sm:max-w-[35ch] max-w-[37ch] w-full font-bold lg:px-0 px-6 mx-auto lg:text-start sm:text-center text-start sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
+        <h3 className="text-quaternary 2xl:max-w-full sm:max-w-[35ch] max-w-[37ch] w-full font-bold lg:px-0 px-6 mx-auto lg:text-start sm:text-center text-start sm:text-[32px] text-[20px] sm:leading-[39.01px] leading-[24.38px] mb-7">
           {dictionary?.title}
         </h3>
 
