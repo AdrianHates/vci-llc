@@ -14,10 +14,6 @@ interface Props {
 
 const listPortfolio: { class_img: string; link?: string }[] = [
   {
-    link: "https://averliz.com/",
-    class_img: "w-[93px]",
-  },
-  {
     link: "https://www.inversionestauro.com/",
     class_img: "w-[185px]",
   },

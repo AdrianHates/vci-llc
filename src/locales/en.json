@@ -104,10 +104,6 @@
     "description": "Learn more about our company portfolio, which is a cornerstone of our efforts to ensure financial inclusion.",
     "listPortfolio": [
       {
-        "name": "Averliz",
-        "description": "We are a Neo Cooperative specializing in customer service with first-class financial services; with the latest security advancements, adhering to laws in credit, term deposits, savings accounts, and other products."
-      },
-      {
         "name": "Inversiones Tauro",
         "description": "We offer loans to individuals who typically do not have financial inclusion opportunities in traditional banking. Our services are fast and secure for our clients and investors."
       },

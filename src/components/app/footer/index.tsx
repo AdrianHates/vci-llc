@@ -34,7 +34,7 @@ const Footer = ({ dictionary }: Props) => {
           initial="initial"
           animate={footerInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          className="flex flex-col sm:items-center items-start justify-center gap-4"
+          className="flex flex-col sm:items-center items-start justify-center"
         >
           <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
           <p className="ml-[5px] sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">

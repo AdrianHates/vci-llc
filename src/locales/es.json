@@ -101,10 +101,6 @@
     "description": "Conoce más sobre nuestro portafolio de empresas, que son un pilar fundamental en nuestro esfuerzo por asegurar la inclusión financiera.",
     "listPortfolio": [
       {
-        "name": "Averliz",
-        "description": "Somos una Neo Cooperativa especializada en atención al cliente con servicios financieros de primera clase; con la nueva vanguardia de seguridad, apegados a las leyes en créditos, depósitos a plazos, cuentas de ahorro y otros productos."
-      },
-      {
         "name": "Inversiones Tauro",
         "description": "Ofrecemos créditos a personas que normalmente no tienen oportunidad de inclusión financiera en la banca tradicional. Nuestros servicios son rápidos y seguros para nuestros clientes e inversionistas."
       },
