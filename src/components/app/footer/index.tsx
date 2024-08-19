@@ -28,59 +28,60 @@ const Footer = ({ dictionary }: Props) => {
   ];
   return (
     <footer ref={footerRef} className="bg-[#24364B]">
-      <div className="flex sm:flex-row flex-col 2xl:pl-[300px] lg:pl-[135px] pl-6 sm:pr-0 pr-6 pt-[82.5px] sm:pb-[139px] pb-0 2xl:gap-[300px] lg:gap-[136px] gap-[60px] relative overflow-hidden">
-        <motion.div
-          variants={fadeInFromXY(0, 0, 0)}
-          initial="initial"
-          animate={footerInView ? "animate" : "initial"}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          className="flex flex-col sm:items-center items-start justify-center"
-        >
-          <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
-          <p className="ml-[5px] sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">
-            {dictionary?.description?.resalted?.first}{" "}
-            <span className="font-[250]">
-              {dictionary?.description?.normal?.first}
-            </span>{" "}
-            {dictionary?.description?.resalted?.second}
-          </p>
-        </motion.div>
+      <div className="flex sm:flex-row flex-col pt-[82px] sm:pb-[139px] pb-0 2xl:gap-[300px] lg:gap-[136px] gap-[60px] relative overflow-hidden">
+        <div className="xl:px-0 px-6 flex sm:flex-row flex-col 2xl:mx-auto xl:mx-[138px] lg:mx-[111px] 2xl:max-w-[1146px] w-full justify-center sm:justify-start items-center 2xl:gap-[260px] lg:gap-[136px] gap-[60px]">
+          <motion.div
+            variants={fadeInFromXY(0, 0, 0)}
+            initial="initial"
+            animate={footerInView ? "animate" : "initial"}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+            className="flex flex-col sm:items-center items-start justify-center gap-4"
+          >
+            <img alt="logo" src="logo.svg" className="sm:w-[343px] w-[202px]" />
+            <p className="sm:text-[16px] text-[14px] sm:leading-[20px] leading-[17.07px] font-semibold text-white sm:max-w-[30ch] max-w-[33ch]">
+              {dictionary?.description?.resalted?.first}{" "}
+              <span className="font-[250]">
+                {dictionary?.description?.normal?.first}
+              </span>{" "}
+              {dictionary?.description?.resalted?.second}
+            </p>
+          </motion.div>
 
-        <motion.div
-          variants={fadeInFromXY(0, 0, 0)}
-          initial="initial"
-          animate={footerInView ? "animate" : "initial"}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          className="text-white flex flex-col justify-center gap-2"
-        >
-          <h3 className="text-[#0295BC] font-bold sm:text-[20px] text-[16px] sm:leading-[24.38px] leading-[19.5px] mt-2">
-            {dictionary?.contact?.name}
-          </h3>
-          <div className="flex gap-[7.13px] mt-4 text-[16px] leading-[19.5px]">
-            <img alt="phone" src="phone.svg" className="w-[21.4px]" />
-            <p>512-656-3077</p>
-          </div>
-          <div className="flex gap-[7.13px] text-[16px] leading-[19.5px]">
-            <img alt="phone" src="mail_1.svg" className="w-[21.4px]" />
-            <p>info@vcapinvest.com</p>
-          </div>
-          {socials && (
-            <div className="flex gap-6 mt-[30px]">
-              {socials.map((social, i) => (
-                <img
-                  alt={social.name}
-                  key={i}
-                  src={`${social.name}.svg`}
-                  className={cx(
-                    social.class_icon,
-                    "hover:scale-[1.1] transition-scale duration-300"
-                  )}
-                />
-              ))}
+          <motion.div
+            variants={fadeInFromXY(0, 0, 0)}
+            initial="initial"
+            animate={footerInView ? "animate" : "initial"}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+            className="text-white flex flex-col justify-center max-w-[30ch] sm:w-auto w-full gap-2"
+          >
+            <h3 className="text-[#0295BC] font-bold sm:text-[20px] text-[16px] sm:leading-[24.38px] leading-[19.5px] mt-2">
+              {dictionary?.contact?.name}
+            </h3>
+            <div className="flex gap-[7.13px] mt-4 text-[16px] leading-[19.5px]">
+              <img alt="phone" src="phone.svg" className="w-[21.4px]" />
+              <p>512-656-3077</p>
             </div>
-          )}
-        </motion.div>
-
+            <div className="flex gap-[7.13px] text-[16px] leading-[19.5px]">
+              <img alt="phone" src="mail_1.svg" className="w-[21.4px]" />
+              <p>info@vcapinvest.com</p>
+            </div>
+            {socials && (
+              <div className="flex gap-6 mt-[30px]">
+                {socials.map((social, i) => (
+                  <img
+                    alt={social.name}
+                    key={i}
+                    src={`${social.name}.svg`}
+                    className={cx(
+                      social.class_icon,
+                      "hover:scale-[1.1] transition-scale duration-300"
+                    )}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </div>
         <motion.img
           variants={fadeInFromXY(0, 0, 0)}
           initial="initial"
