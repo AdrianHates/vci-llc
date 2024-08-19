@@ -38,7 +38,7 @@ const Contact = ({ id, dictionary }: Props) => {
           initial="initial"
           animate={textInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          className="flex flex-col gap-4 min-[1920px]:max-w-[1146px] max-w-[871px] mx-auto w-full"
+          className="flex flex-col gap-4 2xl:max-w-[1146px] max-w-[871px] mx-auto w-full"
         >
           <div className="flex sm:flex-row flex-col gap-6">
             <InputIcon
