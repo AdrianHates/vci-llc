@@ -36,7 +36,7 @@ function App() {
         <Login setLogin={setLogin} />
       ) : (
         dictionary && (
-            <div className="bg-quinuary font-montserrat overflow-hidden">
+          <div className="bg-quinuary font-montserrat overflow-hidden relative">
             <Navbar dictionary={dictionary?.navbar} setLogin={setLogin} />
             <Inicio
               id={dictionary.navbar.options[0].name.toLowerCase()}
@@ -60,7 +60,7 @@ function App() {
             />
             <Footer dictionary={dictionary?.footer} />
             <button
-              className="bg-primary border-[1px] border-opacity-[20%] border-white text-white font-normal fixed z-[99999] bottom-5 left-5 rounded-sm py-1 px-2 text-sm"
+              className="bg-primary border-[1px] hover:brightness-[150%] transition-all duration-300 border-opacity-[20%] border-white text-white font-normal fixed z-[99999] bottom-5 left-5 rounded-sm py-1 px-2 text-sm"
               onClick={toggleLanguage}
             >
               {language === "es" ? "English" : "Español"}
