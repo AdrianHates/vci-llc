@@ -36,7 +36,7 @@ function App() {
         <Login setLogin={setLogin} />
       ) : (
         dictionary && (
-          <div className="bg-quinuary font-montserrat overflow-hidden">
+            <div className="bg-quinuary font-montserrat overflow-hidden">
             <Navbar dictionary={dictionary?.navbar} setLogin={setLogin} />
             <Inicio
               id={dictionary.navbar.options[0].name.toLowerCase()}

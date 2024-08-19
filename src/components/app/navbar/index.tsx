@@ -60,7 +60,7 @@ const Navbar = ({ dictionary, setLogin }: Props) => {
       <nav
         ref={navbarRef}
         className={cx(
-          " bg-primary backdrop-blur-sm flex justify-between items-center xl:pl-[147px] sm:pl-5 pl-11 lg:pr-[70px] pr-5 py-9 fixed top-0 z-[9999] w-full max-w-[2560px]",
+          " bg-primary backdrop-blur-sm flex justify-between items-center xl:pl-[147px] sm:pl-5 pl-11 lg:pr-[70px] pr-5 py-9 fixed top-0 z-[9999] w-full max-w-[3840px]",
           scrollPosition > 50 ? "bg-opacity-40 py-0 transition-all" : ""
         )}
       >
