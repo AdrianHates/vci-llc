@@ -14,10 +14,75 @@ interface Props {
 
 const Contact = ({ id, dictionary }: Props) => {
   const [phone, setPhone] = useState<string | undefined>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [nameError, setNameError] = useState<string>("");
+
   const [textRef, textInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const validateEmail = (email: string): boolean => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const validateName = (name: string): boolean => {
+    const regex = /^[a-zA-Z\s]+$/;
+    return name.trim() !== "" && regex.test(name);
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setName(value);
+
+    if (!validateName(value)) {
+      setNameError("Por favor, ingresa un nombre válido.");
+    } else {
+      setNameError("");
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!validateEmail(value)) {
+      setEmailError("Por favor, ingresa un correo válido.");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!validateName(name)) {
+      setNameError("Por favor, ingresa un nombre válido.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError("Por favor, ingresa un correo válido.");
+      return;
+    }
+
+    const formData = {
+      name,
+      email,
+      phone,
+      company,
+      message,
+    };
+
+    console.log("Form Data:", formData);
+
+    // Enviar datos a la API
+  };
+
   return (
     <section className="mt-[-100px] pt-[100px]" id={id}>
       <div
@@ -34,21 +99,36 @@ const Contact = ({ id, dictionary }: Props) => {
           {dictionary?.title}
         </motion.h3>
         <motion.form
+          onSubmit={handleSubmit}
           variants={fadeInFromXY(0, 100, 0)}
           initial="initial"
           animate={textInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
           className="flex flex-col gap-4 2xl:max-w-[1146px] max-w-[871px] mx-auto w-full"
         >
-          <div className="flex sm:flex-row flex-col gap-6">
+          <div className="flex sm:flex-row flex-col gap-6 relative">
             <InputIcon
               icon_path="user.svg"
               placeholder={dictionary?.form?.placeholder?.name}
+              value={name}
+              onChange={handleNameChange}
             />
+            {nameError && (
+              <p className="text-red-500 text-xs absolute left-[1%] sm:top-[100%] top-[44%]">
+                {nameError}
+              </p>
+            )}
             <InputIcon
               icon_path="mail.svg"
               placeholder={dictionary?.form?.placeholder?.email}
+              value={email}
+              onChange={handleEmailChange}
             />
+            {emailError && (
+              <p className="text-red-500 text-xs absolute sm:left-[52.5%] left-[1%] top-[100%]">
+                {emailError}
+              </p>
+            )}
           </div>
           <div className="flex sm:flex-row flex-col gap-6">
             <PhoneInput
@@ -61,11 +141,15 @@ const Contact = ({ id, dictionary }: Props) => {
             <InputIcon
               icon_path="company.svg"
               placeholder={dictionary?.form?.placeholder?.company}
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
             />
           </div>
           <textarea
             className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
             placeholder={dictionary?.form?.placeholder?.message}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
           <button className="mt-[23px] bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">
             {dictionary?.form?.button?.name}
