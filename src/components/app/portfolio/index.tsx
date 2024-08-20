@@ -66,7 +66,8 @@ const Portfolio = ({ id, dictionary }: Props) => {
               {listPortfolio.map((ulist, i) => (
                 <React.Fragment key={i}>
                   {i !== 0 && (
-                    <div className="bg-[#24364B1F] w-[1px] h-32 mx-7 mb-16 lg:block hidden"></div>
+                    /*if lenght === 2 mx-32 if lenght === 3 mx-7*/
+                    <div className="bg-[#24364B1F] w-[1px] h-32 mx-32 mb-16 lg:block hidden"></div>
                   )}
 
                   <div className="flex flex-col items-center">
