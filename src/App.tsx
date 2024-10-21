@@ -73,7 +73,7 @@ function App() {
             />
             <Footer dictionary={dictionary?.footer} />
             <button
-              className="bg-primary border-[1px] flex hover:brightness-[160%] transition-all duration-300 border-white border-opacity-30 text-white font-extralight fixed z-[999999] sm:bottom-1 left-1 rounded-full py-1 pr-2 gap-2 text-sm"
+              className="bg-primary border-[1px] flex hover:brightness-[160%] transition-all duration-300 border-white border-opacity-30 text-white font-extralight fixed z-[999999] bottom-1 left-1 rounded-full py-1 pr-2 gap-2 text-sm"
               onClick={toggleLanguage}
             >
               <img src="/world.svg" className="w-5 h-5" />
