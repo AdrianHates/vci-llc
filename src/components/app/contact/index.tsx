@@ -18,58 +18,24 @@ const Contact = ({ id, dictionary }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [company, setCompany] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
-  const [nameError, setNameError] = useState<string>("");
 
   const [textRef, textInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const validateEmail = (email: string): boolean => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
-
-  const validateName = (name: string): boolean => {
-    const regex = /^[a-zA-Z\s]+$/;
-    return name.trim() !== "" && regex.test(name);
-  };
-
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setName(value);
-
-    if (!validateName(value)) {
-      setNameError("Por favor, ingresa un nombre válido.");
-    } else {
-      setNameError("");
-    }
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setEmail(value);
-
-    if (!validateEmail(value)) {
-      setEmailError("Por favor, ingresa un correo válido.");
-    } else {
-      setEmailError("");
-    }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (!validateName(name)) {
-      setNameError("Por favor, ingresa un nombre válido.");
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setEmailError("Por favor, ingresa un correo válido.");
-      return;
-    }
-
     const formData = {
       name,
       email,
@@ -112,23 +78,17 @@ const Contact = ({ id, dictionary }: Props) => {
               placeholder={dictionary?.form?.placeholder?.name}
               value={name}
               onChange={handleNameChange}
+              type="text"
+              pattern="[A-Za-zÀ-ÿ\s]+"
             />
-            {nameError && (
-              <p className="text-red-500 text-xs absolute left-[1%] sm:top-[100%] top-[44%]">
-                {nameError}
-              </p>
-            )}
+
             <InputIcon
               icon_path="mail.svg"
               placeholder={dictionary?.form?.placeholder?.email}
               value={email}
               onChange={handleEmailChange}
+              type="email"
             />
-            {emailError && (
-              <p className="text-red-500 text-xs absolute sm:left-[52.5%] left-[1%] top-[100%]">
-                {emailError}
-              </p>
-            )}
           </div>
           <div className="flex sm:flex-row flex-col gap-6">
             <PhoneInput
@@ -137,6 +97,7 @@ const Contact = ({ id, dictionary }: Props) => {
               defaultCountry="sv"
               value={phone}
               onChange={(phone) => setPhone(phone)}
+              required
             />
             <InputIcon
               icon_path="company.svg"
@@ -149,6 +110,7 @@ const Contact = ({ id, dictionary }: Props) => {
             className="bg-[#F8F8F8] focus:outline-none w-full min-h-[114px] sm:text-[16px] text-[14px] sm:leading-[19.5px] leading-[17.07px] resize-none sm:px-[31px] px-[11.14px] py-4 rounded-[10px] placeholder:text-[#D1D1D1]"
             placeholder={dictionary?.form?.placeholder?.message}
             value={message}
+            required
             onChange={(e) => setMessage(e.target.value)}
           />
           <button className="mt-[23px] bg-quaternary hover:brightness-125 hover:scale-[1.05] duration-300 sm:px-[63px] px-[50.13px] sm:py-[15px] py-[11.94px] mx-auto sm:rounded-[10px] rounded-[8px] text-white font-bold sm:text-xl text-base">

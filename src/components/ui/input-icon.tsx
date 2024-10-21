@@ -6,6 +6,8 @@ interface Props {
   icon_path: string;
   className?: string;
   value: string;
+  type?: string;
+  pattern?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,7 +16,9 @@ const InputIcon = ({
   icon_path,
   className,
   value,
+  type = "text",
   onChange,
+  pattern,
 }: Props) => {
   return (
     <div className={cx("relative group w-full", className)}>
@@ -34,6 +38,9 @@ const InputIcon = ({
         </p>
       </label>
       <input
+        type={type}
+        required
+        pattern={pattern}
         value={value}
         onChange={onChange}
         className="bg-[#F8F8F8] w-full sm:h-[68px] h-[54.11px] rounded-[10px] pl-[31px] focus:outline-none"
