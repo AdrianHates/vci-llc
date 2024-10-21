@@ -7,7 +7,7 @@ import cx from "../../libs/cx";
 import Icon_Text from "../../shared/icon_text";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Carousel from "../../shared/icon_text/carousel";
+import Carousel from "../../shared/carousel/index";
 
 interface Props {
   id: string;

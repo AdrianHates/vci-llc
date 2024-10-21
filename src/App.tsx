@@ -10,13 +10,26 @@ import Us from "./components/app/us";
 import Login from "./components/app/login";
 
 function App() {
-  const [language, setLanguage] = useState("es");
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("language") || "es";
+  });
   const [dictionary, setDictionary] = useState<Dictionary | null>(null);
   const [login, setLogin] = useState<boolean>(false);
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "es" ? "en" : "es"));
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === "es" ? "en" : "es";
+      localStorage.setItem("language", newLanguage);
+      return newLanguage;
+    });
   };
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language");
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
 
   useEffect(() => {
     const loadDictionary = async () => {
@@ -60,10 +73,13 @@ function App() {
             />
             <Footer dictionary={dictionary?.footer} />
             <button
-              className="bg-primary border-[1px] hover:brightness-[150%] transition-all duration-300 border-opacity-[20%] border-white text-white font-normal fixed z-[99999] bottom-5 left-5 rounded-sm py-1 px-2 text-sm"
+              className="bg-primary border-[1px] flex hover:brightness-[160%] transition-all duration-300 border-white border-opacity-30 text-white font-extralight fixed z-[999999] sm:bottom-1 left-1 rounded-full py-1 pr-2 gap-2 text-sm"
               onClick={toggleLanguage}
             >
-              {language === "es" ? "English" : "Español"}
+              <img src="/world.svg" className="w-5 h-5" />
+              <p className="w-8 uppercase font-normal">
+                {language === "es" ? "en" : "es"}
+              </p>
             </button>
           </div>
         )
