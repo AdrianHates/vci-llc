@@ -86,7 +86,7 @@ const Login = ({ setLogin }: Props) => {
           </button>
         </div>
         <img
-          src="/login/img_1.png"
+          src={`${import.meta.env.BASE_URL}login/img_1.png`}
           alt="login"
           className="w-[424px] xl:self-end self-center"
         />

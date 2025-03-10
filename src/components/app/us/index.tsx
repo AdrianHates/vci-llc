@@ -34,7 +34,7 @@ const Us = ({ id, dictionary }: Props) => {
               className="flex flex-col gap-11 origin-top items-center"
             >
               <img
-                src={`/inicio/feat_icon_${i + 1}.svg`}
+                src={`${import.meta.env.BASE_URL}inicio/feat_icon_${i + 1}.svg`}
                 className="sm:w-[90px] w-[77.34px] sm:h-[90px] h-[77.34px] mx-auto"
               />
               <div className="flex flex-col sm:gap-6 gap-5">

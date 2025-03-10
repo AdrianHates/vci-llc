@@ -48,7 +48,7 @@ const Carousel = ({ className, carouselItems, ...props }: Props) => {
         <AnimatePresence>
           <motion.img
             key={currentIndex}
-            src={carouselItems[currentIndex]}
+            src={import.meta.env.BASE_URL + carouselItems[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
             initial={{ opacity: 1, x: 300 }}
             animate={{ opacity: 1, x: 0 }}

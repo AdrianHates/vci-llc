@@ -87,7 +87,7 @@ const Footer = ({ dictionary }: Props) => {
           initial="initial"
           animate={footerInView ? "animate" : "initial"}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          src="/footer/bg_1.png"
+          src={`${import.meta.env.BASE_URL}footer/bg_1.png`}
           alt="bg"
           className="min-[460px]:w-[653px] max-[460px]:w-[460px] sm:absolute relative max-w-none 2xl:right-0 2xl:left-auto sm:left-[57.6%] left-0 sm:top-[14.5%] sm:ml-0 ml-[12.5px] sm:mt-0 mt-[-35px]"
         />

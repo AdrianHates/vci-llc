@@ -20,7 +20,7 @@ const carouselItems: string[] = [
   "/inicio/carousel_3.png",
 ];
 
-const imgBgPath: string = "/inicio/img_1.png";
+const imgBgPath: string = `${import.meta.env.BASE_URL}/inicio/img_1.png`;
 
 const textIcons: {
   className: string;
@@ -74,7 +74,7 @@ const Inicio = ({ id, dictionary }: Props) => {
             {dictionary.textPrincipal.second}
           </span>
         </motion.p>
-        <div className="bg-[url('/inicio/bg_img_1.png')] bg-center bg-[length:1452.09px_816.16px] absolute top-0 left-0 w-full h-full opacity-5"></div>
+        <div className="bg-[url('inicio/bg_img_1.png')] bg-center bg-[length:1452.09px_816.16px] absolute top-0 left-0 w-full h-full opacity-5" />
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
@@ -132,7 +132,7 @@ const Inicio = ({ id, dictionary }: Props) => {
             animate={inicioInView ? "animate" : "initial"}
             transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
             key={i}
-            icon_path={`/inicio/icon_${i + 1}.svg`}
+            icon_path={`${import.meta.env.BASE_URL}inicio/icon_${i + 1}.svg`}
             text={tIcon.text}
             className={cx(
               textIcons[i].className,

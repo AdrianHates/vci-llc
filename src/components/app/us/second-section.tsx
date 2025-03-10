@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-const imgPath: string = "/dedication/img_2.png";
+const imgPath: string = `${import.meta.env.BASE_URL}dedication/img_2.png`;
 
 const SecondPart = ({ dictionary }: Props) => {
   const [firstRef, firstInView] = useInView({
@@ -30,7 +30,9 @@ const SecondPart = ({ dictionary }: Props) => {
         className="sm:pr-5 pr-3 sm:pl-2.5 pl-[7.49px] sm:py-1.5 py-[4.5px] rounded-[8.28px] absolute bottom-[48px] sm:left-[31.4%] left-[22.5%] gap-2 bg-white"
         class_text="max-w-[35ch] sm:text-[13.5px] text-[8.99px] sm:leading-[14.63px] leading-[10.96px] font-[400]"
         class_icon="sm:w-[36px] w-[26.97px] sm:h-[36px] h-[26.97px]"
-        icon_path="/dedication/dedication_icon_1.svg"
+        icon_path={`${
+          import.meta.env.BASE_URL
+        }dedication/dedication_icon_1.svg`}
         text={dictionary?.icon}
       />
 
