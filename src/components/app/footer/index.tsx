@@ -59,11 +59,11 @@ const Footer = ({ dictionary }: Props) => {
             </h3>
             <div className="flex gap-[7.13px] mt-4 text-[16px] leading-[19.5px]">
               <img alt="phone" src="phone.svg" className="w-[21.4px]" />
-              <p>512-656-3077</p>
+              <p>xxx-xxx-xxxx</p>
             </div>
             <div className="flex gap-[7.13px] text-[16px] leading-[19.5px]">
               <img alt="phone" src="mail_1.svg" className="w-[21.4px]" />
-              <p>info@vcapinvest.com</p>
+              <p>xxxx@xxxxx.com</p>
             </div>
             {socials && (
               <div className="flex gap-6 mt-[30px]">
