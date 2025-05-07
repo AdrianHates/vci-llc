@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-const imgPath: string = `${import.meta.env.BASE_URL}dedication/img_2.png`;
+const imgPath: string = `${import.meta.env.BASE_URL}dedication/img_2.webp`;
 
 const SecondPart = ({ dictionary }: Props) => {
   const [firstRef, firstInView] = useInView({

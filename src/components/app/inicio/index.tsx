@@ -89,6 +89,8 @@ const Inicio = ({ id, dictionary }: Props) => {
               delay: 1.5,
               times: [0, 0.5, 1],
             }}
+            width="1920"
+            height="1080"
             src={imgBgPath}
             className="w-full"
           />
