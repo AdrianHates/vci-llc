@@ -78,7 +78,7 @@ const Inicio = ({ id, dictionary }: Props) => {
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
-        <div className="relative sm:max-w-[1142px] sm:max-h-[773px] max-w-[333px] sm:mt-0 mt-[-132px]">
+        <div className="relative sm:max-w-[1142px] sm:max-h-[773px] max-w-[333px] sm:mt-0 mt-[-132px] aspect-[16/9]">
           <motion.img
             variants={fadeInFromBottomToTopReturn}
             initial="initial"
