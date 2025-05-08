@@ -21,6 +21,7 @@ const Icon_Text = ({
   class_text,
   ...props
 }: Props) => {
+  const last = icon_path?.split("/");
   return (
     <motion.div
       {...props}
@@ -35,6 +36,7 @@ const Icon_Text = ({
           class_icon
         )}
         src={icon_path}
+        alt={last[last?.length - 1]}
       />
       <p className={cx("max-w-[25ch] text-[#595959] font-medium", class_text)}>
         {text}

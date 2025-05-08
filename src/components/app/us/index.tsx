@@ -36,6 +36,7 @@ const Us = ({ id, dictionary }: Props) => {
               <img
                 src={`${import.meta.env.BASE_URL}inicio/feat_icon_${i + 1}.svg`}
                 className="sm:w-[90px] w-[77.34px] sm:h-[90px] h-[77.34px] mx-auto"
+                alt={`icon-${i + 1}`}
               />
               <div className="flex flex-col sm:gap-6 gap-5">
                 <h3 className="text-secondary font-bold text-center text-[20px] leading-[24.38px]">

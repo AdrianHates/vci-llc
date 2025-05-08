@@ -73,8 +73,11 @@ const Portfolio = ({ id, dictionary }: Props) => {
                   <div className="flex flex-col items-center">
                     <div className="h-[69px] flex items-center justify-center sm:mb-8 mb-[30px]">
                       <img
-                        src={`${import.meta.env.BASE_URL}portfolio/portfolio_img_${i + 1}.png`}
+                        src={`${
+                          import.meta.env.BASE_URL
+                        }portfolio/portfolio_img_${i + 1}.png`}
                         className={cx("", ulist.class_img)}
+                        alt={`img-${i + 1}`}
                       />
                     </div>
                     <p className="max-w-[25ch] h-[183px] text-center">

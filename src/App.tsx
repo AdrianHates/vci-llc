@@ -79,6 +79,7 @@ function App() {
               <img
                 src={`${import.meta.env.BASE_URL}world.svg`}
                 className="w-5 h-5"
+                alt="world-icon"
               />
               <p className="w-8 uppercase font-normal">
                 {language === "es" ? "en" : "es"}
