@@ -20,7 +20,7 @@ const carouselItems: string[] = [
   "/inicio/carousel_3.webp",
 ];
 
-const imgBgPath: string = `${import.meta.env.BASE_URL}/inicio/img_1.webp`;
+const imgBgPath: string = `${import.meta.env.BASE_URL}inicio/img_1.webp`;
 
 const textIcons: {
   className: string;
@@ -74,12 +74,15 @@ const Inicio = ({ id, dictionary }: Props) => {
             {dictionary.textPrincipal.second}
           </span>
         </motion.p>
-        <div className="bg-[url('inicio/bg_img_1.webp')] bg-center bg-[length:1452.09px_816.16px] absolute top-0 left-0 w-full h-full opacity-5" />
+        <div
+          className={`bg-[url(/inicio/bg_img_1.webp)] bg-center bg-[length:1452.09px_816.16px] absolute top-0 left-0 w-full h-full opacity-5`}
+        />
       </div>
 
       <div className="relative sm:mt-[-447px] mt-0">
         <div className="relative sm:max-w-[1142px] sm:max-h-[773px] max-w-[333px] sm:mt-0 mt-[-132px]">
           <motion.img
+            loading="lazy"
             variants={fadeInFromBottomToTopReturn}
             initial="initial"
             animate={inicioInView ? "animate" : "initial"}
@@ -89,6 +92,8 @@ const Inicio = ({ id, dictionary }: Props) => {
               delay: 1.5,
               times: [0, 0.5, 1],
             }}
+            width="1920"
+            height="1080"
             src={imgBgPath}
             className="w-full"
             alt="img-bg"

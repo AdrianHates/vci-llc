@@ -6,15 +6,23 @@
   <meta name="description" content="Verri Capital Investments, LLC es un conglomerado americano enfocado en ofrecer inclusión financiera en América Latina y Texas, brindando microcréditos con tecnología avanzada y un enfoque humano.">
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
-    <link href="/css/react-phone-number-input/style.css"/>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Nunito+Sans:wght@200..900&family=Nanum+Myeongjo:wght@600&display=swap" 
+      media="print" 
+      onload="this.media='all'">
+    <link rel="preload" as="style" href="/css/react-phone-number-input/style.css"/>
+    <link rel="preload" as="image" href="/dedication/img_1.webp" type="image/webp">
+    <link rel="preload" as="image" href="/dedication/img_2.webp" type="image/webp">
+    <link rel="preload" as="image" 
+    href="/inicio/bg_img_1.avif"
+    imagesrcset="/inicio/bg_img_1.avif 1x, /inicio/bg_img_1-2x.avif 2x"
+    type="image/avif">
     <title>VCI-LLC</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>

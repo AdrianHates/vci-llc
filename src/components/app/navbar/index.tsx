@@ -128,7 +128,7 @@ const Navbar = ({ dictionary, setLogin }: Props) => {
           ))}
 
           {dictionary?.button && (
-            <motion.div
+            <motion.li
               variants={fadeInFromTop}
               initial="initial"
               animate={navbarInView ? "animate" : "initial"}
@@ -142,7 +142,7 @@ const Navbar = ({ dictionary, setLogin }: Props) => {
               >
                 {dictionary?.button.name}
               </button>
-            </motion.div>
+            </motion.li>
           )}
         </ul>
       </nav>

@@ -17,7 +17,7 @@ const Us = ({ id, dictionary }: Props) => {
 
   return (
     <section
-      className="sm:pb-32 pb-0 pt-[100px] mt-[-100px] 2xl:max-w-[1920px] 2xl:mx-auto"
+      className="sm:pb-32 pb-0 pt-[100px] 2xl:max-w-[1920px] 2xl:mx-auto"
       id={id}
       ref={featRef}
     >
